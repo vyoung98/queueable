@@ -4,7 +4,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" href="styles/style.css">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -48,19 +50,45 @@
           </nav>
     
 
-
           <div class="container">
             <div class="row">
-              <div class="col-sm">
-                <h1>Shows</h1>
-              </div>
-              <div class="col-sm">
-                <h1>Games</h1>
-              </div>
-              <div class="col-sm">
-                <h1>Books</h1>
+              <div class="col">
+                <h2>Shows</h2>
+                  <div class="inputField">
+                    <input type="text" placeholder="Show Title; Progress" id="new-item" type="text">
+                    <button>Add</button>
+                    <!-- <button><i class="fas fa-plus"></i></button> -->
+                  <ul class="todoList">
+                    <li>Attack on Titan; S1 E2</li>
+                  </ul>
               </div>
             </div>
+            <div class="col">
+              <h2>Games</h2>
+                <div class="inputField">
+                  <input type="text" placeholder="Show Title; Progress" id="new-item" type="text">
+                  <button>Add</button>
+                <ul class="todoList" id="incomplete-tasks">
+                  <li><label>Pay Bills</label><input type="text">
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button></li>
+                  <li>Stardew Valley; Y2 Fall</li>
+                  <li>Terraria; Crimson Cave</li>
+                </ul>
+            </div>
           </div>
+          <div class="col">
+            <h2>Books</h2>
+              <div class="inputField">
+                <input type="text" placeholder="Show Title; Progress" id="new-item" type="text">
+                <button>Add</button>
+              <ul class="todoList">
+                <li>Percy Jackson; Pg24</li>
+              </ul>
+          </div>
+        </div>
+            </div>
+          </div>
+
     </body>
 </html>
