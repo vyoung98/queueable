@@ -8,8 +8,8 @@
 
 //Event handling, uder interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-item");//Add a new task.
-var addButton=document.getElementsById("add-button");//button with the add ID
+var taskInput=document.getElementById("new-task");//Add a new task.
+var addButton=document.getElementsByTagName("button")[0];//first button
 var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
@@ -19,6 +19,8 @@ var createNewTaskElement=function(taskString){
 
 	var listItem=document.createElement("li");
 
+	//input (checkbox)
+	var checkBox=document.createElement("input");//checkbx
 	//label
 	var label=document.createElement("label");//label
 	//input (text)
@@ -55,7 +57,7 @@ var createNewTaskElement=function(taskString){
 
 var addTask=function(){
 	console.log("Add Task...");
-	//Create a new list item with the text from the #new-item:
+	//Create a new list item with the text from the #new-task:
 	var listItem=createNewTaskElement(taskInput.value);
 
 	//Append listItem to incompleteTaskHolder

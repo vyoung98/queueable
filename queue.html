@@ -5,7 +5,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <script src="js/script.js"></script>
         <link rel="stylesheet" href="styles/style.css">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,9 +54,8 @@
               <div class="col">
                 <h2>Shows</h2>
                   <div class="inputField">
-                    <input type="text" placeholder="Show Title; Progress" id="new-item" type="text">
-                    <button>Add</button>
-                    <!-- <button><i class="fas fa-plus"></i></button> -->
+                    <input id="new-item" type="text" placeholder="Show Title; Progress"" type="text">
+                    <button id="add-button">Add</button>
                   <ul class="todoList">
                     <li>Attack on Titan; S1 E2</li>
                   </ul>
@@ -66,7 +64,7 @@
             <div class="col">
               <h2>Games</h2>
                 <div class="inputField">
-                  <input type="text" placeholder="Show Title; Progress" id="new-item" type="text">
+                  <input id="new-item" type="text" placeholder="Show Title; Progress" type="text">
                   <button>Add</button>
                 <ul class="todoList" id="incomplete-tasks">
                   <li><label>Pay Bills</label><input type="text">
@@ -80,7 +78,7 @@
           <div class="col">
             <h2>Books</h2>
               <div class="inputField">
-                <input type="text" placeholder="Show Title; Progress" id="new-item" type="text">
+                <input id="new-item"  type="text" placeholder="Show Title; Progress" type="text">
                 <button>Add</button>
               <ul class="todoList">
                 <li>Percy Jackson; Pg24</li>
@@ -89,6 +87,8 @@
         </div>
             </div>
           </div>
+
+          <script type="text/javascript" src="js/script.js"></script>
 
     </body>
 </html>
