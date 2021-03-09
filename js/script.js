@@ -8,11 +8,14 @@
 
 //Event handling, uder interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-item");//Add a new task.
-// var addButton=document.getElementsById("add-button");//button with the add ID
-// var addButton=document.getElementsByTagName("button")[2];//first button
-var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+var showInput=document.getElementById("new-show");//Add a new show.
+var showholder=document.getElementById("show-queue");//ul of #show-queue
+
+var gameInput=document.getElementById("new-game");//Add a new game.
+var gameholder=document.getElementById("game-queue");//ul of #game-queue
+
+var bookInput=document.getElementById("new-book");//Add a new book.
+var bookholder=document.getElementById("book-queue");//ul of #book-queue
 
 
 //New task list item
@@ -50,18 +53,45 @@ var createNewTaskElement=function(taskString){
 	return listItem;
 }
 
-
-
-var addTask=function(){
+//Add to the Show Queue
+var addShow=function(){
 	console.log("Add Task...");
-	//Create a new list item with the text from the #new-item:
-	var listItem=createNewTaskElement(taskInput.value);
+	//Create a new list item with the text from the #new-show:
+	var listItem=createNewTaskElement(showInput.value);
 
-	//Append listItem to incompleteTaskHolder
-	incompleteTaskHolder.appendChild(listItem);
-	bindTaskEvents(listItem, taskCompleted);
+	//Append listItem to showholder
+	showholder.appendChild(listItem);
+	// bindTaskEvents(listItem, taskCompleted);
 
-	taskInput.value="";
+	showInput.value="";
+
+}
+
+//Add to the Game Queue
+var addGame=function(){
+	console.log("Add Task...");
+	//Create a new list item with the text from the #new-game:
+	var listItem=createNewTaskElement(gameInput.value);
+
+	//Append listItem to gameholder
+	gameholder.appendChild(listItem);
+	// bindTaskEvents(listItem, taskCompleted);
+
+	gameInput.value="";
+
+}
+
+//Add to the Book Queue
+var addBook=function(){
+	console.log("Add Task...");
+	//Create a new list item with the text from the #new-book:
+	var listItem=createNewTaskElement(bookInput.value);
+
+	//Append listItem to bookholder
+	bookholder.appendChild(listItem);
+	// bindTaskEvents(listItem, taskCompleted);
+
+	bookInput.value="";
 
 }
 
@@ -92,8 +122,6 @@ var containsClass=listItem.classList.contains("editMode");
 }
 
 
-
-
 //Delete task.
 var deleteTask=function(){
 		console.log("Delete Task...");
@@ -104,20 +132,6 @@ var deleteTask=function(){
 		ul.removeChild(listItem);
 
 }
-
-
-//Mark task completed
-var taskCompleted=function(){
-		console.log("Complete Task...");
-	
-	//Append the task list item to the #completed-tasks
-	var listItem=this.parentNode;
-	completedTasksHolder.appendChild(listItem);
-				bindTaskEvents(listItem, taskIncomplete);
-
-}
-
-
 
 
 var ajaxRequest=function(){
@@ -133,23 +147,13 @@ addButton.addEventListener("click",addTask);
 addButton.addEventListener("click",ajaxRequest);
 
 
-//cycle over incompleteTaskHolder ul list items
-	//for each list item
-	for (var i=0; i<incompleteTaskHolder.children.length;i++){
+//cycle over gameholder ul list items
+	// //for each list item
+	// for (var i=0; i<gameholder.children.length;i++){
 
-		//bind events to list items chldren(tasksCompleted)
-		bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
-	}
-
-
-
-
-//cycle over completedTasksHolder ul list items
-	for (var i=0; i<completedTasksHolder.children.length;i++){
-	//bind events to list items chldren(tasksIncompleted)
-		bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
-	}
-
+	// 	//bind events to list items chldren(tasksCompleted)
+	// 	bindTaskEvents(gameholder.children[i],taskCompleted);
+	// }
 
 
 

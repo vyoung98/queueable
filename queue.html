@@ -53,37 +53,39 @@
             <div class="row">
               <div class="col">
                 <h2>Shows</h2>
-                  <div class="inputField">
-                    <input type="text" placeholder="Show Title; Progress" type="text">
-                    <button id="add-button">Add</button>
-                  <ul class="todoList">
+                <!-- ADD BUTTON FOR SHOWS -->
+                <input id="new-show" type="text" placeholder="Show Title; Progress" type="text">
+                <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addShow()">Add</button>
+
+                  <ul class="todoList" id="show-queue">
                     <li>Attack on Titan; S1 E2</li>
                   </ul>
               </div>
-            </div>
 
               <div class="col">
                 <h2>Games</h2>
-                  <input id="new-item" type="text" placeholder="Show Title; Progress" type="text">
-                  <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addTask()">Add</button>
+                <!-- ADD BUTTON FOR GAMES -->
+                <input id="new-game" type="text" placeholder="Show Title; Progress" type="text">
+                <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addGame()">Add</button>
 
-                  <ul class="todoList" id="incomplete-tasks">
-                    <!-- <li><label>Placeholder</label>
-                      <button class="edit">Edit</button>
-                      <button class="delete">Delete</button></li> -->
-                    <li>Stardew Valley; Y2 Fall</li>
-                    <li>Terraria; Crimson Cave</li>
-                  </ul>
+                <ul class="todoList" id="game-queue">
+                  <!-- <li><label>Placeholder</label>
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button></li> -->
+                  <li>Stardew Valley; Y2 Fall</li>
+                  <li>Terraria; Crimson Cave</li>
+                </ul>
               </div>
 
               <div class="col">
                 <h2>Books</h2>
-                  <div class="inputField">
-                    <input type="text" placeholder="Show Title; Progress" type="text">
-                    <button>Add</button>
-                  <ul class="todoList">
-                    <li>Percy Jackson; Pg24</li>
-                  </ul>
+                <!-- ADD BUTTON FOR BOOKS-->
+                <input id="new-book" type="text" placeholder="Show Title; Progress" type="text">
+                <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addBook()">Add</button>
+
+                <ul class="todoList" id="book-queue">
+                  <li>Percy Jackson; Pg24</li>
+                </ul>
               </div>
             </div>
           </div>
