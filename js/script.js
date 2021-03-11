@@ -23,7 +23,16 @@ var createNewTaskElement=function(taskString){
 
 	var listItem=document.createElement("li");
 
+	//label
+	var label=document.createElement("label");//label
+	//input (text)
+	var editInput=document.createElement("input");//text
+
 	label.innerText=taskString;
+
+	//Each elements, needs appending
+	editInput.type="text";
+
 
 	//and appending.
 	listItem.appendChild(label);
@@ -72,6 +81,19 @@ var addBook=function(){
 
 }
 
+
+//Delete task.
+// var deleteTask=function(){
+// 		console.log("Delete Task...");
+
+// 		var listItem=this.parentNode;
+// 		var ul=listItem.parentNode;
+// 		//Remove the parent list item from the ul.
+// 		ul.removeChild(listItem);
+
+// }
+
+
 var ajaxRequest=function(){
 	console.log("AJAX Request");
 }
@@ -83,3 +105,10 @@ var ajaxRequest=function(){
 addButton.onclick=addTask;
 addButton.addEventListener("click",addTask);
 addButton.addEventListener("click",ajaxRequest);
+
+
+// Issues with usabiliy don't get seen until they are in front of a human tester.
+
+//prevent creation of empty tasks.
+
+//Shange edit to save when you are in edit mode.
