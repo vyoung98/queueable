@@ -23,31 +23,10 @@ var createNewTaskElement=function(taskString){
 
 	var listItem=document.createElement("li");
 
-	//label
-	var label=document.createElement("label");//label
-	//input (text)
-	var editInput=document.createElement("input");//text
-	//button.edit
-	var editButton=document.createElement("button");//edit button
-
-	//button.delete
-	var deleteButton=document.createElement("button");//delete button
-
 	label.innerText=taskString;
-
-	//Each elements, needs appending
-	editInput.type="text";
-
-	editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-	editButton.className="edit";
-	deleteButton.innerText="Delete";
-	deleteButton.className="delete";
 
 	//and appending.
 	listItem.appendChild(label);
-	// listItem.appendChild(editInput);
-	listItem.appendChild(editButton);
-	listItem.appendChild(deleteButton);
 	return listItem;
 }
 
@@ -93,45 +72,6 @@ var addBook=function(){
 
 }
 
-//Edit an existing task.
-
-var editTask=function(){
-console.log("Edit Task...");
-console.log("Change 'edit' to 'save'");
-
-
-var listItem=this.parentNode;
-
-var editInput=listItem.querySelector('input[type=text]');
-var label=listItem.querySelector("label");
-var containsClass=listItem.classList.contains("editMode");
-		//If class of the parent is .editmode
-		if(containsClass){
-
-		//switch to .editmode
-		//label becomes the inputs value.
-			label.innerText=editInput.value;
-		}else{
-			editInput.value=label.innerText;
-		}
-
-		//toggle .editmode on the parent.
-		listItem.classList.toggle("editMode");
-}
-
-
-//Delete task.
-var deleteTask=function(){
-		console.log("Delete Task...");
-
-		var listItem=this.parentNode;
-		var ul=listItem.parentNode;
-		//Remove the parent list item from the ul.
-		ul.removeChild(listItem);
-
-}
-
-
 var ajaxRequest=function(){
 	console.log("AJAX Request");
 }
@@ -143,20 +83,3 @@ var ajaxRequest=function(){
 addButton.onclick=addTask;
 addButton.addEventListener("click",addTask);
 addButton.addEventListener("click",ajaxRequest);
-
-
-//cycle over gameholder ul list items
-	// //for each list item
-	// for (var i=0; i<gameholder.children.length;i++){
-
-	// 	//bind events to list items chldren(tasksCompleted)
-	// 	bindTaskEvents(gameholder.children[i],taskCompleted);
-	// }
-
-
-
-// Issues with usabiliy don't get seen until they are in front of a human tester.
-
-//prevent creation of empty tasks.
-
-//Shange edit to save when you are in edit mode.

@@ -43,9 +43,6 @@
                 <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addGame()">Add</button>
 
                 <ul class="todoList" id="game-queue">
-                  <!-- <li><label>Placeholder</label>
-                    <button class="edit">Edit</button>
-                    <button class="delete">Delete</button></li> -->
                   <li>Stardew Valley; Y2 Fall</li>
                   <li>Terraria; Crimson Cave</li>
                 </ul>
