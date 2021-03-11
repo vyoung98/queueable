@@ -38,12 +38,10 @@ var createNewTaskElement=function(taskString){
 	//Each elements, needs appending
 	editInput.type="text";
 
-	editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
+	editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
 	editButton.className="edit";
 	deleteButton.innerText="Delete";
 	deleteButton.className="delete";
-
-
 
 	//and appending.
 	listItem.appendChild(label);
