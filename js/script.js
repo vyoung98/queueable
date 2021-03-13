@@ -30,12 +30,19 @@ var createNewTaskElement=function(taskString){
 
 	label.innerText=taskString;
 
-	//Each elements, needs appending
-	editInput.type="text";
+	//need spacer
+	var spacer = document.createTextNode("\xa0");
 
+    //button.delete
+	var deleteButton=document.createElement("button");//delete button
+    deleteButton.innerText="Delete";
+	deleteButton.className="btn btn-warning";
+	deleteButton.onclick=deleteTask;
 
 	//and appending.
 	listItem.appendChild(label);
+	listItem.appendChild(spacer);
+    listItem.appendChild(deleteButton);
 	return listItem;
 }
 
@@ -82,33 +89,18 @@ var addBook=function(){
 }
 
 
-//Delete task.
-// var deleteTask=function(){
-// 		console.log("Delete Task...");
+// Delete task.
+var deleteTask=function(){
+		console.log("Delete Task...");
 
-// 		var listItem=this.parentNode;
-// 		var ul=listItem.parentNode;
-// 		//Remove the parent list item from the ul.
-// 		ul.removeChild(listItem);
+		var listItem=this.parentNode;
+		var ul=listItem.parentNode;
+		//Remove the parent list item from the ul.
+		ul.removeChild(listItem);
 
-// }
+}
 
 
 var ajaxRequest=function(){
 	console.log("AJAX Request");
 }
-
-//The glue to hold it all together.
-
-
-//Set the click handler to the addTask function.
-addButton.onclick=addTask;
-addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
-
-
-// Issues with usabiliy don't get seen until they are in front of a human tester.
-
-//prevent creation of empty tasks.
-
-//Shange edit to save when you are in edit mode.
