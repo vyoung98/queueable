@@ -51,6 +51,8 @@ var addShow=function(){
 	console.log("Add Task...");
 	//Create a new list item with the text from the #new-show:
 	var listItem=createNewTaskElement(showInput.value);
+	if listItem = "":
+	
 
 	//Append listItem to showholder
 	showholder.appendChild(listItem);
