@@ -1,7 +1,7 @@
 :root {
   --light: #ffffff;
   --sky: #7f9cf5;
-  --purple: #97266d;
+  --purple: #8b3d63;
   --dark: #242424;
 }
 
@@ -63,7 +63,7 @@ body {font-family: Verdana, sans-serif;}
 
 
 .btn {
-  background: #bababa;
+  background: #8b3d63;
   color: white;
 }
 
@@ -71,7 +71,7 @@ body {font-family: Verdana, sans-serif;}
 .month {
   padding: 70px 25px;
   width: 100%;
-  background: #bababa;
+  background: #8b3d63;
   text-align: center;
 }
 
@@ -169,7 +169,7 @@ body {font-family: Verdana, sans-serif;}
 }
 ::selection{
   color: #ffff;
-  background: #bababa;
+  background: #c987a7;
 }
 /* .wrapper{
   background: #fff;

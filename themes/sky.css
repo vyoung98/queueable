@@ -63,7 +63,7 @@ body {font-family: Verdana, sans-serif;}
 
 
 .btn {
-  background: #bababa;
+  background: #7f9cf5;
   color: white;
 }
 
@@ -71,7 +71,7 @@ body {font-family: Verdana, sans-serif;}
 .month {
   padding: 70px 25px;
   width: 100%;
-  background: #bababa;
+  background: #7f9cf5;
   text-align: center;
 }
 
@@ -169,7 +169,7 @@ body {font-family: Verdana, sans-serif;}
 }
 ::selection{
   color: #ffff;
-  background: #bababa;
+  background: rgb(142, 73, 232);
 }
 /* .wrapper{
   background: #fff;
