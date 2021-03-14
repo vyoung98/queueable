@@ -15,12 +15,18 @@ body {
   font-family: 'Roboto', sans-serif;
   height: 100vh;
   overflow-x: hidden;
+  background-color: #3b3b3b;
 }
 
 header {
   text-align: center;
   font-size: 30px;
   padding: 50px 0;
+}
+
+.centered-views {
+  display: flex;
+  justify-content: center;
 }
 
 .theme-switches {
@@ -65,6 +71,7 @@ body {font-family: Verdana, sans-serif;}
 .btn {
   background: #242424;
   color: white;
+  margin: 10px;
 }
 
 /* Month header */
@@ -134,7 +141,7 @@ body {font-family: Verdana, sans-serif;}
 /* Highlight the "current" day */
 .days li .active {
   padding: 5px;
-  background: #e2cfd8;
+  background: #757575;
   color: white !important
 }
 
@@ -169,7 +176,7 @@ body {font-family: Verdana, sans-serif;}
 }
 ::selection{
   color: #ffff;
-  background: #242424;
+  background: #757575;
 }
 /* .wrapper{
   background: #fff;
@@ -201,7 +208,7 @@ body {font-family: Verdana, sans-serif;}
   transition: all 0.3s ease;
 }
 .inputField input:focus{
-  border-color: #8b3d63;
+  border-color: #242424;
 }
 .inputField button{
   width: 50px;
@@ -211,7 +218,7 @@ body {font-family: Verdana, sans-serif;}
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background: #8b3d63;
+  background: #242424;
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.6;
@@ -220,7 +227,7 @@ body {font-family: Verdana, sans-serif;}
 }
 .inputField button:hover,
 .footer button:hover{
-  background: #8b3d63;
+  background: #242424;
 }
 .inputField button.active{
   opacity: 1;
@@ -272,7 +279,7 @@ body {font-family: Verdana, sans-serif;}
   font-weight: 400;
   font-size: 16px;
   margin-left: 5px;
-  background: #8b3d63;
+  background: #242424;
   cursor: pointer;
   user-select: none;
   opacity: 0.6;

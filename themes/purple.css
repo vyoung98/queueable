@@ -23,13 +23,18 @@ header {
   padding: 50px 0;
 }
 
+.centered-views {
+  display: flex;
+  justify-content: center;
+}
+
 .theme-switches {
   display: flex;
   justify-content: center;
 }
 
 .switch {
-  border: 2px solid black;
+  border: 2px solid #8b3d63;
   border-radius: 50px;
   height: 30px;
   width: 30px;
@@ -65,6 +70,7 @@ body {font-family: Verdana, sans-serif;}
 .btn {
   background: #8b3d63;
   color: white;
+  margin: 10px;
 }
 
 /* Month header */

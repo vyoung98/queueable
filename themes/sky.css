@@ -23,13 +23,18 @@ header {
   padding: 50px 0;
 }
 
+.centered-views {
+  display: flex;
+  justify-content: center;
+}
+
 .theme-switches {
   display: flex;
   justify-content: center;
 }
 
 .switch {
-  border: 2px solid black;
+  border: 2px solid #7f9cf5;
   border-radius: 50px;
   height: 30px;
   width: 30px;
@@ -65,6 +70,7 @@ body {font-family: Verdana, sans-serif;}
 .btn {
   background: #7f9cf5;
   color: white;
+  margin: 10px;
 }
 
 /* Month header */
@@ -134,7 +140,7 @@ body {font-family: Verdana, sans-serif;}
 /* Highlight the "current" day */
 .days li .active {
   padding: 5px;
-  background: #e2cfd8;
+  background: #c3d0f7;
   color: white !important
 }
 
@@ -169,7 +175,7 @@ body {font-family: Verdana, sans-serif;}
 }
 ::selection{
   color: #ffff;
-  background: rgb(142, 73, 232);
+  background: #c3d0f7;
 }
 /* .wrapper{
   background: #fff;

@@ -16,6 +16,11 @@
         <style type="text/css">
             h1	{font-family: 'Rubik', Arial;
                 }
+            h2   {font-family: 'Rubik', 'Arial';
+                  font-size: 25px;
+                }
+            p   {font-family: 'Rubik', 'Arial';
+                }
         </style>
        
     </head>
@@ -89,13 +94,15 @@
               
               <div class="col-sm">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">View</label>
-                    <button type="button" class="btn">day</button>
-                    <button type="button" class="btn">week</button>
-                    <button type="button" class="btn">month</button>
+                    <h2>View</h2>
+                    <div class="centered-views">
+                      <button type="button" class="btn">day</button>
+                      <button type="button" class="btn">week</button>
+                      <button type="button" class="btn">month</button>
+                    </div>  
                 </div>
                 <div class="button">
-                    <label for="formGroupExampleInput">Customize</label>
+                    <h2>Customize</h2>
                 </div>
                 <div class="theme-switches">
                 <div data-theme="light" class="switch" id="switch-1"></div>
@@ -134,7 +141,7 @@
                   </script>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Your Message</label>
+                    <h2><label for="exampleFormControlTextarea1">Your Message</label></h2>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success"><a href="eventcreation.php">Create</a></button>
