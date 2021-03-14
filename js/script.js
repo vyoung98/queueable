@@ -141,7 +141,7 @@ $(document).ready(function(){
   })
 
 //Set Theme
-
+/*
 let switches = document.getElementsByClassName('switch');
 
 let style = localStorage.getItem('style');
@@ -159,6 +159,7 @@ for (let i of switches) {
   });
 }
 
+
 function setTheme(theme) {
   if (theme == 'light') {
     document.getElementById('switcher-id').href = './themes/light.css';
@@ -166,6 +167,28 @@ function setTheme(theme) {
     document.getElementById('switcher-id').href = './themes/dark.css';
   } else if (theme == 'color') {
     document.getElementById('switcher-id').href = './themes/color.css';
-  }
+  } 
   localStorage.setItem('style', theme);
 }
+*/
+// function to set a given theme/color-scheme
+function setTheme(themeName) {
+    localStorage.setItem('theme', themeName);
+    document.documentElement.className = themeName;
+}
+// function to toggle between light and dark theme
+function toggleTheme() {
+   if (localStorage.getItem('theme') === 'theme-dark'){
+       setTheme('theme-light');
+   } else {
+       setTheme('theme-dark');
+   }
+}
+// Immediately invoked function to set the theme on initial load
+(function () {
+   if (localStorage.getItem('theme') === 'theme-dark') {
+       setTheme('theme-dark');
+   } else {
+       setTheme('theme-light');
+   }
+})();
