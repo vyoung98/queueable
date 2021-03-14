@@ -1,6 +1,24 @@
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
+
+
+/* Themes * Currently unworking */ 
+.theme-light {
+  --color-primary: #0060df;
+  --color-secondary: #fbfbfe;
+  --color-accent: #fd6f53;
+  --font-color: #000000;
+}
+
+.theme-dark {
+  --color-primary: #17ed90;
+  --color-secondary: #243133;
+  --color-accent: #12cdea;
+  --font-color: #ffffff;
+}
+
+
 .btn {
   background: #8b3d63;
   color: white;
@@ -235,16 +253,3 @@ label[for='new-task'] {
   p > button:hover {
     color: #0FC57C;
   }
-
-  /* Themes */
-  .theme-light {
-    --color-primary: #0060df;
-    --color-secondary: #fbfbfe;
-    --color-accent: #fd6f53;
-    --font-color: #000000;
-  }
-  .theme-dark {
-    --color-primary: #17ed90;
-    --color-secondary: #243133;
-    --color-accent: #12cdea;
-    --font-color: #ffffff;

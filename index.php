@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         
         <meta name="author" content="Vivian Tran vt5en & Valerie Young vy5br">
-        <meta name="description" content="POTD 1">  
+        <meta name="description" content="Assignment 1">  
         <title>queueAble: Finding Time for What's Important</title>  
         <style type="text/css">
             h1	{font-family: 'Rubik', Arial;
@@ -96,10 +96,18 @@
                 <div class="theme-switches">
                     <label for="formGroupExampleInput">Customize</label>
                     <button id="switch" onclick="toggleTheme()">Switch</button>
+                    <button onclick="myFunction()">Toggle dark mode</button>
+                    
                     <button type="light" class="btn" onclick="setTheme()">light</button>
                     <button type="button" class="btn" onclick="setTheme()">dark</button>
                     <button type="button" class="btn" onclick="setTheme()">color</button>
                 </div>
+                <script>
+                function myFunction() {
+                  var element = document.body;
+                  element.classList.toggle("dark-mode");
+                }
+                </script>
                 <script>
                   // function to set a given theme/color-scheme
                   function setTheme(themeName) {
@@ -126,7 +134,7 @@
                   })();
                 </script>
 
-                
+
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Your Message</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
