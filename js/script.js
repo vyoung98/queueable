@@ -35,7 +35,8 @@ var createNewTaskElement=function(taskString){
 
     //button.delete
 	var deleteButton=document.createElement("button");//delete button
-    deleteButton.innerText="Delete";
+    deleteButton.innerHTML= '<i class="fas fa-trash-alt"></i>';
+	// deleteButton.innerText="Delete";
 	deleteButton.className="btn btn-warning";
 	deleteButton.onclick=deleteTask;
 
@@ -48,45 +49,64 @@ var createNewTaskElement=function(taskString){
 
 //Add to the Show Queue
 var addShow=function(){
-	console.log("Add Task...");
+
 	//Create a new list item with the text from the #new-show:
 	var listItem=createNewTaskElement(showInput.value);
-	if listItem = "":
-	
+	if (showInput.value == "") {
+		console.log("Error Validation Message");
+		alert("Please fill in the text box.");
+		return false;
+	}
+	else{
+		console.log("Add show...");
+		//Append listItem to showholder
+		showholder.appendChild(listItem);
+		// bindTaskEvents(listItem, taskCompleted);
 
-	//Append listItem to showholder
-	showholder.appendChild(listItem);
-	// bindTaskEvents(listItem, taskCompleted);
-
-	showInput.value="";
+		showInput.value="";
+	}
 
 }
 
 //Add to the Game Queue
 var addGame=function(){
-	console.log("Add Task...");
+	console.log("Add game...");
 	//Create a new list item with the text from the #new-game:
 	var listItem=createNewTaskElement(gameInput.value);
+	if (gameInput.value == "") {
+		console.log("Error Validation Message");
+		alert("Please fill in the text box.");
+		return false;
+	}
+	else{
+		console.log("Add Task...");
+		//Append listItem to gameholder
+		gameholder.appendChild(listItem);
+		// bindTaskEvents(listItem, taskCompleted);
 
-	//Append listItem to gameholder
-	gameholder.appendChild(listItem);
-	// bindTaskEvents(listItem, taskCompleted);
-
-	gameInput.value="";
+		gameInput.value="";
+	}
 
 }
 
 //Add to the Book Queue
 var addBook=function(){
-	console.log("Add Task...");
-	//Create a new list item with the text from the #new-book:
+	console.log("Add book...");
+	//Create a new list item with the text from the #new-game:
 	var listItem=createNewTaskElement(bookInput.value);
+	if (bookInput.value == "") {
+		console.log("Error Validation Message");
+		alert("Please fill in the text box.");
+		return false;
+	}
+	else{
+		console.log("Add Task...");
+		//Append listItem to gameholder
+		bookholder.appendChild(listItem);
+		// bindTaskEvents(listItem, taskCompleted);
 
-	//Append listItem to bookholder
-	bookholder.appendChild(listItem);
-	// bindTaskEvents(listItem, taskCompleted);
-
-	bookInput.value="";
+		bookInput.value="";
+	}
 
 }
 
@@ -101,7 +121,6 @@ var deleteTask=function(){
 		ul.removeChild(listItem);
 
 }
-
 
 var ajaxRequest=function(){
 	console.log("AJAX Request");

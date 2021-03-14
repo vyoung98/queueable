@@ -3,6 +3,7 @@
     <head>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <link rel="stylesheet" href="styles/style.css">
@@ -28,7 +29,7 @@
               <div class="col">
                 <h2>Shows</h2>
                 <!-- ADD BUTTON FOR SHOWS -->
-                <input id="new-show" type="text" placeholder="Show Title; Progress" type="text">
+                <input id="new-show" type="text" placeholder="Show Title; Progress" type="text"> <!-- need to put in a validation message if empty -->
                 <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addShow()">Add</button>
 
                   <ul class="todoList" id="show-queue">
@@ -39,7 +40,7 @@
               <div class="col">
                 <h2>Games</h2>
                 <!-- ADD BUTTON FOR GAMES -->
-                <input id="new-game" type="text" placeholder="Show Title; Progress" type="text">
+                <input id="new-game" type="text" placeholder="Show Title; Progress" type="text"> <!-- need to put in a validation message if empty -->
                 <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addGame()">Add</button>
 
                 <ul class="todoList" id="game-queue">
@@ -51,7 +52,7 @@
               <div class="col">
                 <h2>Books</h2>
                 <!-- ADD BUTTON FOR BOOKS-->
-                <input id="new-book" type="text" placeholder="Show Title; Progress" type="text">
+                <input id="new-book" type="text" placeholder="Show Title; Progress" type="text"> <!-- need to put in a validation message if empty -->
                 <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addBook()">Add</button>
 
                 <ul class="todoList" id="book-queue">
