@@ -29,14 +29,19 @@
 
 
           <div class="container">
-            <form>
+            <form class="needs-validation" novalidate>
               <div class="form-group">
-                <label for="formGroupExampleInput">Event Title</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+                <label for="title">Event Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title" required>
               </div>
+              <!-- <div class="invalid-feedback">
+                Please input a title.
+              </div> -->
+
               <div class="form-group">
                 <label for="inviteFriend">Invite a Friend:</label>
                 <select class="form-control" id="inviteFriend">
+                  <option>None</option>
                   <option>Vivian</option>
                   <option>Val</option>
                 </select>
@@ -44,25 +49,25 @@
 
               <div class="form-group">
                 <label class="control-label" for="date">Date</label>
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" required>
               </div>
 
               <div class="form-row">
                 <div class="col">
                 <label class="control-label" for="date">Start Time</label>
-                  <input type="text" class="form-control" id="starttime" placeholder="00:00">
+                  <input type="text" class="form-control" id="starttime" placeholder="00:00" required>
                 </div>
 
                 <div class="col">
                 <label class="control-label" for="date">End Time</label>
-                  <input type="text" class="form-control" id="endtime" placeholder="01:00">
+                  <input type="text" class="form-control" id="endtime" placeholder="01:00" required>
                 </div>
               </div>
 
               <p></p>
               <div class="form-group">
                 <label for="descr">Description</label>
-                <textarea class="form-control" id="Description" rows="3"></textarea>
+                <textarea class="form-control" id="descr" rows="3"></textarea>
               </div>
 
               <br><br>
@@ -71,5 +76,25 @@
           </div>
 
           <script type="text/javascript" src="js/script.js"></script>
+          <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+          </script>
     </body>
 </html>
