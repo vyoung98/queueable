@@ -93,12 +93,11 @@
                     <button type="button" class="btn">week</button>
                     <button type="button" class="btn">month</button>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Customize</label>
-                    
-                    <button type="button" class="btn">light</button>
-                    <button type="button" class="btn">dark</button>
-                    <button type="button" class="btn">color</button>
+                <div class="theme-switches">
+                    <label for="formGroupExampleInput">Customize</label>
+                    <button type="button" class="btn" onclick="setTheme()">light</button>
+                    <button type="button" class="btn" onclick="setTheme()">dark</button>
+                    <button type="button" class="btn" onclick="setTheme()">color</button>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Your Message</label>
