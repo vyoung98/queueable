@@ -74,7 +74,12 @@
           <script type="text/javascript" src="js/script.js"></script>
           <script>
             window.onload = function() {
-              sessionStorage.getItem('style');
+              let style = sessionStorage.getItem('style');
+              if (style == null) {
+                    setTheme('light');
+                  } else {
+                    setTheme(style);
+                  }
             }
           </script>
     </body>
