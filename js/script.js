@@ -38,7 +38,7 @@ var createNewTaskElement=function(taskString){
     deleteButton.innerHTML= '<i class="fas fa-trash-alt"></i>';
 	// deleteButton.innerText="Delete";
 	deleteButton.className="btn btn-warning";
-	deleteButton.addEventListener("click", function(deleteTask){ alert("delete button clicked"); });
+	deleteButton.addEventListener("click", deleteTask);
 	// deleteButton.onclick=deleteTask;
 
 	//and appending.

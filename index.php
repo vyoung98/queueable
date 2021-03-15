@@ -149,7 +149,7 @@
                 </div>
                 <button type="submit" class="btn btn-success"><a href="eventcreation.php">Create</a></button>
                 
-                <button type="submit" class="btn btn-success">Queue</button>
+                <button type="submit" class="btn btn-success"><a href="queue.php">My Queues</a></button>
               </div>
             </div>
           </div>
