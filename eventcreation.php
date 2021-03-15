@@ -20,6 +20,11 @@
         <style type="text/css">
             h1	{font-family: 'Rubik', Arial;
                 }
+            h2   {font-family: 'Rubik', 'Arial';
+                  font-size: 25px;
+                }
+            p   {font-family: 'Rubik', 'Arial';
+                }
         </style>
        
     </head>
