@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+        <link rel="manifest" href="icon/site.webmanifest">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
