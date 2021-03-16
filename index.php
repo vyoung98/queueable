@@ -127,11 +127,13 @@
                     i.addEventListener('click', function () {
                       let theme = this.dataset.theme;
                       setTheme(theme);
+                      // THIS ARROW FUNCTION SHOWS THE THEME WHEN THE BUTTON IS CLICKED
+                      let color = () => {
+                        return theme;
+                      } 
+                      alert("The current theme is: " + color());
                     });
                   }
-                    // var color = () => {
-                    //   return style;
-                    // }
 
                     function setTheme(theme) {
                     if (theme == 'light') {
@@ -144,7 +146,11 @@
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
                     sessionStorage.setItem('style', theme);
-                    // console.log(color());
+
+                    let color = () => {
+                      return theme;
+                    }
+
                     }
                     
                   </script>
