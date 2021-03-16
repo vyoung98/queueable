@@ -1,13 +1,3 @@
-//Document is the DOM can be accessed in the console with document.window.
-// Tree is from the top, html, body, p etc.
-
-//Problem: User interaction does not provide the correct results.
-//Solution: Add interactivity so the user can manage daily tasks.
-//Break things down into smaller steps and take each step at a time.
-
-
-//Event handling, uder interaction is what starts the code execution.
-
 var showInput=document.getElementById("new-show");//Add a new show.
 var showholder=document.getElementById("show-queue");//ul of #show-queue
 
@@ -24,9 +14,9 @@ var createNewTaskElement=function(taskString){
 	var listItem=document.createElement("li");
 
 	//label
-	var label=document.createElement("label");//label
+	var label=document.createElement("label");
 	//input (text)
-	var editInput=document.createElement("input");//text
+	var editInput=document.createElement("input");
 
 	label.innerText=taskString;
 
@@ -36,10 +26,8 @@ var createNewTaskElement=function(taskString){
     //button.delete
 	var deleteButton=document.createElement("button");//delete button
     deleteButton.innerHTML= '<i class="fas fa-trash-alt"></i>';
-	// deleteButton.innerText="Delete";
 	deleteButton.className="btn btn-warning";
 	deleteButton.addEventListener("click", deleteTask);
-	// deleteButton.onclick=deleteTask;
 
 	//and appending.
 	listItem.appendChild(label);
@@ -62,7 +50,6 @@ var addShow=function(){
 		console.log("Add show...");
 		//Append listItem to showholder
 		showholder.appendChild(listItem);
-		// bindTaskEvents(listItem, taskCompleted);
 
 		showInput.value="";
 	}
@@ -83,7 +70,6 @@ var addGame=function(){
 		console.log("Add Task...");
 		//Append listItem to gameholder
 		gameholder.appendChild(listItem);
-		// bindTaskEvents(listItem, taskCompleted);
 
 		gameInput.value="";
 	}
@@ -104,7 +90,6 @@ var addBook=function(){
 		console.log("Add Task...");
 		//Append listItem to gameholder
 		bookholder.appendChild(listItem);
-		// bindTaskEvents(listItem, taskCompleted);
 
 		bookInput.value="";
 	}
@@ -118,7 +103,7 @@ var deleteTask=function(){
 
 		var listItem=this.parentNode;
 		var ul=listItem.parentNode;
-		//Remove the parent list item from the ul.
+		//Remove the parent list item from the ul list.
 		ul.removeChild(listItem);
 
 }
