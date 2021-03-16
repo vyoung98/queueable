@@ -5,3 +5,16 @@ runtime: php73
 # entrypoint: serve index.php
 
 # If your main page is index.php, comment the above entrypoint setting 
+handlers:
+
+- url: /themes
+  static_dir: themes
+
+- url: /styles
+  static_dir: styles
+
+- url: /js
+  static_dir: js
+
+- url: /.*
+  script: auto
