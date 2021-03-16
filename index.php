@@ -129,8 +129,11 @@
                       setTheme(theme);
                     });
                   }
+                    // var color = () => {
+                    //   return style;
+                    // }
 
-                  function setTheme(theme) {
+                    function setTheme(theme) {
                     if (theme == 'light') {
                       document.getElementById('switcher-id').href = './themes/light.css';
                     } else if (theme == 'sky') {
@@ -141,7 +144,9 @@
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
                     sessionStorage.setItem('style', theme);
-                  }
+                    // console.log(color());
+                    }
+                    
                   </script>
                 <div class="form-group">
                     <h2><label for="exampleFormControlTextarea1">Your Message</label></h2>
