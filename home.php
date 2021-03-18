@@ -67,7 +67,6 @@
                   <li>5</li>
                   <li>6</li>
                   <li>7</li>
-                  <li><span class="active">7</span></li>
                   <li>8</li>
                   <li>9</li>
                   <li>10</li>
@@ -79,7 +78,7 @@
                   <li>16</li>
                   <li>17</li>
                   <li>18</li>
-                  <li>19</li>
+                  <li><span class="active">19</span></li>
                   <li>20</li>
                   <li>21</li>
                   <li>22</li>
