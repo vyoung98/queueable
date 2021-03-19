@@ -146,10 +146,6 @@
                     }
                     sessionStorage.setItem('style', theme);
 
-                    let color = () => {
-                      return theme;
-                    }
-
                     }
                     
                   </script>
