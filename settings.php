@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+  require('connect-db.php');
+  session_start();?>
+
     <head>
         <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
@@ -35,23 +39,50 @@
 
           <div class="container">
             <div class="row">
-              <div class="col">
-                <h2>Name</h2>
-                <!-- ADD BUTTON FOR SHOWS -->
-                <input id="new-show" type="text" placeholder="Enter New Screen Name" type="text"> <!-- need to put in a validation message if empty -->
-                <button class="btn btn-success" type="submit" onclick="">Change</button
+            <div class="col">
+                <h2>Password</h2>
+                <input id="new-game" type="text" placeholder="Enter Old Password" type="text"> <!-- need to put in a validation message if empty -->
+                <p></p>
+                <input id="new-game" type="text" placeholder="Enter New Password" type="text">
+                <button class="btn btn-success" type="submit" onclick="">Change Password</button>
               </div>
 
               <div class="col">
                 <h2>Email</h2>
-                <!-- ADD BUTTON FOR GAMES -->
-                <input id="new-game" type="text" placeholder="Enter Old Email" type="text"> <!-- need to put in a validation message if empty -->
-                <input id="new-game" type="text" placeholder="Enter Email Again" type="text">
+                <input id="old-email" type="text" placeholder="Enter Old Email" type="text"> <!-- need to put in a validation message if empty -->
+                <p></p>
+                <input id="new-email" type="text" placeholder="Enter Email Again" type="text">
                 <button class="btn btn-success" type="submit" onclick="">Change Email</button>
+                <script>
+                  //Update Email
+                  var oldEmail=document.getElementById("old-email");
+                  console.log("old-email");
+                  var newEmail=document.getElementById("new-email");  
+                  console.log("new-email");
+
+                    var updEmail=function(){
+                      console.log("Update email...");
+                      if (newEmail.value || oldEmail.value == "") {
+                        console.log("Error Validation Message");
+                        alert("Please fill in the text box.");
+                        return false;
+                      }
+                      else{
+                        // check that oldEmail matches the database
+                        if (oldEmail.value){
+                          // update the newEmail in the database
+                          alert("Successfully updated email!");
+                          console.log("Update email...");
+                        }
+                        passInput.value="";
+                      }
+
+                    }
+                </script>
               </div>
 
               <div class="col">
-                <h2>Theme</h2>
+                <h2>Theme Selector</h2>
                 <div class="theme-switches">
                 <div data-theme="light" class="switch" id="switch-1"></div>
                 <div data-theme="sky" class="switch" id="switch-2"></div>

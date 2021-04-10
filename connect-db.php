@@ -2,11 +2,11 @@
 $hostname = 'usersrv01.cs.virginia.edu';
 
 // database name
-$dbname = '';
+$dbname = 'vy5br_queueable';
 
 // database credentials
-$username = '';
-$password = '';
+$username = 'vy5br';
+$password = 'DreamTeam2!';
 
 // DSN (Data Source Name) specifies the host computer for the MySQL database 
 // and the name of the database. If the MySQL database is running on the same server

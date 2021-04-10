@@ -7,7 +7,6 @@ var gameholder=document.getElementById("game-queue");//ul of #game-queue
 var bookInput=document.getElementById("new-book");//Add a new book.
 var bookholder=document.getElementById("book-queue");//ul of #book-queue
 
-
 //New task list item
 var createNewTaskElement=function(taskString){
 
