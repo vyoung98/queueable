@@ -5,7 +5,7 @@ require('connect-db.php');
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+$hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
 //should probably check the username doesn't already exist
 
