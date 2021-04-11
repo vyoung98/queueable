@@ -5,8 +5,7 @@ require('connect-db.php');
 if(isset($_POST['submit'])){
 
     $username = $_POST['username'];
-    $password = $_POST['password'];
-    $password = password_hash($password, PASSWORD_BCRYPT);
+    $passwordstr = $_POST['password'];
 
     $query = "SELECT hashed_password FROM users WHERE username = '$username'";
 
@@ -14,18 +13,16 @@ if(isset($_POST['submit'])){
     $statement->execute();
     $results = $statement->fetchAll();
     
-    echo $password;
-    echo $results[0]['hashed_password'];
     if (!empty($results)){
         {
-            echo "line 25!";
-            //verify that the password matches the one in the table
-          if (password_verify($password, $results[0]['hashed_password'])) 
+        echo "line 25!";
+        //verify that the typed password matches the hashed password in the table
+          if (password_verify($passwordstr, $results[0]['hashed_password'])) 
           {
             session_start();
             echo "they match!";
             $_SESSION['user'] = $email;
-            header("Location: index.php");
+            header("Location: home.php");
           } 
           else{
             echo "they do not match";
@@ -33,7 +30,7 @@ if(isset($_POST['submit'])){
         }
     }
       else{
-        echo "nah u fuked up";
+        echo "nah this account doesn't exist";
         $_SESSION['blank'] = "yes";
         header("Location: signup.php");
         }
