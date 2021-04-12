@@ -19,8 +19,7 @@ if(isset($_POST['submit'])){
           if (password_verify($passwordstr, $results[0]['hashed_password'])) 
           {
             session_start();
-            echo "they match!";
-            $_SESSION['user'] = $email;
+            $_SESSION['user'] = $username;
             header("Location: home.php");
           } 
           else{
