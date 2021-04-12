@@ -41,61 +41,48 @@
             <div class="row">
             <div class="col">
                 <h2>Password</h2>
-                <form id ="changepassword" name="changepassword" action="changep.php" method="POST">
-                <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter Current Password" type="text" class="required"> <!-- need to put in a validation message if empty -->
+                <form class="needs-validation" id ="changepassword" name="changepassword" action="changep.php" method="POST">
+                <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter Current Password" type="text" required> <!-- need to put in a validation message if empty -->
                 <p></p>
-                <input id="newPassword" name="newPassword" type="password" placeholder="Enter New Password" type="text" class="required">
+                <input id="newPassword" name="newPassword" type="password" placeholder="Enter New Password" type="text" required>
                 <p></p>
-                <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" type="text" class="required">
+                <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" type="text" required>
                 <button class="btn btn-success" type="submit" onclick="">Change Password</button>
               </form>
               </div>
 
               <div class="col">
                 <h2>Email</h2>
-                <form id ="changeemail" name="changeemail" action="changee.php" method="POST">
-                <input id="old-email" type="text" placeholder="Enter Old Email" class="required"> <!-- need to put in a validation message if empty -->
+                <form class="needs-validation" id ="changeemail" name="changeemail" action="changee.php" method="POST">
+                <input id="old-email" type="text" placeholder="Enter Old Email" required> <!-- need to put in a validation message if empty -->
                 <p></p>
-                <input id="newEmail" name="newEmail" type="text" placeholder="Enter Email Again" class="required">
+                <input id="newEmail" name="newEmail" type="text" placeholder="Enter Email Again" required>
                 <p></p>
-                <input id="confirm-email" type="text" placeholder="Confirm New Email" class="required">
+                <input id="confirm-email" type="text" placeholder="Confirm New Email" required>
                 <button class="btn btn-success" type="submit" onclick="">Change Email</button>
               </form>
-                <!-- <script>
-                
-                  //Update Email
-                  var oldEmail=document.getElementById("old-email");
-                  console.log("old-email");
-                  var newEmail=document.getElementById("new-email");  
-                  console.log("new-email");
-                  var confirmEmail=document.getElementById("confirm-email");
-                  console.log("confirm-email");
-
-                    var updEmail=function(){
-                      console.log("Update email...");
-                      if (newEmail.value || oldEmail.value == "") {
-                        console.log("Error Validation Message");
-                        alert("Please fill in the text box.");
-                        return false;
-                      }
-                      //check if email matches confirmed email
-                      else if (newEmail.value != confirmEmail.value) {
-                        console.log("Emails do not match");
-                        alert("Please make sure your emails match.");
-                        return false;
-                      }
-                      else{
-                        // check that oldEmail matches the database
-                        if (oldEmail.value){
-                          // update the newEmail in the database
-                          alert("Successfully updated email!");
-                          console.log("Update email...");
-                        }
-                        passInput.value="";
-                      }
-
+          
+              <script type="text/javascript" src="js/script.js"></script>
+          <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
                     }
-                </script> -->
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+          </script>
 
                 <!-- password check makes all the fields mandatory, checks if the password fields are the same -->
                 <script>
