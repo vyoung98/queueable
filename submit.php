@@ -16,6 +16,14 @@ $statement->bindValue(':hashed_password', $hashed_password);
 $statement->execute();
 $statement->closeCursor();
 
+$query = "INSERT INTO settings (username, email, theme) VALUES (:username, :email, :theme)";
+$statement = $db->prepare($query);
+$statement->bindValue(':username', $username);
+$statement->bindValue(':email', $email);
+$statement->bindValue(':theme', "light");
+$statement->execute();
+$statement->closeCursor();
+
 header("Location: login.php");
 
 ?>

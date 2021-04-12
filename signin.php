@@ -14,7 +14,6 @@ if(isset($_POST['submit'])){
     
     if (!empty($results)){
         {
-        echo "line 25!";
         //verify that the typed password matches the hashed password in the table
           if (password_verify($passwordstr, $results[0]['hashed_password'])) 
           {
@@ -23,13 +22,12 @@ if(isset($_POST['submit'])){
             header("Location: home.php");
           } 
           else{
-            echo "that is the wrong password";
+            echo "That's the wrong password. Go back and try again.";
           }
         }
     }
       else{
-        echo "nah this account doesn't exist";
-        $_SESSION['blank'] = "yes";
+        echo "This account doesn't exist.";
         header("Location: signup.php");
         }
 }
