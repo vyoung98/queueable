@@ -2,7 +2,11 @@
 <html lang="en">
 <?php 
   require('connect-db.php');
-  session_start();?>
+  session_start();
+  $theme = $_SESSION['theme'];
+  setcookie('theme', $theme);
+  //print_r($_COOKIE);
+  ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
@@ -110,36 +114,17 @@
                     </div>  
                 </div>
                 <div class="button">
-                    <h2>Customize</h2>
-                </div>
-                <div class="theme-switches">
-                <div data-theme="light" class="switch" id="switch-1"></div>
-                <div data-theme="sky" class="switch" id="switch-2"></div>
-                <div data-theme="purple" class="switch" id="switch-3"></div>
-                <div data-theme="dark" class="switch" id="switch-4"></div>
-                </div>
-                <script>
-                  let switches = document.getElementsByClassName('switch');
-                  let style = localStorage.getItem('style');
-                  if (style == null) {
-                    setTheme('light');
-                  } else {
-                    setTheme(style);
-                  }
 
-                  for (let i of switches) {
-                    i.addEventListener('click', function () {
-                      let theme = this.dataset.theme;
-                      setTheme(theme);
-                      // THIS ARROW FUNCTION SHOWS THE THEME WHEN THE BUTTON IS CLICKED
-                      let color = () => {
-                        return theme;
-                      } 
-                      alert("The current theme is: " + color());
-                    });
-                  }
-
-                    function setTheme(theme) {
+                <div class="form-group">
+                    <h2><label for="exampleFormControlTextarea1">Your Message</label></h2>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn"><a href="eventcreation.php">Create</a></button>
+                
+                <button type="submit" class="btn"><a href="queue.php">My Queues</a></button>
+              </div>
+              <script>
+                function setTheme(theme) {
                     if (theme == 'light') {
                       document.getElementById('switcher-id').href = './themes/light.css';
                     } else if (theme == 'sky') {
@@ -150,18 +135,9 @@
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
                     localStorage.setItem('style', theme);
-                    setcookie('style', theme);
                     }
-                    
-                  </script>
-                <div class="form-group">
-                    <h2><label for="exampleFormControlTextarea1">Your Message</label></h2>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-success"><a href="eventcreation.php">Create</a></button>
-                
-                <button type="submit" class="btn btn-success"><a href="queue.php">My Queues</a></button>
-              </div>
+                    setTheme(theme);
+              </script>
             </div>
           </div>
     </body>

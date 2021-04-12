@@ -2,7 +2,13 @@
 <html lang="en">
 <?php 
   require('connect-db.php');
-  session_start();?>
+  session_start();
+  $username = $_SESSION['user'];
+  //echo $username;
+  $theme = $_SESSION['theme'];
+  setcookie('theme', $theme);
+  //print_r($_COOKIE);
+  ?>
 
     <head>
         <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
@@ -15,6 +21,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <link rel="stylesheet" href="./themes/purple.css">
+        <link rel="stylesheet" id="switcher-id" href="">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -47,7 +54,7 @@
                 <input id="newPassword" name="newPassword" type="password" placeholder="Enter New Password" type="text" required>
                 <p></p>
                 <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" type="text" required>
-                <button class="btn btn-success" type="submit" onclick="">Change Password</button>
+                <button class="btn" type="submit" onclick="">Change Password</button>
               </form>
               </div>
 
@@ -59,7 +66,7 @@
                 <input id="newEmail" name="newEmail" type="text" placeholder="Enter Email Again" required>
                 <p></p>
                 <input id="confirm-email" type="text" placeholder="Confirm New Email" required>
-                <button class="btn btn-success" type="submit" onclick="">Change Email</button>
+                <button class="btn" type="submit" onclick="">Change Email</button>
               </form>
           
               <script type="text/javascript" src="js/script.js"></script>
@@ -131,17 +138,22 @@
                 <script>
                   let switches = document.getElementsByClassName('switch');
                   let style = localStorage.getItem('style');
-                  if (style == null) {
-                    setTheme('light');
-                  } else {
                     setTheme(style);
-                  }
 
                   for (let i of switches) {
                     i.addEventListener('click', function () {
                       let theme = this.dataset.theme;
                       setTheme(theme);
                       // THIS ARROW FUNCTION SHOWS THE THEME WHEN THE BUTTON IS CLICKED
+                      
+                      <?php 
+                      $query = "UPDATE settings SET theme=:theme WHERE username=:username";
+                      $statement = $db->prepare($query);
+                      $statement->bindValue(':theme', $theme);
+                      $statement->bindValue(':username', $username);
+                      $statement->execute();
+                      $statement->closeCursor();
+                      ?>
                       let color = () => {
                         return theme;
                       } 
@@ -159,7 +171,7 @@
                     } else if (theme == 'dark') {
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
-                    localStorage.setItem('style', theme);
+                    //localStorage.setItem('style', theme);
 
                     }
                     
