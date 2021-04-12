@@ -33,7 +33,9 @@
     </head>
     <body>
       <?php include('header.html')?>
-
+      <?php 
+          echo 'Hello ' . htmlspecialchars($_COOKIE["name"]) . '!';
+          ?>
           <div class="container">
             <div class="row">
               <div class="col-sm">
