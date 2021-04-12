@@ -139,7 +139,7 @@
                 </div>
                 <script>
                   let switches = document.getElementsByClassName('switch');
-                  let style = sessionStorage.getItem('style');
+                  let style = localStorage.getItem('style');
                   if (style == null) {
                     setTheme('light');
                   } else {
@@ -168,11 +168,20 @@
                     } else if (theme == 'dark') {
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
-                    sessionStorage.setItem('style', theme);
+                    localStorage.setItem('style', theme);
 
                     }
                     
                   </script>
+                  <!-- sets theme from storage, -->
+                  <script>
+                    function loadTheme() {
+                      if (localStorage && localStorage.getItem(theme)) 
+                        var storedTheme = parseInt(localStorage.getItem('theme'));
+                      else 
+                        setTheme(theme);
+                      
+                    }
               </div>
             </div>
           </div>
@@ -180,7 +189,7 @@
           <script type="text/javascript" src="js/script.js"></script>
           <script>
             window.onload = function() {
-              let style = sessionStorage.getItem('style');
+              let style = localStorage.getItem('style');
               if (style == null) {
                     setTheme('light');
                   } else {

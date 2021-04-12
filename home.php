@@ -118,7 +118,7 @@
                 </div>
                 <script>
                   let switches = document.getElementsByClassName('switch');
-                  let style = sessionStorage.getItem('style');
+                  let style = localStorage.getItem('style');
                   if (style == null) {
                     setTheme('light');
                   } else {
@@ -147,7 +147,7 @@
                     } else if (theme == 'dark') {
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
-                    sessionStorage.setItem('style', theme);
+                    localStorage.setItem('style', theme);
 
                     }
                     
