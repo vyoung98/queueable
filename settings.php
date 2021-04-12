@@ -41,6 +41,7 @@
             <div class="row">
             <div class="col">
                 <h2>Password</h2>
+                <form id ="changepassword" name="changepassword" action="change.php" method="POST">
                 <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter Current Password" type="text" class="required"> <!-- need to put in a validation message if empty -->
                 <p></p>
                 <input id="newPassword" name="newPassword" type="password" placeholder="Enter New Password" type="text" class="required">
@@ -197,23 +198,6 @@
                   }
             }
           </script>
-
-          
-
-            <?php
-
-            $_SESSION["userId"] = "9";
-            $conn = mysqli_connect("localhost", "root", "test", "blog_samples") or die("Connection Error: " . mysqli_error($conn));
-
-            if (count($_POST) > 0) {
-                $result = mysqli_query($conn, "SELECT *from users WHERE userId='" . $_SESSION["userId"] . "'");
-                $row = mysqli_fetch_array($result);
-                if ($_POST["currentPassword"] == $row["password"]) {
-                    mysqli_query($conn, "UPDATE users set password='" . $_POST["newPassword"] . "' WHERE userId='" . $_SESSION["userId"] . "'");
-                    $message = "Password Changed";
-                } else
-                    $message = "Current Password is not correct";
-            }
-            ?>
+            
     </body>
 </html>

@@ -57,6 +57,8 @@
                                 <span class = "label">Re-enter Password</span>
                                 <input type="password" id="re_password" class="form-control" placeholder="Confirm Password">
                         </div>
+                        <input type="hidden" id="signup_time" name="signup_time" value= <?php $_SERVER['REQUEST_TIME']?>>
+
                         <div class="form-group text-center">
                           <input type="submit" name="submit" value="Create an Account" class="btn btn-primary py-3 px-5">
                         </div>

@@ -150,7 +150,7 @@
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
                     localStorage.setItem('style', theme);
-
+                    setcookie('style', theme);
                     }
                     
                   </script>
