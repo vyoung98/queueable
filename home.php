@@ -34,7 +34,7 @@
     <body>
       <?php include('header.html')?>
       <?php 
-          echo 'Hello ' . htmlspecialchars($_COOKIE["name"]) . '!';
+          echo 'Hello ' . htmlspecialchars($_COOKIE["username"]) . '!';
           ?>
           <div class="container">
             <div class="row">

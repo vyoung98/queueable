@@ -6,7 +6,6 @@ if(isset($_POST['submit'])){
 
     $username = $_POST['username'];
     $passwordstr = $_POST['password'];
-
     $query = "SELECT hashed_password FROM users WHERE username = '$username'";
 
     $statement = $db->prepare($query);
