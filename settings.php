@@ -41,24 +41,27 @@
             <div class="row">
             <div class="col">
                 <h2>Password</h2>
-                <form id ="changepassword" name="changepassword" action="change.php" method="POST">
+                <form id ="changepassword" name="changepassword" action="changep.php" method="POST">
                 <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter Current Password" type="text" class="required"> <!-- need to put in a validation message if empty -->
                 <p></p>
                 <input id="newPassword" name="newPassword" type="password" placeholder="Enter New Password" type="text" class="required">
                 <p></p>
                 <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" type="text" class="required">
                 <button class="btn btn-success" type="submit" onclick="">Change Password</button>
+              </form>
               </div>
 
               <div class="col">
                 <h2>Email</h2>
+                <form id ="changeemail" name="changeemail" action="changee.php" method="POST">
                 <input id="old-email" type="text" placeholder="Enter Old Email" class="required"> <!-- need to put in a validation message if empty -->
                 <p></p>
-                <input id="new-email" type="text" placeholder="Enter Email Again" class="required">
+                <input id="newEmail" name="newEmail" type="text" placeholder="Enter Email Again" class="required">
                 <p></p>
                 <input id="confirm-email" type="text" placeholder="Confirm New Email" class="required">
                 <button class="btn btn-success" type="submit" onclick="">Change Email</button>
-                <script>
+              </form>
+                <!-- <script>
                 
                   //Update Email
                   var oldEmail=document.getElementById("old-email");
@@ -92,7 +95,7 @@
                       }
 
                     }
-                </script>
+                </script> -->
 
                 <!-- password check makes all the fields mandatory, checks if the password fields are the same -->
                 <script>
