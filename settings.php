@@ -41,30 +41,43 @@
             <div class="row">
             <div class="col">
                 <h2>Password</h2>
-                <input id="new-game" type="text" placeholder="Enter Old Password" type="text"> <!-- need to put in a validation message if empty -->
+                <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter Current Password" type="text" class="required"> <!-- need to put in a validation message if empty -->
                 <p></p>
-                <input id="new-game" type="text" placeholder="Enter New Password" type="text">
+                <input id="newPassword" name="newPassword" type="password" placeholder="Enter New Password" type="text" class="required">
+                <p></p>
+                <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" type="text" class="required">
                 <button class="btn btn-success" type="submit" onclick="">Change Password</button>
               </div>
 
               <div class="col">
                 <h2>Email</h2>
-                <input id="old-email" type="text" placeholder="Enter Old Email" type="text"> <!-- need to put in a validation message if empty -->
+                <input id="old-email" type="text" placeholder="Enter Old Email" class="required"> <!-- need to put in a validation message if empty -->
                 <p></p>
-                <input id="new-email" type="text" placeholder="Enter Email Again" type="text">
+                <input id="new-email" type="text" placeholder="Enter Email Again" class="required">
+                <p></p>
+                <input id="confirm-email" type="text" placeholder="Confirm New Email" class="required">
                 <button class="btn btn-success" type="submit" onclick="">Change Email</button>
                 <script>
+                
                   //Update Email
                   var oldEmail=document.getElementById("old-email");
                   console.log("old-email");
                   var newEmail=document.getElementById("new-email");  
                   console.log("new-email");
+                  var confirmEmail=document.getElementById("confirm-email");
+                  console.log("confirm-email");
 
                     var updEmail=function(){
                       console.log("Update email...");
                       if (newEmail.value || oldEmail.value == "") {
                         console.log("Error Validation Message");
                         alert("Please fill in the text box.");
+                        return false;
+                      }
+                      //check if email matches confirmed email
+                      else if (newEmail.value != confirmEmail.value) {
+                        console.log("Emails do not match");
+                        alert("Please make sure your emails match.");
                         return false;
                       }
                       else{
@@ -79,6 +92,41 @@
 
                     }
                 </script>
+
+                <!-- password check makes all the fields mandatory, checks if the password fields are the same -->
+                <script>
+                  function changePassword() {
+                    var currentPassword, newPassword, confirmPassword,output = true;
+                    currentPassword = document.frmChange.currentPassword;
+                    newPassword = document.frmChange.newPassword;
+                    confirmPassword = document.frmChange.confirmPassword;
+
+                    if (!currentPassword.value) {
+                      currentPassword.focus();
+                      document.getElementById("currentPassword").innerHTML = "required";
+                      output = false;
+                    }
+                    else if(!newPassword.value) {
+                      newPassword.focus();
+                      document.getElementById("newPassword").innerHTML = "required";
+                      output = false;
+                    }
+                    else if(!confirmPassword.value) {
+                      newPassword.focus();
+                      document.getElementById("confirmPassword").innerHTML = "required";
+                      output = false;
+                    }
+                    if (newPassword.value != confirmPassword.value) {
+                      newPassword.value="";
+                      confirmPassword.value="";
+                      newPassword.focus();
+                      document.getElementById("confirmPassword").innerHTML = "not the same";
+                      output = false;
+                    }
+                    return output;
+                  }
+                  </script>
+
               </div>
 
               <div class="col">
@@ -140,5 +188,23 @@
                   }
             }
           </script>
+
+          
+
+            <?php
+
+            $_SESSION["userId"] = "9";
+            $conn = mysqli_connect("localhost", "root", "test", "blog_samples") or die("Connection Error: " . mysqli_error($conn));
+
+            if (count($_POST) > 0) {
+                $result = mysqli_query($conn, "SELECT *from users WHERE userId='" . $_SESSION["userId"] . "'");
+                $row = mysqli_fetch_array($result);
+                if ($_POST["currentPassword"] == $row["password"]) {
+                    mysqli_query($conn, "UPDATE users set password='" . $_POST["newPassword"] . "' WHERE userId='" . $_SESSION["userId"] . "'");
+                    $message = "Password Changed";
+                } else
+                    $message = "Current Password is not correct";
+            }
+            ?>
     </body>
 </html>
