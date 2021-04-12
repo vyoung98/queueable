@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
             header("Location: home.php");
           } 
           else{
-            echo "they do not match";
+            echo "that is the wrong password";
           }
         }
     }
