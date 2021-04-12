@@ -18,3 +18,6 @@ handlers:
 
 - url: /.*
   script: auto
+
+- url: /login.php
+  script: auto
