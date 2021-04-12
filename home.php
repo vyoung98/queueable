@@ -5,7 +5,7 @@
   session_start();
   $theme = $_SESSION['theme'];
   setcookie('theme', $theme);
-  //print_r($_COOKIE);
+  print_r($_COOKIE);
   ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
@@ -124,6 +124,23 @@
                 <button type="submit" class="btn"><a href="queue.php">My Queues</a></button>
               </div>
               <script>
+                function getCookie(theme) {
+                  var name = theme + "=";
+                  var decodedCookie = decodeURIComponent(document.cookie);
+                  var ca = decodedCookie.split(';');
+                  for(var i = 0; i < ca.length; i++) {
+                      var c = ca[i];
+                      while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                      }
+                      if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                      }
+                    }
+                    return "";
+                  }
+                  var theme = getCookie("theme");
+
                 function setTheme(theme) {
                     if (theme == 'light') {
                       document.getElementById('switcher-id').href = './themes/light.css';

@@ -4,10 +4,10 @@
   require('connect-db.php');
   session_start();
   $username = $_SESSION['user'];
-  //echo $username;
+  echo $username;
   $theme = $_SESSION['theme'];
   setcookie('theme', $theme);
-  //print_r($_COOKIE);
+  print_r($_COOKIE);
   ?>
 
     <head>
@@ -130,19 +130,18 @@
               <div class="col">
                 <h2>Theme Selector</h2>
                 <div class="theme-switches">
-                <div data-theme="light" class="switch" id="switch-1"></div>
-                <div data-theme="sky" class="switch" id="switch-2"></div>
-                <div data-theme="purple" class="switch" id="switch-3"></div>
-                <div data-theme="dark" class="switch" id="switch-4"></div>
+                <div data-theme="light" class="switch" id="switch-1" method="POST"></div>
+                <div data-theme="sky" class="switch" id="switch-2" method="POST"></div>
+                <div data-theme="purple" class="switch" id="switch-3" method="POST"></div>
+                <div data-theme="dark" class="switch" id="switch-4" method="POST"></div>
                 </div>
                 <script>
                   let switches = document.getElementsByClassName('switch');
-                  let style = localStorage.getItem('style');
-                    setTheme(style);
-
                   for (let i of switches) {
                     i.addEventListener('click', function () {
                       let theme = this.dataset.theme;
+                      let savedtheme = this.dataset.theme;
+                      console.log(savedtheme);
                       setTheme(theme);
                       // THIS ARROW FUNCTION SHOWS THE THEME WHEN THE BUTTON IS CLICKED
                       
@@ -171,20 +170,11 @@
                     } else if (theme == 'dark') {
                       document.getElementById('switcher-id').href = './themes/dark.css';
                     }
-                    //localStorage.setItem('style', theme);
+                    localStorage.setItem('style', theme);
 
                     }
                     
                   </script>
-                  <!-- sets theme from storage, -->
-                  <script>
-                    function loadTheme() {
-                      if (localStorage && localStorage.getItem(theme)) 
-                        var storedTheme = parseInt(localStorage.getItem('theme'));
-                      else 
-                        setTheme(theme);
-                      
-                    }
               </div>
             </div>
           </div>
@@ -193,11 +183,7 @@
           <script>
             window.onload = function() {
               let style = localStorage.getItem('style');
-              if (style == null) {
-                    setTheme('light');
-                  } else {
                     setTheme(style);
-                  }
             }
           </script>
             
