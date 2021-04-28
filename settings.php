@@ -4,10 +4,10 @@
   require('connect-db.php');
   session_start();
   $username = $_SESSION['user'];
-  echo $username;
+  // echo $username;
   $theme = $_SESSION['theme'];
   setcookie('theme', $theme);
-  print_r($_COOKIE);
+  // print_r($_COOKIE);
   ?>
 
     <head>

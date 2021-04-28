@@ -3,9 +3,9 @@
 <?php 
   require('connect-db.php');
   session_start();
-  $theme = $_SESSION['theme'];
-  setcookie('theme', $theme);
-  print_r($_COOKIE);
+  // $theme = $_SESSION['theme'];
+  // setcookie('theme', $theme);
+  // print_r($_COOKIE);
   ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">

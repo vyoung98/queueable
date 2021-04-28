@@ -34,7 +34,7 @@
     <body>
       <?php include('header.html')?>
 
-                
+
     <?php
     $number_attempt = null;
     if (isset($_GET['attempt'])) {
