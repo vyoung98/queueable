@@ -1,10 +1,6 @@
-var showInput=document.getElementById("new-show");//Add a new show.
-var showholder=document.getElementById("show-queue");//ul of #show-queue
-
-var gameInput=document.getElementById("new-game");//Add a new game.
-var gameholder=document.getElementById("game-queue");//ul of #game-queue
 
 var bookInput=document.getElementById("new-book");//Add a new book.
+var bookPageInput=document.getElementById("new-book-page");//Add a new book's page number.
 var bookholder=document.getElementById("book-queue");//ul of #book-queue
 
 //New task list item
@@ -35,29 +31,13 @@ var createNewTaskElement=function(taskString){
 	return listItem;
 }
 
-//Add to the Show Queue
-var addShow=function(){
-
-	//Create a new list item with the text from the #new-show:
-	var listItem=createNewTaskElement(showInput.value);
-	if (showInput.value == "") {
-		console.log("Error Validation Message");
-		alert("Please fill in the text box.");
-		return false;
-	}
-	else{
-		console.log("Add show...");
-		//Append listItem to showholder
-		showholder.appendChild(listItem);
-
-		showInput.value="";
-	}
-
-}
 
 //Add to the Game Queue
 var addGame=function(){
-	console.log("Add game...");
+	var gameInput=document.getElementById("new-game");//Add a new game.
+	var gameProgressInput=document.getElementById("new-game-progress");//Add a new game's progress.
+	var gameholder=document.getElementById("game-queue");//ul of #game-queue
+
 	//Create a new list item with the text from the #new-game:
 	var listItem=createNewTaskElement(gameInput.value);
 	if (gameInput.value == "") {
@@ -66,7 +46,7 @@ var addGame=function(){
 		return false;
 	}
 	else{
-		console.log("Add Task...");
+		console.log("Added Show Successfully!");
 		//Append listItem to gameholder
 		gameholder.appendChild(listItem);
 
