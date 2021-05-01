@@ -42,7 +42,7 @@
     </head>
 
     <body>
-          <?php include('header.html')?>
+          <?php include('navbar.php')?>
 
           <div class="container">
             <div class="row">

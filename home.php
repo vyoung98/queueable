@@ -36,7 +36,7 @@
        
     </head>
     <body>
-      <?php include('header.html')?>
+      <?php include('./navbar.php')?>
       <?php 
           echo "Welcome, " . $_SESSION['user'];
           ?>
