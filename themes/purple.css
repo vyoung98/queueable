@@ -302,3 +302,9 @@ label[for='new-task'] {
   p > button:hover {
     color: #0FC57C;
   }
+
+  
+.h6 {
+  font-family: 'Rubik', Arial;
+
+}
