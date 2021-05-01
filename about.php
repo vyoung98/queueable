@@ -33,7 +33,10 @@
        
     </head>
 
-<?php include "./navbar.php" ?>
+<?php require('connect-db.php');
+  session_start();
+  include('navbar.php')
+?>
 
 <div class="page-container">
 
