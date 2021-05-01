@@ -54,6 +54,8 @@
               $shows_info = $statement->fetchAll();
               $statement->closecursor();
             }
+
+            // THIS IS THE ADD GAME STUFF
             if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Add Game'))
             {
               $user = $_SESSION['user'];
@@ -65,6 +67,23 @@
               $statement->bindParam(':username', $user);
               $statement->bindParam(':game_title', $gameTitle);
               $statement->bindParam(':game_progress', $gameProg);
+              $statement->execute();
+              $shows_info = $statement->fetchAll();
+              $statement->closecursor();
+            }
+
+            // THIS IS THE ADD BOOK STUFF
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Add Book'))
+            {
+              $user = $_SESSION['user'];
+              $bookTitle = $_POST['new-book-title'];
+              $bookPage = $_POST['new-book-page'];
+            
+              $query = "INSERT INTO books (username, book_title, page) VALUES (:username, :book_title, :page)";
+              $statement = $db->prepare($query);
+              $statement->bindParam(':username', $user);
+              $statement->bindParam(':book_title', $bookTitle);
+              $statement->bindParam(':page', $bookPage);
               $statement->execute();
               $shows_info = $statement->fetchAll();
               $statement->closecursor();
@@ -146,9 +165,10 @@
           <div class="col">
           <h2>Books</h2>
                 <!-- ADD BUTTON FOR BOOKS-->
-                <input id="new-book-title" type="text" placeholder="Book Title" type="text">
-                <input id="new-book-page" type="text" placeholder="Page #" type="text">
-                <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addBook()">Add</button>
+                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+              <input id="new-book-title" name="new-book-title" type="text" placeholder="Book Title" type="text">
+              <input id="new-book-page" name="new-book-page" type="text" placeholder="Page #" type="text">
+              <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Book" name="action"></input>
 
             <?php 
             $user = $_SESSION['user'];
