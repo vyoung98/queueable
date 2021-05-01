@@ -38,7 +38,12 @@
     <body>
       <?php include('./navbar.php')?>
       <?php 
+        echo '<div class="jumbotron ">';
+        echo '<h1 class="display-3"> <center>';
           echo "Welcome, " . $_SESSION['user'];
+          echo '</center></h1>';
+          echo '</div>';
+
           ?>
           <div class="container">
             <div class="row">
