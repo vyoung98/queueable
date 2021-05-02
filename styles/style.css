@@ -102,6 +102,8 @@ body {font-family: Verdana, sans-serif;}
 
 .container{
     padding: 5%;
+    /* position:absolute;
+    width: 100%; */
 }
 
 /* for the queue page */
@@ -165,4 +167,8 @@ body {font-family: Verdana, sans-serif;}
   margin-top: 20px;
   align-items: center;
   justify-content: space-between;
+}
+.custom input{
+  float:right;
+  display: block;
 }
