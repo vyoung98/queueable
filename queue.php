@@ -130,9 +130,7 @@
                 echo "<ul class='todoList' id='show-queue'>";
                 echo "<div class='custom'><li>" . $row['show_title'] . " S" . $row['season'] . "E" . $row['episode'] . "   ";
 
-                echo "<form action='<?php $_SERVER['PHP_SELF']?>' method='post'>";
                 echo "<input type='submit' value='Delete' name='action' class='btn btn-primary' /></input>";
-                echo "<input type='hidden' name='username' value='<?php echo $g['username'] ?>' />" . "</form>";
 
                 echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>" . "</li></div>";
                 echo "</ul>";
