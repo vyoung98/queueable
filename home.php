@@ -39,96 +39,79 @@
       <?php include('./navbar.php')?>
       <?php 
         echo '<div class="jumbotron ">';
-        echo '<h1 class="display-3"> <center>';
-          echo "Welcome, " . $_SESSION['user'];
+        echo '<center><h1>';
+          if (isset($_SESSION['user'])) {
+            echo "Welcome, " . $_SESSION['user'];
+          }
+          else {
+            echo "Welcome, Guest";
+            echo "</br>";
+            echo '<a href = signup.php> Sign Up? </a>';
+          }
           echo '</center></h1>';
           echo '</div>';
-
           ?>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm">
-
-
-                <h1>My Calendar</h1>
-
-                <div class="month">      
-                  <ul>
-                    <li class="prev">&#10094;</li>
-                    <li class="next">&#10095;</li>
-                    <li>
-                      March<br>
-                      <span style="font-size:18px">2021</span>
-                    </li>
-                  </ul>
-                </div>
-        
-                <ul class="weekdays">
-                  <li>Mo</li>
-                  <li>Tu</li>
-                  <li>We</li>
-                  <li>Th</li>
-                  <li>Fr</li>
-                  <li>Sa</li>
-                  <li>Su</li>
-                </ul>
-        
-                <ul class="days">  
-                  <li>1</li>
-                  <li>2</li>
-                  <li>3</li>
-                  <li>4</li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>10</li>
-                  <li>11</li>
-                  <li>12</li>
-                  <li>13</li>
-                  <li>14</li>
-                  <li>15</li>
-                  <li>16</li>
-                  <li>17</li>
-                  <li>18</li>
-                  <li><span class="active">19</span></li>
-                  <li>20</li>
-                  <li>21</li>
-                  <li>22</li>
-                  <li>23</li>
-                  <li>24</li>
-                  <li>25</li>
-                  <li>26</li>
-                  <li>27</li>
-                  <li>28</li>
-                  <li>29</li>
-                  <li>30</li>
-                  <li>31</li>
-                </ul>
-        
-              </div>
-              
-              <div class="col-sm">
-                <div class="form-group">
-                    <h2>View</h2>
-                    <div class="centered-views">
-                      <button type="button" class="btn">day</button>
-                      <button type="button" class="btn">week</button>
-                      <button type="button" class="btn">month</button>
-                    </div>  
-                </div>
-                <div class="button">
-
-                <div class="form-group">
-                    <h2><label for="exampleFormControlTextarea1">Your Message</label></h2>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn"><a href="eventcreation.php">Create</a></button>
+          <center>
+          <h1>My Calendar</h1>
+          
+          <button type="submit" class="btn"><a href="eventcreation.php">Create</a></button>
+          <button type="submit" class="btn"><a href="queue.php">My Queues</a></button>
+          </center>
+          </br>
+                <?php
+                        $query = "SELECT * FROM events ORDER BY date";
+                        $statement = $db->prepare($query);
+                        $statement->execute();
+                        $events_info = $statement->fetchAll();
+                        $statement->closecursor();
                 
-                <button type="submit" class="btn"><a href="queue.php">My Queues</a></button>
-              </div>
-              <script>
+                        $output = "<h2>Welcome to Modern Business
+                            <div class='container'>
+                            <div class='row'>";
+                
+                        echo "<div class='row'>";
+                        foreach ($events_info as $row) {
+                            // $name = $row['name'];
+                            // $desciption = $row['desciption'];
+                            // $ephoto = $row['ephoto'];
+                            echo "<div class='col-sm-3'>";
+                            echo "<div class='card' style='height: 20vh; width: 20vw; margin-bottom: 5vh;'>";
+                            echo "<div class='card-body'>";
+                
+                            //event_title
+                            echo "<h1 style='text-align:center;'>";
+                            echo $event_title =  $row['event_title'];
+                            echo "</h1>";
+
+                            //friend
+                            echo "<p> Friends Invited: ";
+                            echo $friend =  $row['friend'];
+                            echo "</p>";
+
+                            //date
+                            echo "<p> Event Date (YYYY-MM-DD): ";
+                            echo $date =  $row['date'];
+                            echo "</p>";
+
+                            //start_time & end_time
+                            echo "<p> Time: ";
+                            echo $start_time = $row['start_time'];
+                            echo " - ";
+                            echo $end_time = $row ['end_time'];
+                            echo "</p>";
+
+                            //description
+                            echo "<p> Notes: ";
+                            echo $descr = $row['descr'];
+                            echo "</p>";
+                          
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                        }
+                        echo "</div>";
+                        ?>
+              <!-- <script>
                 function getCookie(theme) {
                   var name = theme + "=";
                   var decodedCookie = decodeURIComponent(document.cookie);
@@ -159,8 +142,6 @@
                     localStorage.setItem('style', theme);
                     }
                     setTheme(theme);
-              </script>
-            </div>
-          </div>
+              </script> -->
     </body>
 </html>

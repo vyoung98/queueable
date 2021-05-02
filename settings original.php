@@ -13,11 +13,10 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['action']) && ($_POST['action'] == 'Favorite')) {
       $username = $_SESSION['user'];
-      $theme = $_POST['switcher-id'];
+      $theme = $_POST['pName2'];
       $query = "UPDATE settings SET theme=:theme WHERE username=:username";
       $statement = $db->prepare($query);
       $statement->bindValue(':theme', $theme);
-      $statement->bindValue(':username', $username);
       $statement->execute();
       $statement->closeCursor();
       echo "Theme changed and saved";
@@ -145,12 +144,10 @@
               <div class="col">
                 <h2>Theme Selector</h2>
                 <div class="theme-switches">
-                <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
-                <div data-theme="light" class="switch" id="switch-1" method="POST" name="action"></div>
-                <div data-theme="sky" class="switch" id="switch-2" method="POST" name="action"></div>
-                <div data-theme="purple" class="switch" id="switch-3" method="POST" name="action"></div>
-                <div data-theme="dark" class="switch" id="switch-4" method="POST" name="action"></div>
-                </form>
+                <div data-theme="light" class="switch" id="switch-1" method="POST"></div>
+                <div data-theme="sky" class="switch" id="switch-2" method="POST"></div>
+                <div data-theme="purple" class="switch" id="switch-3" method="POST"></div>
+                <div data-theme="dark" class="switch" id="switch-4" method="POST"></div>
                 </div>
                 <script>
                   let switches = document.getElementsByClassName('switch');
@@ -161,6 +158,15 @@
                       console.log(savedtheme);
                       setTheme(theme);
                       // THIS ARROW FUNCTION SHOWS THE THEME WHEN THE BUTTON IS CLICKED
+                      
+                      <?php 
+                      $query = "UPDATE settings SET theme=:theme WHERE username=:username";
+                      $statement = $db->prepare($query);
+                      $statement->bindValue(':theme', $theme);
+                      $statement->bindValue(':username', $username);
+                      $statement->execute();
+                      $statement->closeCursor();
+                      ?>
                       let color = () => {
                         return theme;
                       } 
