@@ -53,6 +53,9 @@
           ?>
           <center>
           <h1>My Calendar</h1>
+          
+          <button type="submit" class="btn"><a href="eventcreation.php">Create</a></button>
+          <button type="submit" class="btn"><a href="queue.php">My Queues</a></button>
           </center>
           </br>
                 <?php
@@ -108,9 +111,6 @@
                         }
                         echo "</div>";
                         ?>
-                <button type="submit" class="btn"><a href="eventcreation.php">Create</a></button>
-                
-                <button type="submit" class="btn"><a href="queue.php">My Queues</a></button>
               <!-- <script>
                 function getCookie(theme) {
                   var name = theme + "=";

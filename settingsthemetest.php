@@ -5,23 +5,29 @@
   session_start();
   $username = $_SESSION['user'];
   // echo $username;
-
   $theme = $_SESSION['theme'];
- // setcookie('theme', $theme);
+  setcookie('theme', $theme);
   // print_r($_COOKIE);
-
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['action']) && ($_POST['action'] == 'Favorite')) {
-      $username = $_SESSION['user'];
-      $theme = $_POST['pName2'];
-      $query = "UPDATE settings SET theme=:theme WHERE username=:username";
+      
+      $dob = $_POST['pDOB2'];
+      $image = $_POST['pImg2'];
+      $query = "INSERT INTO favorites (username, name, dob, image) 
+                  VALUES (:username, :name, :dob, :image)";
       $statement = $db->prepare($query);
-      $statement->bindValue(':theme', $theme);
+      $statement->bindValue(':username', $username);
+      $statement->bindValue(':name', $name);
+      $statement->bindValue(':dob', $dob);
+      $statement->bindValue(':image', $image);
       $statement->execute();
       $statement->closeCursor();
-      echo "Theme changed and saved";
+      echo "<script>
+              alert('Pet added to favorites');
+              window.location.href='pets.php';
+              </script>";
+    }
   }
-}
   ?>
 
     <head>
@@ -143,11 +149,12 @@
 
               <div class="col">
                 <h2>Theme Selector</h2>
+
                 <div class="theme-switches">
-                <div data-theme="light" class="switch" id="switch-1" method="POST"></div>
-                <div data-theme="sky" class="switch" id="switch-2" method="POST"></div>
-                <div data-theme="purple" class="switch" id="switch-3" method="POST"></div>
-                <div data-theme="dark" class="switch" id="switch-4" method="POST"></div>
+                <div data-theme="light" class="switch" id="switch-1" method="POST" value="light"></div>
+                <div data-theme="sky" class="switch" id="switch-2" method="POST" value="sky"></div>
+                <div data-theme="purple" class="switch" id="switch-3" method="POST" value="purple"></div>
+                <div data-theme="dark" class="switch" id="switch-4" method="POST" value="dark"></div>
                 </div>
                 <script>
                   let switches = document.getElementsByClassName('switch');
