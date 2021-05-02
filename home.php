@@ -72,7 +72,7 @@
                             // $desciption = $row['desciption'];
                             // $ephoto = $row['ephoto'];
                             echo "<div class='col-sm-3'>";
-                            echo "<div class='card' style='height: 25vh; width: 20vw; margin-bottom: 5vh;'>";
+                            echo "<div class='card' style='height: 20vh; width: 20vw; margin-bottom: 5vh;'>";
                             echo "<div class='card-body'>";
                 
                             //event_title
