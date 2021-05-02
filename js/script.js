@@ -32,50 +32,6 @@ var createNewTaskElement=function(taskString){
 }
 
 
-//Add to the Game Queue
-var addGame=function(){
-	var gameInput=document.getElementById("new-game-title");//Add a new game.
-	var gameProgressInput=document.getElementById("new-game-progress");//Add a new game's progress.
-	var gameholder=document.getElementById("game-queue");//ul of #game-queue
-
-	//Create a new list item with the text from the #new-game:
-	var listItem=createNewTaskElement(gameInput.value);
-	if (gameInput.value == "") {
-		console.log("Error Validation Message");
-		alert("Please fill in the text box.");
-		return false;
-	}
-	else{
-		console.log("Added Show Successfully!");
-		//Append listItem to gameholder
-		gameholder.appendChild(listItem);
-
-		gameInput.value="";
-	}
-
-}
-
-//Add to the Book Queue
-var addBook=function(){
-	console.log("Add book...");
-	//Create a new list item with the text from the #new-game:
-	var listItem=createNewTaskElement(bookInput.value);
-	if (bookInput.value == "") {
-		console.log("Error Validation Message");
-		alert("Please fill in the text box.");
-		return false;
-	}
-	else{
-		console.log("Add Task...");
-		//Append listItem to gameholder
-		bookholder.appendChild(listItem);
-
-		bookInput.value="";
-	}
-
-}
-
-
 // Delete task.
 var deleteTask=function(){
 		console.log("Delete Task...");
