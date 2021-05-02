@@ -11,18 +11,23 @@
   // print_r($_COOKIE);
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST['action']) && ($_POST['action'] == 'Favorite')) {
+    echo $_POST['action'];
+
+    if (!empty($_POST['action'])) {
       $username = $_SESSION['user'];
-      $theme = $_POST['switcher-id'];
+      $theme = $_POST['action'];
       $query = "UPDATE settings SET theme=:theme WHERE username=:username";
       $statement = $db->prepare($query);
       $statement->bindValue(':theme', $theme);
       $statement->bindValue(':username', $username);
       $statement->execute();
       $statement->closeCursor();
-      echo "Theme changed and saved";
   }
-}
+  }
+
+  if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    
+  }
   ?>
 
     <head>
@@ -146,10 +151,17 @@
                 <h2>Theme Selector</h2>
                 <div class="theme-switches">
                 <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
-                <div data-theme="light" class="switch" id="switch-1" method="POST" name="action"></div>
-                <div data-theme="sky" class="switch" id="switch-2" method="POST" name="action"></div>
-                <div data-theme="purple" class="switch" id="switch-3" method="POST" name="action"></div>
-                <div data-theme="dark" class="switch" id="switch-4" method="POST" name="action"></div>
+                <input type="submit" class="switch" id="switch-1" method="POST" name="action" value="light">L</input>
+                <input type="submit" class="switch" id="switch-2" method="POST" name="action" value="sky"></input>
+                <input type="submit" class="switch" id="switch-3" method="POST" name="action" value="purple"></input>
+                <input type="submit" class="switch" id="switch-4" method="POST" name="action" value="dark"></input>
+
+
+                <div data-theme="light" class="switch" id="switch-1" method="POST" name="action" value="light"></div>
+                <div data-theme="sky" class="switch" id="switch-2" method="POST" name="action" value="sky"></div>
+                <div data-theme="purple" class="switch" id="switch-3" method="POST" name="action" value="purple"></div>
+                <div data-theme="dark" class="switch" id="switch-4" method="POST" name="action" value="dark"></div>
+                <!-- <input type="submit"> -->
                 </form>
                 </div>
                 <script>
@@ -164,7 +176,7 @@
                       let color = () => {
                         return theme;
                       } 
-                      alert("The current theme is: " + color());
+                      //alert("The current theme is: " + color());
                     });
                   }
 
