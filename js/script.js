@@ -34,7 +34,7 @@ var createNewTaskElement=function(taskString){
 
 //Add to the Game Queue
 var addGame=function(){
-	var gameInput=document.getElementById("new-game");//Add a new game.
+	var gameInput=document.getElementById("new-game-title");//Add a new game.
 	var gameProgressInput=document.getElementById("new-game-progress");//Add a new game's progress.
 	var gameholder=document.getElementById("game-queue");//ul of #game-queue
 

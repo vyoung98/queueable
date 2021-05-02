@@ -35,7 +35,7 @@
 
     <?php
           // THIS IS THE ADD SHOW PHP STUFF
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Add'))
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Add Show'))
             {
               $user = $_SESSION['user'];
               $showTitle = $_POST['new-show-title'];
@@ -50,6 +50,40 @@
               $statement->bindParam(':show_title', $showTitle);
               $statement->bindParam(':show_season', $showSeason);
               $statement->bindParam(':show_episode', $showEpisode);
+              $statement->execute();
+              $shows_info = $statement->fetchAll();
+              $statement->closecursor();
+            }
+
+            // THIS IS THE ADD GAME STUFF
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Add Game'))
+            {
+              $user = $_SESSION['user'];
+              $gameTitle = $_POST['new-game-title'];
+              $gameProg = $_POST['new-game-progress'];
+            
+              $query = "INSERT INTO games (username, game_title, progress) VALUES (:username, :game_title, :game_progress)";
+              $statement = $db->prepare($query);
+              $statement->bindParam(':username', $user);
+              $statement->bindParam(':game_title', $gameTitle);
+              $statement->bindParam(':game_progress', $gameProg);
+              $statement->execute();
+              $shows_info = $statement->fetchAll();
+              $statement->closecursor();
+            }
+
+            // THIS IS THE ADD BOOK STUFF
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Add Book'))
+            {
+              $user = $_SESSION['user'];
+              $bookTitle = $_POST['new-book-title'];
+              $bookPage = $_POST['new-book-page'];
+            
+              $query = "INSERT INTO books (username, book_title, page) VALUES (:username, :book_title, :page)";
+              $statement = $db->prepare($query);
+              $statement->bindParam(':username', $user);
+              $statement->bindParam(':book_title', $bookTitle);
+              $statement->bindParam(':page', $bookPage);
               $statement->execute();
               $shows_info = $statement->fetchAll();
               $statement->closecursor();
@@ -74,8 +108,7 @@
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
                 <input id="new-show-title" name="new-show-title" type="text" placeholder="Show Title" type="text">
                 <input id="new-show-progress" name="new-show-progress" type="text" placeholder="Season; Episode" type="text">
-                <input type="submit" class="btn btn-success my-2 my-sm-0" onclick="addShow()" value="Add" name="action"></input>
-                <!-- <input type="submit" value="addShow" name="action" class="btn btn-secondary" /> -->
+                <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Show" name="action"></input>
                 </form>
 
           <?php 
@@ -99,12 +132,14 @@
         ?>
         </div>
 
-            <div class="col">
-              <h2>Games</h2>
+          <div class="col">
+            <h2>Games</h2>
               <!-- ADD BUTTON FOR GAMES -->
-              <input id="new-game-title" type="text" placeholder="Game Title" type="text">
-              <input id="new-game-progress" type="text" placeholder="Progress" type="text">
-              <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addGame()">Add</button>
+              <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+              <input id="new-game-title" name="new-game-title" type="text" placeholder="Game Title" type="text">
+              <input id="new-game-progress" name="new-game-progress" type="text" placeholder="Progress" type="text">
+              <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Game" name="action"></input>
+          </form>
 
             <?php 
             $user = $_SESSION['user'];
@@ -130,9 +165,10 @@
           <div class="col">
           <h2>Books</h2>
                 <!-- ADD BUTTON FOR BOOKS-->
-                <input id="new-book-title" type="text" placeholder="Book Title" type="text">
-                <input id="new-book-page" type="text" placeholder="Page #" type="text">
-                <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="addBook()">Add</button>
+                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+              <input id="new-book-title" name="new-book-title" type="text" placeholder="Book Title" type="text">
+              <input id="new-book-page" name="new-book-page" type="text" placeholder="Page #" type="text">
+              <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Book" name="action"></input>
 
             <?php 
             $user = $_SESSION['user'];
