@@ -48,10 +48,13 @@
         </style>
        
     </head>
-
+    <?php include('navbar.php')?>
     <body>
-          <?php include('navbar.php')?>
-
+          <div class="jumbotron">
+                <center>
+              <h1>Settings</h1>
+                </center>
+            </div>
           <div class="container">
             <div class="row">
             <div class="col">
