@@ -37,6 +37,8 @@ function addFriend($name, $email, $f_name, $f_email) {
     $statement->execute();
     $statement->closeCursor();
 }
-
+if(isset($request->email)) {
+    addFriend($request->name, $request-> email, $request->f_name, $request->f_email);
+}
 echo json_encode(['content'=>$data, 'response_on'=> $current_date]);
 ?>
