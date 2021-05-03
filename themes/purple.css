@@ -73,14 +73,18 @@ body {font-family: Verdana, sans-serif;}
   margin: 10px;
 }
 
-/* Month header */
-.month {
-  padding: 70px 25px;
-  width: 100%;
-  background: #8b3d63;
-  text-align: center;
+p {
+  font-family: 'Rubik', 'Arial';
 }
 
+.h1 {
+  font-family: 'Rubik', 'Arial';
+}
+
+h2 {
+  font-family: 'Rubik', 'Arial';
+  font-size: 25px;
+}
 
 .column {
     float: left;
