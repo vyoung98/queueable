@@ -1,8 +1,4 @@
 
-var bookInput=document.getElementById("new-book");//Add a new book.
-var bookPageInput=document.getElementById("new-book-page");//Add a new book's page number.
-var bookholder=document.getElementById("book-queue");//ul of #book-queue
-
 //New task list item
 var createNewTaskElement=function(taskString){
 
@@ -29,18 +25,6 @@ var createNewTaskElement=function(taskString){
 	listItem.appendChild(spacer);
     listItem.appendChild(deleteButton);
 	return listItem;
-}
-
-
-// Delete task.
-var deleteTask=function(){
-		console.log("Delete Task...");
-
-		var listItem=this.parentNode;
-		var ul=listItem.parentNode;
-		//Remove the parent list item from the ul list.
-		ul.removeChild(listItem);
-
 }
 
 var ajaxRequest=function(){

@@ -147,6 +147,20 @@
               $shows_info = $statement->fetchAll();
               $statement->closecursor();
             }
+
+            // EDIT SHOW STUFF
+            if (!empty($_POST['action']) && ($_POST['action'] == 'Edit Show'))
+            {
+                $_SESSION['id'] = $_POST['show_title'];
+                header("Location: showEdit.php");
+            }
+
+            // EDIT GAME STUFF
+            if (!empty($_POST['action']) && ($_POST['action'] == 'Edit Game'))
+            {
+                $_SESSION['id'] = $_POST['game_title'];
+                header("Location: gameEdit.php");
+            }
           ?>
 
     <body>
@@ -194,7 +208,9 @@
                 echo "<div class='custom'><li>" . $row['show_title'] . " S" . $row['season'] . "E" . $row['episode'];
                 
                 // EDIT BUTTON
-                echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>";
+                echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
+                echo '<input class="btn btn-primary" type="submit" value="Edit Show" name="action" />';
+                echo '<input type="hidden" name="show_title" value="' . $row['show_title'] . '" />';
 
                 // DELETE BUTTON
                 echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
@@ -235,7 +251,9 @@
                   echo "<div class='custom'><li>" . $row['game_title'] . ": " . $row['progress'];
                   
                   // EDIT BUTTON
-                  echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>";
+                  echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
+                  echo '<input class="btn btn-primary" type="submit" value="Edit Game" name="action" />';
+                  echo '<input type="hidden" name="game_title" value="' . $row['game_title'] . '" />';
 
                   // DELETE BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
