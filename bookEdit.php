@@ -45,20 +45,20 @@
                 window.location.href='queue.php';
                 </script>";
         }
-        $game_title = $_SESSION['id'];
+        $book_title = $_SESSION['id'];
         $username = $_SESSION['user'];
 
-        $query = "SELECT * FROM games WHERE game_title = :game_title AND username = :username";
+        $query = "SELECT * FROM books WHERE book_title = :book_title AND username = :username";
         $statement = $db->prepare($query);
-        $statement->bindParam(':game_title', $game_title);
+        $statement->bindParam(':book_title', $book_title);
         $statement->bindParam(':username', $username);
         $statement->execute();
             
         // fetchAll() returns an array for all of the rows in the result set
-        $game_info = $statement->fetchAll();
+        $book_info = $statement->fetchAll();
         // closes the cursor and frees the connection to the server so other SQL statements may be issued
         $statement->closecursor();
-        $progress = $game_info[0]['progress'];
+        $page = $book_info[0]['page'];
 
         //checks for post
         if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -74,17 +74,17 @@
                 $progress = $_POST['progress'];
                 $username = $_SESSION['user'];
 
-                $query = "UPDATE games SET progress=:progress
-                    WHERE username=:username AND game_title=:game_title";
+                $query = "UPDATE books SET page=:page
+                    WHERE username=:username AND book_title=:book_title";
                 $statement = $db->prepare($query);
-                $statement->bindValue(':game_title', $game_title);
+                $statement->bindValue(':book_title', $book_title);
                 $statement->bindValue(':username', $username); 
-                $statement->bindValue(':progress', $progress);                
+                $statement->bindValue(':page', $page);                
                 $statement->execute();
                 $statement->closeCursor();
                 unset($_SESSION['id']);
                 echo "<script>
-                alert('Game updated');
+                alert('Book updated');
                 window.location.href='queue.php';
                 </script>";
             }
@@ -100,9 +100,9 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="editForm" method="post">
 
             <div class = "col">
-                <label for="progress">How far are you?</label>
-                <input type="text" class="form-control" id="progress" name="progress" placeholder="Progress" required
-                value="<?php echo $progress;?>">
+                <label for="page">What page are you on?</label>
+                <input type="text" class="form-control" id="page" name="page" placeholder="Page #" required
+                value="<?php echo $page;?>">
             </div>
 
             <div class="row">
