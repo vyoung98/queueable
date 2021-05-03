@@ -93,8 +93,8 @@
       </div>
       <br>
       <!-- more buttons -->
+
       <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-      <button class="btn" (click)="confirmSubmit(heroForm.value)" value="submit" name="action">Save Request</button>
       <button class="btn btn-default" ><a [href]="'mailto:'+
                                                   model.f_email+
                                                   '?subject=Friend Request to: '+
@@ -102,6 +102,8 @@
                                                   '&body='+
                                                   model.message" 
                                                   target="_blank">Send an Email!</a></button>
+      <button class="btn" *ngIf="!done" (click)="confirmSubmit(heroForm.value)" value="submit" name="action">Save Request</button>
+      <div class="alert" *ngIf="done" style="padding: 5px; background-color: #cfa3c0;">{{ (confirm_msg)}}</div>
     </div>
   </div>
   

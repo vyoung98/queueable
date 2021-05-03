@@ -20,7 +20,7 @@ export class ConfigService {
 })
 export class FriendFormComponent {
 
-  confirm_msg = "";
+  confirm_msg = "Message Sent!";
   submitted = false;
   done = false;
   // creating the pre-populated friend object
@@ -45,10 +45,8 @@ export class FriendFormComponent {
   confirmSubmit(friend: Friend): void{
     
     // submits and send post information to post file
-    this.confirm_msg += friend.name + " and " + friend.f_name + "are now friends!";
+    this.confirm_msg += " " + friend.name + ", you have sent your message to " + friend.f_name;
     this.done = true;
-
-    // console.log(course);
     this.sendPost(friend).subscribe(
       res=>{
         console.log(res);
