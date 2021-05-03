@@ -6,7 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { HttpClientModule } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, endWith, retry } from 'rxjs/operators';
 
 @Injectable()
 export class ConfigService {
@@ -33,27 +33,11 @@ export class FriendFormComponent {
     this.model = new Friend('', '', '', '', '');
 
   }
-  status: boolean = false;
-  isValid() {
-    
-  } 
 
 
   //testing
   constructor(private http: HttpClient) { }
 
-  setUser2(friend: Friend): void{ //git user email
-    this.http.get('http://localhost/CS-4640-Project/PHP/getUser.php',{withCredentials:true})
-    .subscribe(
-    (data)=>{
-      friend["name"]=(friend.f_name);
-    });
-
-  }
-
-  redirect(): void{
-    window.location.href = "http://localhost/CS-4640-Project/PHP/requirementsPage.php";
-  }
   confirmSubmit(friend: Friend): void{
     
     // submits and send post information to post file
@@ -73,7 +57,7 @@ export class FriendFormComponent {
   sendPost(data: any): Observable<any>{ 
     //send post to PHP
     return this.http.post('http://localhost/queueable/ng-post.php', data);
-    
+
   }
 
 
