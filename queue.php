@@ -199,7 +199,7 @@
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="needs-validation" novalidate>
                 <input id="new-show-title" name="new-show-title" type="text" placeholder="Show Title" type="text" required>
                 <input id="new-show-progress" name="new-show-progress" type="text" placeholder="Season; Episode" type="text" required>
-                <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Show" name="action"></input>
+                <input type="submit" class="btn" value="Add Show" name="action"></input>
                 </form></center>
 
           <?php 
@@ -222,12 +222,12 @@
                 
                 // EDIT BUTTON
                 echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
-                echo '<input class="btn btn-primary" type="submit" value="Edit Show" name="action" />';
+                echo '<input class="btn" type="submit" value="Edit Show" name="action" />';
                 echo '<input type="hidden" name="show_title" value="' . $row['show_title'] . '" />';
 
                 // DELETE BUTTON
                 echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
-                echo '<input class="btn btn-primary" type="submit" value="Delete Show" name="action" />';
+                echo '<input class="btn" type="submit" value="Delete Show" name="action" />';
                 echo '<input type="hidden" name="show_title" value="' . $row['show_title'] . '" />' . "</li>";
                 
                 echo "</div></form>";
@@ -242,7 +242,7 @@
               <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
               <input id="new-game-title" name="new-game-title" type="text" placeholder="Game Title" type="text">
               <input id="new-game-progress" name="new-game-progress" type="text" placeholder="Progress" type="text">
-              <input type="submit" class="btn my-2 my-sm-0" value="Add Game" name="action"></input>
+              <input type="submit" class="btn" value="Add Game" name="action"></input>
           </form></center>
 
             <?php 
@@ -265,7 +265,7 @@
                   
                   // EDIT BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
-                  echo '<input class="btn btn-primary" type="submit" value="Edit Game" name="action" />';
+                  echo '<input class="btn" type="submit" value="Edit Game" name="action" />';
                   echo '<input type="hidden" name="game_title" value="' . $row['game_title'] . '" />';
 
                   // DELETE BUTTON
@@ -285,7 +285,7 @@
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
               <input id="new-book-title" name="new-book-title" type="text" placeholder="Book Title" type="text">
               <input id="new-book-page" name="new-book-page" type="text" placeholder="Page #" type="text">
-              <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Book" name="action"></input></center>
+              <input type="submit" class="btn" value="Add Book" name="action"></input></center>
 
             <?php 
             $user = $_SESSION['user'];
@@ -307,12 +307,12 @@
 
                   // EDIT BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
-                  echo '<input class="btn btn-primary" type="submit" value="Edit Book" name="action" />';
+                  echo '<input class="btn" type="submit" value="Edit Book" name="action" />';
                   echo '<input type="hidden" name="game_title" value="' . $row['book_title'] . '" />';
 
                   // DELETE BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
-                  echo '<input class="btn btn-primary" type="submit" value="Delete Book" name="action" />';
+                  echo '<input class="btn" type="submit" value="Delete Book" name="action" />';
                   echo '<input type="hidden" name="book_title" value="' . $row['book_title'] . '" />' . "</li>";
                   
                   echo "</div></form>";
