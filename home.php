@@ -144,6 +144,7 @@
                       echo 'document.getElementById("switcher-id").href = "./themes/dark.css"; }';
                     echo 'else { alert("problem")}';
                     echo 'localStorage.setItem("style",' . $theme . '); }';
+                  echo '</script>';
                   }
                 ?>
               <script>
@@ -176,6 +177,8 @@
                     localStorage.setItem('style', theme);
                     }
                     setTheme(theme);
+              console.log(<?php $theme ?>);
+              setTheme(<?php $theme ?>);
               </script>
     </body>
 </html>

@@ -26,9 +26,11 @@
             h1	{font-family: 'Rubik', Arial;
                 }
             h2   {font-family: 'Rubik', 'Arial';
-                  font-size: 25px;
+                  font-size: 4em;
                 }
             p   {font-family: 'Rubik', 'Arial';
+                }
+            input   {font-family: 'Rubik', 'Arial';
                 }
         </style>
        
@@ -41,19 +43,25 @@
               $user = $_SESSION['user'];
               $showTitle = $_POST['new-show-title'];
               $showProg = $_POST['new-show-progress'];
-              $pieces = explode(";", $showProg);
-              $showSeason = $pieces[0];
-              $showEpisode = $pieces[1];
-            
-              $query = "INSERT INTO shows (username, show_title, season, episode) VALUES (:username, :show_title, :show_season, :show_episode)";
-              $statement = $db->prepare($query);
-              $statement->bindParam(':username', $user);
-              $statement->bindParam(':show_title', $showTitle);
-              $statement->bindParam(':show_season', $showSeason);
-              $statement->bindParam(':show_episode', $showEpisode);
-              $statement->execute();
-              $shows_info = $statement->fetchAll();
-              $statement->closecursor();
+              if (preg_match('(\d+;\d+)', $showProg) == True) {
+                $pieces = explode(";", $showProg);
+              
+                $showSeason = $pieces[0];
+                $showEpisode = $pieces[1];
+
+                $query = "INSERT INTO shows (username, show_title, season, episode) VALUES (:username, :show_title, :show_season, :show_episode)";
+                $statement = $db->prepare($query);
+                $statement->bindParam(':username', $user);
+                $statement->bindParam(':show_title', $showTitle);
+                $statement->bindParam(':show_season', $showSeason);
+                $statement->bindParam(':show_episode', $showEpisode);
+                $statement->execute();
+                $shows_info = $statement->fetchAll();
+                $statement->closecursor();
+              }
+              else {
+                echo "<script> alert('Please enter Season/Episode in given format: DIGIT ; DIGIT'); </script>";
+              }
             }
 
             // THIS IS THE ADD GAME STUFF
@@ -161,9 +169,13 @@
           ?>
 
           <!-- <div class="container"> -->
-          <center><h2>My Queues</h2></center>
+          <div class="jumbotron">
+                <center>
+              <h1>My Queues</h1>
+                </center>
+            </div>
             <div class="row">
-              <div class="col">
+              <div class="col border bg-light">
                 <center><h2>Shows</h2>
                 <!-- ADD BUTTON FOR SHOWS -->
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
@@ -182,7 +194,8 @@
           $statement->closecursor();
           
           if (empty($shows_info)) {
-            echo "You aren't watching any shows right now.";
+            echo "<p style='text-align:center';>";
+            echo "You aren't watching any shows right now. <p>";
 
           } else {
             foreach ($shows_info as $row) {
@@ -205,7 +218,7 @@
         ?>
         </div>
 
-          <div class="col">
+        <div class="col border bg-light">
           <center><h2>Games</h2>
               <!-- ADD BUTTON FOR GAMES -->
               <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
@@ -224,7 +237,8 @@
             $statement->closecursor();
             
             if (empty($games_info)) {
-              echo "You aren't playing any games right now.";
+              echo "<p style='text-align:center';>";
+              echo "You aren't playing any games right now. </p>";
 
             } else {
               foreach ($games_info as $row) {
@@ -247,7 +261,7 @@
             ?>
           </div>
 
-          <div class="col">
+          <div class="col border bg-light">
           <center><h2>Books</h2>
                 <!-- ADD BUTTON FOR BOOKS-->
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
@@ -265,7 +279,8 @@
             $statement->closecursor();
             
             if (empty($books_info)) {
-              echo "You aren't reading any books right now.";
+              echo "<p style='text-align:center';>";
+              echo "You aren't reading any books right now. </p>";
 
             } else {
               foreach ($books_info as $row) {
