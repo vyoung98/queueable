@@ -5,7 +5,6 @@
   session_start();
   $username = $_SESSION['user'];
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo $_POST['action'];
     if (!empty($_POST['action'])) {
       $username = $_SESSION['user'];
       $theme = $_POST['action'];
@@ -140,16 +139,13 @@
                 <h2>Theme Selector</h2>
                 <div class="theme-switches">
                 <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
-                <input type="submit" class="switch" id="switch-1" method="POST" name="action" value="light">L</input>
-                <input type="submit" class="switch" id="switch-2" method="POST" name="action" value="sky"></input>
-                <input type="submit" class="switch" id="switch-3" method="POST" name="action" value="purple"></input>
-                <input type="submit" class="switch" id="switch-4" method="POST" name="action" value="dark"></input>
+                <input type="submit" class="switch-1" id="switch-1" method="POST" name="action" value="light"></input>
+                <input type="submit" class="switch-2" id="switch-2" method="POST" name="action" value="sky"></input>
+                <input type="submit" class="switch-3" id="switch-3" method="POST" name="action" value="purple"></input>
+                <input type="submit" class="switch-4" id="switch-4" method="POST" name="action" value="dark"></input>
 
 
-                <div data-theme="light" class="switch" id="switch-1" method="POST" name="action" value="light"></div>
-                <div data-theme="sky" class="switch" id="switch-2" method="POST" name="action" value="sky"></div>
-                <div data-theme="purple" class="switch" id="switch-3" method="POST" name="action" value="purple"></div>
-                <div data-theme="dark" class="switch" id="switch-4" method="POST" name="action" value="dark"></div>
+                
                 <!-- <input type="submit"> -->
                 </form>
                 </div>
