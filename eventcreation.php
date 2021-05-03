@@ -36,48 +36,94 @@
     </head>
     <body>
       <?php include('navbar.php')?>
+    
+      <?php
+    //checks that the user is logged in
+    if (isset($_SESSION['user'])){
+        //checks for post
+        if ($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            if (!empty($_POST['action']) && ($_POST['action'] == 'Cancel'))
+            {
+                unset($_SESSION['id']);
+                header("Location: home.php");
+            }
+            else
+            {
+                $username = $_SESSION['user'];
+                $title = $_POST['title'];
+                $friend = $_POST['friend'];
+                $date = $_POST['date'];
+                $starttime = $_POST['starttime'];
+                $endtime = $_POST['endtime'];
+                $descr = $_POST['descr'];
+
+                $query = "INSERT INTO events (username, event_title, friend, date, start_time, end_time, descr) 
+                    VALUES (:username, :title, :friend, :date, :starttime, :endtime, :descr)";
+                $statement = $db->prepare($query);
+                $statement->bindValue(':username', $username);
+                $statement->bindValue(':title', $title);
+                $statement->bindValue(':friend', $friend);
+                $statement->bindValue(':date', $date);
+                $statement->bindValue(':starttime', $starttime);
+                $statement->bindValue(':endtime', $endtime);
+                $statement->bindValue(':descr', $descr);         
+                $statement->execute();
+                $statement->closeCursor();
+                unset($_SESSION['id']);
+                echo "<script>
+                alert('Event created');
+                window.location.href='home.php';
+                </script>";
+            }
+          }
+        }
+      ?>
 
           <div class="container">
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" novalidate>
               <div class="form-group">
                 <label for="title">Event Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Title" required>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
               </div>
 
               <div class="form-group">
                 <label for="inviteFriend">Invite a Friend:</label>
-                <select class="form-control" id="inviteFriend">
-                  <option>None</option>
-                  <option>Vivian</option>
-                  <option>Val</option>
+                <input type="text" class="form-control" id="friend" name="friend" placeholder="friend" required>
                 </select>
               </div>
 
               <div class="form-group">
                 <label class="control-label" for="date">Date</label>
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" required>
+                <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text" required>
               </div>
 
               <div class="form-row">
                 <div class="col">
                 <label class="control-label" for="date">Start Time</label>
-                  <input type="text" class="form-control" id="starttime" placeholder="00:00" required>
+                  <input type="text" class="form-control" id="starttime" name="starttime" placeholder="00:00" required>
                 </div>
 
                 <div class="col">
                 <label class="control-label" for="date">End Time</label>
-                  <input type="text" class="form-control" id="endtime" placeholder="01:00" required>
+                  <input type="text" class="form-control" id="endtime" name="endtime" placeholder="01:00" required>
                 </div>
               </div>
 
               <p></p>
               <div class="form-group">
                 <label for="descr">Description</label>
-                <textarea class="form-control" id="descr" rows="3"></textarea>
+                <textarea class="form-control" id="descr" name="descr" rows="3"></textarea>
               </div>
 
-              <br><br>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="row">
+                <div class="form-group col-md">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+                </br>
+              <div class="form-group col-md">
+                <input type="submit" value="Cancel" name="action" class="btn btn-secondary" />
+              </div>
             </form>
           </div>
 
