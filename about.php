@@ -2,7 +2,10 @@
 <html lang="en">
 <?php require('connect-db.php');
   session_start();
-  $username = $_SESSION['user'];
+  
+  if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+  }
   include('navbar.php')
 
 ?>
