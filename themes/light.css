@@ -1,7 +1,7 @@
 :root {
   --light: #ffffff;
   --sky: #7f9cf5;
-  --purple: #97266d;
+  --purple: #8b3d63;
   --dark: #242424;
 }
 
@@ -63,8 +63,11 @@ header {
   background-color: var(--dark);
 }
 
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
+ul {
+  font-family: 'Rubik', 'Arial';
+  list-style-type: none;
+}
+body {font-family: 'Rubik', sans-serif;}
 
 
 .btn {
@@ -73,6 +76,18 @@ body {font-family: Verdana, sans-serif;}
   margin: 10px;
 }
 
+p {
+  font-family: 'Rubik', 'Arial';
+}
+
+.h1 {
+  font-family: 'Rubik', 'Arial';
+}
+
+h2 {
+  font-family: 'Rubik', 'Arial';
+  font-size: 25px;
+}
 
 .column {
     float: left;
@@ -105,7 +120,7 @@ body {font-family: Verdana, sans-serif;}
 }
 ::selection{
   color: #ffff;
-  background: #bababa;
+  background: #c987a7;
 }
 /* .wrapper{
   background: #fff;
@@ -137,7 +152,7 @@ body {font-family: Verdana, sans-serif;}
   transition: all 0.3s ease;
 }
 .inputField input:focus{
-  border-color: #8b3d63;
+  border-color: #bababa;
 }
 .inputField button{
   width: 50px;
@@ -147,7 +162,7 @@ body {font-family: Verdana, sans-serif;}
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background: #8b3d63;
+  background: #bababa;
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.6;
@@ -155,12 +170,20 @@ body {font-family: Verdana, sans-serif;}
   transition: all 0.3s ease;
 }
 .inputField button:hover,
+.inputField button.active{
+  opacity: 1;
+  pointer-events: auto;
+}
 .footer button:hover{
-  background: #8b3d63;
+  background: #bababa;
 }
 .inputField button.active{
   opacity: 1;
   pointer-events: auto;
+}
+.custom input{
+  float:right;
+  display: block;
 }
 .wrapper .todoList{
   max-height: 250px;
@@ -208,7 +231,7 @@ body {font-family: Verdana, sans-serif;}
   font-weight: 400;
   font-size: 16px;
   margin-left: 5px;
-  background: #8b3d63;
+  background: #bababa;
   cursor: pointer;
   user-select: none;
   opacity: 0.6;
@@ -233,6 +256,8 @@ label[for='new-task'] {
     color: #0FC57C;
   }
 
-.h2 {
-  font-size: 100px;
+  
+.h6 {
+  font-family: 'Rubik', Arial;
+
 }
