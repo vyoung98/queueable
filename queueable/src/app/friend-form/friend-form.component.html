@@ -7,10 +7,6 @@
           <input type="text" class="form-control" id="name" required
                  [(ngModel)]="model.name" name="name"
                  #name="ngModel">
-          <!-- <div [hidden]="name.valid || name.pristine"
-               class="alert alert-danger">
-            Name is required
-          </div> -->
           <div *ngIf="!name.valid"> Name is required</div>
             <div *ngIf="name.valid"> ✔ </div>
         </div>
@@ -29,10 +25,6 @@
           <input type="text" class="form-control" id="f_name" required
                  [(ngModel)]="model.f_name" name="f_name"
                  #f_name="ngModel">
-            <!-- <div [hidden]="f_name.valid || f_name.pristine"
-                 class="alert alert-danger">
-              Friend's name is required
-            </div> -->
             <div *ngIf="!f_name.valid"> Please enter Friend's Name</div>
             <div *ngIf="f_name.valid"> ✔ </div>
         </div>
