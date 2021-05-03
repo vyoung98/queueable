@@ -193,7 +193,7 @@
           <!-- <div class="container"> -->
           <div class="jumbotron">
                 <center>
-              <h2>My Queues</h2>
+              <h1>My Queues</h1>
                 </center>
             </div>
             <div class="row">
