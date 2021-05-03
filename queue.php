@@ -43,11 +43,6 @@
               $user = $_SESSION['user'];
               $showTitle = $_POST['new-show-title'];
               $showProg = $_POST['new-show-progress'];
-              // $pieces = explode(";", $showProg);
-              
-              // $showSeason = $pieces[0];
-              // $showEpisode = $pieces[1];
-
               if (preg_match('(\d+;\d+)', $showProg) == True) {
                 $pieces = explode(";", $showProg);
               
@@ -67,16 +62,6 @@
               else {
                 echo "<script> alert('Please enter Season/Episode in given format: DIGIT ; DIGIT'); </script>";
               }
-            
-              // $query = "INSERT INTO shows (username, show_title, season, episode) VALUES (:username, :show_title, :show_season, :show_episode)";
-              // $statement = $db->prepare($query);
-              // $statement->bindParam(':username', $user);
-              // $statement->bindParam(':show_title', $showTitle);
-              // $statement->bindParam(':show_season', $showSeason);
-              // $statement->bindParam(':show_episode', $showEpisode);
-              // $statement->execute();
-              // $shows_info = $statement->fetchAll();
-              // $statement->closecursor();
             }
 
             // THIS IS THE ADD GAME STUFF
