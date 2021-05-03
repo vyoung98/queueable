@@ -37,7 +37,6 @@
                 }
             li {
               font-family: 'Rubik', 'Arial';
-              font-size: 1.1em;
             }
         </style>
        
