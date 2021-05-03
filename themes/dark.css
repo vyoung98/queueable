@@ -1,12 +1,18 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+.h6 {
+  font-family: 'Rubik', 'Arial';
+  color: white !important;
+}
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
   height: 100vh;
   overflow-x: hidden;
   background-color: #3b3b3b;
