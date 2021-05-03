@@ -64,7 +64,7 @@
         </div>
   
         <!-- all the buttons -->
-        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid" [ngStyle]="heroForm.form.valid ? {'background-color': '#8b3d63'} : {'background-color': 'grey'}">Submit</button>
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid" [ngStyle]="heroForm.form.valid ? {'background-color': '#8b3d63'} : {'background-color': 'grey'}" >Submit</button>
         <button type="button" class="btn btn-default" (click)="newFriend(); heroForm.reset()">New Friend Request (<i>resets form</i>)</button>
         <p *ngIf="!heroForm.form.valid" [ngStyle]="{color: 'red'}"> Please enter in all values</p>
       </form>
@@ -95,6 +95,7 @@
       <br>
       <!-- more buttons -->
       <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+      <button class="btn" (click)="confirmSubmit(heroForm.value)" value="submit" name="action">Save Request</button>
       <button class="btn btn-default" ><a [href]="'mailto:'+
                                                   model.f_email+
                                                   '?subject=Friend Request to: '+

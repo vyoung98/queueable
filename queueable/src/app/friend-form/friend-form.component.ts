@@ -67,13 +67,13 @@ export class FriendFormComponent {
       }
     )
 
-    setTimeout(function(){ window.location.href = "http://localhost/queueable/queue.php"; }, 10000);
+    //setTimeout(function(){ window.location.href = "http://localhost/queueable/queue.php"; }, 10000);
     
   }
-
   sendPost(data: any): Observable<any>{ 
     //send post to PHP
-    return this.http.post('http://localhost/queueable/ngphp-post.php', data);
+    return this.http.post('http://localhost/queueable/ng-post.php', data);
+    
   }
 
 
