@@ -5,7 +5,7 @@
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="name.valid ? 'input-success' : 'input-error'">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name" required
-                 [(ngModel)]="model.name" name="name"
+                 [(ngModel)]="model.name" name="name" placeholder="Your Name"
                  #name="ngModel">
           <div *ngIf="!name.valid"> Name is required</div>
             <div *ngIf="name.valid"> ✔ </div>
@@ -14,7 +14,7 @@
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="email.valid ? 'input-success' : 'input-error'">
             <label for="email">My Email</label>
             <input type="text" class="form-control" id="email" required
-                   [(ngModel)]="model.email" name="email"
+                   [(ngModel)]="model.email" name="email" placeholder="you@example.com"
                    #email="ngModel">
           <div *ngIf="!email.valid"> Please enter Your Email</div>
           <div *ngIf="email.valid"> ✔ </div>
@@ -23,7 +23,7 @@
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="f_name.valid ? 'input-success' : 'input-error'">
           <label for="f_name">Friend's Name</label>
           <input type="text" class="form-control" id="f_name" required
-                 [(ngModel)]="model.f_name" name="f_name"
+                 [(ngModel)]="model.f_name" name="f_name" placeholder="Friend's Name"
                  #f_name="ngModel">
             <div *ngIf="!f_name.valid"> Please enter Friend's Name</div>
             <div *ngIf="f_name.valid"> ✔ </div>
@@ -32,7 +32,7 @@
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="f_email.valid ? 'input-success' : 'input-error'">
             <label for="f_email">Friend's Email</label>
             <input type="text" class="form-control" id="f_email" required
-                   [(ngModel)]="model.f_email" name="f_email"
+                   [(ngModel)]="model.f_email" name="f_email" placeholder="friend@example.com"
                    #f_email="ngModel">
             <div *ngIf="!f_email.valid"> Please enter Friend's Email</div>
             <div *ngIf="f_email.valid"> ✔ </div>
@@ -40,26 +40,58 @@
 
           <div class="form-group" style="margin-bottom:20px;" [ngClass]="'input-success'">
             <label for="activity">Activity</label>
-            <select class="form-control" id="activity" required>
+            <select class="form-control" id="activity" [(ngModel)]="model.activity" name="activity" required>
               <option *ngFor="let act of activity" [value]="act">{{act}}</option>
             </select>
           </div>
 
-        <div class="form-group" style="margin-bottom:20px;" [ngClass]="message.valid ? 'input-success' : 'input-error'">
+          {{model.activity}}
+
+          <!-- IF THEY SELECT NOTHING -->
+        <div *ngIf="!model.activity" class="form-group" style="margin-bottom:20px;" [ngClass]="message.valid ? 'input-success' : 'input-error'">
+          <label for="message">Message for Friend</label>
+          <input type="textarea" class="form-control" id="message" required 
+                 [(ngModel)]="model.message" name="message" placeholder="Say hello!"
+                 #message="ngModel">
+              <div *ngIf="!message.valid"> Please enter your message</div>
+              <div *ngIf="message.valid"> ✔ </div>
+      </div>
+        
+          <!-- IF THEY SELECT SHOW -->
+        <div *ngIf="model.activity === 'Show'" class="form-group" style="margin-bottom:20px;" [ngClass]="message.valid ? 'input-success' : 'input-error'">
             <label for="message">Message for Friend</label>
-            <input type="textarea" class="form-control" id="message" required
-                   [(ngModel)]="model.message" name="message"
+            <input type="textarea" class="form-control" id="message" required 
+                   [(ngModel)]="model3.message" name="message" placeholder="Say hello!"
                    #message="ngModel">
-                  <!-- <input *ngIf="this.activity[0] === 'Show'" type="textarea" class="form-control" id="message" required
-                   [(ngModel)]="model.message" name="message"
-                   #message="ngModel"> -->
-                <div *ngIf="!message.valid"> Please enter Your Message</div>
+                <div *ngIf="!message.valid"> Please enter your message</div>
                 <div *ngIf="message.valid"> ✔ </div>
         </div>
+
+          <!-- IF THEY SELECT GAME -->
+          <div *ngIf="model.activity === 'Game'" class="form-group" style="margin-bottom:20px;" [ngClass]="message.valid ? 'input-success' : 'input-error'">
+            <label for="message">Message for Friend</label>
+            <input type="textarea" class="form-control" id="message" required 
+                    [(ngModel)]="model2.message" name="message" placeholder="Say hello!"
+                    #message="ngModel">
+                <div *ngIf="!message.valid"> Please enter your message</div>
+                <div *ngIf="message.valid"> ✔ </div>
+        </div>
+
+        <!-- IF THEY SELECT BOOK -->
+        <div *ngIf="model.activity === 'Book'" class="form-group" style="margin-bottom:20px;" [ngClass]="message.valid ? 'input-success' : 'input-error'">
+          <label for="message">Message for Friend</label>
+          <input type="textarea" class="form-control" id="message" required 
+                  [(ngModel)]="model4.message" name="message" placeholder="Say hello!"
+                  #message="ngModel">
+              <div *ngIf="!message.valid"> Please enter your message</div>
+              <div *ngIf="message.valid"> ✔ </div>
+      </div>
   
         <!-- all the buttons -->
         <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid" [ngStyle]="heroForm.form.valid ? {'background-color': '#8b3d63'} : {'background-color': 'grey'}" >Submit</button>
+        
         <button type="button" class="btn btn-default" (click)="newFriend(); heroForm.reset()">New Friend Request (<i>resets form</i>)</button>
+
         <p *ngIf="!heroForm.form.valid" [ngStyle]="{color: 'red'}"> Please enter in all values</p>
       </form>
     </div>

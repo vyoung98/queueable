@@ -25,7 +25,7 @@ export class FriendFormComponent {
   done = false;
   // creating the pre-populated friend object
   activity = ['Game', 'Show', 'Book'];
-  model = new Friend('Viv', 'Val', 'viv@gmail.com', 'val@gmail.com', this.activity[0], 'I want to play Stardew Valley with you!');
+  model = new Friend('Val', 'val@gmail.com', 'Viv', 'viv@gmail.com', this.activity[1], 'I want to play Stardew Valley with you!');
   model2 = new Friend('', '', '', '', '', 'I want to play INSERT GAME with you!');
   model3 = new Friend('', '', '', '', '', 'I want to watch INSERT SHOW with you!');
   model4 = new Friend('', '', '', '', '', 'I want to read INSERT BOOK with you!');
