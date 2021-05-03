@@ -25,7 +25,7 @@ export class FriendFormComponent {
   isValid() {
     
   } 
-  }
+  // }
 
   // the following lines break the code
   // constructor(private http: HttpClient){ 
