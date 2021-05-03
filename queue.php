@@ -2,7 +2,9 @@
 <html lang="en">
 <?php 
   require('connect-db.php');
-  session_start();?>
+  session_start();
+  $username = $_SESSION['user'];
+  ?>
     <head>
         <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
@@ -17,6 +19,8 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
         <link rel="stylesheet" href="./themes/purple.css">
+        <link rel="stylesheet" id="switcher-id" href="">
+
         <!-- <link rel="stylesheet" href="./styles/style.css"> -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -199,7 +203,7 @@
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="needs-validation" novalidate>
                 <input id="new-show-title" name="new-show-title" type="text" placeholder="Show Title" type="text" required>
                 <input id="new-show-progress" name="new-show-progress" type="text" placeholder="Season; Episode" type="text" required>
-                <input type="submit" class="btn" value="Add Show" name="action"></input>
+                <input type="submit" class="btn btn-primary" value="Add Show" name="action"></input>
                 </form></center>
 
           <?php 
@@ -352,7 +356,7 @@
                       echo "</script>";
                     }
                   }
-                ?>
+                ?>          
           <script type="text/javascript" src="js/script.js"></script>
           <!-- <script>
             window.onload = function() {
