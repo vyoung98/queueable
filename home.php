@@ -13,11 +13,9 @@
                 $theme = $statement->fetchAll();
                 $statement->closecursor();
                 foreach ($settings_info as $row) {
+                  $theme = $row['theme'];
                   echo $row['theme'];
                 }
-  // $theme = $_SESSION['theme'];
-  // setcookie('theme', $theme);
-  // print_r($_COOKIE);
   ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
@@ -122,7 +120,32 @@
                             echo "</div>";
                         }
                         echo "</div>";
+                        
                         ?>
+                        
+                <?php
+                  $query = "SELECT * FROM settings WHERE username=:username";
+                  $statement = $db->prepare($query);
+                  $statement->bindParam(':username', $username);
+                  $statement->execute();
+                  $settings_info = $statement->fetchAll();
+                  $theme = $statement->fetchAll();
+                  $statement->closecursor();
+                  foreach ($settings_info as $row) {
+                    $theme = $row['theme'];
+                    echo '<script>';
+                    echo 'if (' . $theme . '== "light") {';
+                      echo 'document.getElementById("switcher-id").href = "./themes/light.css"; }';
+                    echo 'else if (' . $theme . '== "sky") {';
+                      echo 'document.getElementById("switcher-id").href = "./themes/sky.css"; }';
+                    echo 'else if (' . $theme . '== "purple") {';
+                      echo 'document.getElementById("switcher-id").href = "./themes/purple.css"; }';
+                    echo 'else if (' . $theme . '== "dark") {';
+                      echo 'document.getElementById("switcher-id").href = "./themes/dark.css"; }';
+                    echo 'else { alert("problem")}';
+                    echo 'localStorage.setItem("style",' . $theme . '); }';
+                  }
+                ?>
               <script>
                 // function getCookie(theme) {
                 //   var name = theme + "=";
@@ -140,16 +163,6 @@
                 //     return "";
                 //   }
                 //   var theme = getCookie("theme");
-                <?php
-                echo $user;
-                $username = $_SESSION['username'];
-                $query = "SELECT * FROM settings WHERE username=: username";
-                $statement = $db->prepare($query);
-                $statement->execute();
-                $events_info = $statement->fetchAll();
-                $statement->closecursor();
-                echo $theme;
-                ?>
                 function setTheme(theme) {
                     if (theme == 'light') {
                       document.getElementById('switcher-id').href = './themes/light.css';

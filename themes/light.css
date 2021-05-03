@@ -73,6 +73,7 @@ body {font-family: Verdana, sans-serif;}
   margin: 10px;
 }
 
+
 /* Month header */
 .month {
   padding: 70px 25px;
@@ -302,3 +303,7 @@ label[for='new-task'] {
   p > button:hover {
     color: #0FC57C;
   }
+
+.h2 {
+  font-size: 100px;
+}
