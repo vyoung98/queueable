@@ -17,7 +17,7 @@
 
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
             <label for="email">My Email</label>
-            <input type="text" class="form-control" id="email"
+            <input type="text" class="form-control" id="email" required
                    [(ngModel)]="model.email" name="email"
                    #email="ngModel">
           <div *ngIf="!email.valid"> Please enter Your Email</div>
@@ -26,7 +26,7 @@
   
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
           <label for="f_name">Friend's Name</label>
-          <input type="text" class="form-control" id="f_name"
+          <input type="text" class="form-control" id="f_name" required
                  [(ngModel)]="model.f_name" name="f_name"
                  #f_name="ngModel">
             <!-- <div [hidden]="f_name.valid || f_name.pristine"
@@ -39,7 +39,7 @@
         
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
             <label for="f_email">Friend's Email</label>
-            <input type="text" class="form-control" id="f_email"
+            <input type="text" class="form-control" id="f_email" required
                    [(ngModel)]="model.f_email" name="f_email"
                    #f_email="ngModel">
             <!-- <div [hidden]="f_email.valid || f_email.pristine"
@@ -52,7 +52,7 @@
 
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
             <label for="message">Message for Friend</label>
-            <input type="textarea" class="form-control" id="message"
+            <input type="textarea" class="form-control" id="message" required
                    [(ngModel)]="model.message" name="message"
                    #message="ngModel">
             <!-- <div [hidden]="message.valid || message.pristine"
