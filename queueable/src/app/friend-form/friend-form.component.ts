@@ -24,13 +24,17 @@ export class FriendFormComponent {
   submitted = false;
   done = false;
   // creating the pre-populated friend object
-  model = new Friend('Viv', 'Val', 'viv@gmail.com', 'val@gmail.com', 'I want to play Stardew Valley with you!');
+  activity = ['Game', 'Show', 'Book'];
+  model = new Friend('Viv', 'Val', 'viv@gmail.com', 'val@gmail.com', this.activity[0], 'I want to play Stardew Valley with you!');
+  model2 = new Friend('', '', '', '', '', 'I want to play INSERT GAME with you!');
+  model3 = new Friend('', '', '', '', '', 'I want to watch INSERT SHOW with you!');
+  model4 = new Friend('', '', '', '', '', 'I want to read INSERT BOOK with you!');
 
   onSubmit() { this.submitted = true; }
 
   newFriend() {
     // blank friend object
-    this.model = new Friend('', '', '', '', '');
+    this.model = new Friend('', '', '', '', '', '');
 
   }
   status: boolean = false;

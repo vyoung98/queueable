@@ -9,6 +9,7 @@ export class Friend {
       public f_name: string,
       public email: string,
       public f_email: string,
+      public activity: string,
       public message: string,
     ) { }
   
