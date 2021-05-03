@@ -1,8 +1,8 @@
 <div class="container">
     <div [hidden]="submitted">
-      <h1>Send a Friend Request!</h1>
+      <h1 style="margin-bottom:20px;">Send a Friend Request!</h1>
       <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom:20px;">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name"
                  required
@@ -14,13 +14,13 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom:20px;">
             <label for="email">My Email</label>
             <input type="text" class="form-control" id="email"
                    [(ngModel)]="model.email" name="email">
           </div>
   
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom:20px;">
           <label for="f_name">Friend's Name</label>
           <input type="text" class="form-control" id="f_name"
                  [(ngModel)]="model.f_name" name="f_name">
@@ -30,13 +30,13 @@
             </div>
         </div>
         
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom:20px;">
             <label for="f_email">Friend's Email</label>
             <input type="text" class="form-control" id="f_email"
                    [(ngModel)]="model.f_email" name="f_email">
           </div>
 
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom:20px;">
             <label for="message">Message for Friend</label>
             <input type="textarea" class="form-control" id="message"
                    [(ngModel)]="model.message" name="message">
@@ -46,7 +46,7 @@
         
         <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
         <button type="button" class="btn btn-default" (click)="newFriend(); heroForm.reset()">New Friend Request (<i>resets form</i>)</button>
-        <p *ngIf="!heroForm.form.valid"> Please enter in all values</p>
+        <p *ngIf="!heroForm.form.valid" [ngStyle]="{color: 'red'}"> Please enter in all values</p>
       </form>
     </div>
   
