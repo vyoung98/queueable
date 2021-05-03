@@ -2,8 +2,19 @@
 <html lang="en">
 <?php 
   require('connect-db.php');
+  require('actions.php');
   session_start();
-  // $theme = $_SESSION['theme'];
+  $username = $_SESSION['user'];
+  $query = "SELECT * FROM settings WHERE username=: username";
+                $statement = $db->prepare($query);
+                $statement->bindParam(':username', $username);
+                $statement->execute();
+                $settings_info = $statement->fetchAll();
+                $statement->closecursor();
+                foreach ($settings_info as $row) {
+                  echo $theme = $row['theme'];
+                }
+  $theme = $_SESSION['theme'];
   // setcookie('theme', $theme);
   // print_r($_COOKIE);
   ?>
@@ -111,24 +122,33 @@
                         }
                         echo "</div>";
                         ?>
-              <!-- <script>
-                function getCookie(theme) {
-                  var name = theme + "=";
-                  var decodedCookie = decodeURIComponent(document.cookie);
-                  var ca = decodedCookie.split(';');
-                  for(var i = 0; i < ca.length; i++) {
-                      var c = ca[i];
-                      while (c.charAt(0) == ' ') {
-                        c = c.substring(1);
-                      }
-                      if (c.indexOf(name) == 0) {
-                        return c.substring(name.length, c.length);
-                      }
-                    }
-                    return "";
-                  }
-                  var theme = getCookie("theme");
-
+              <script>
+                // function getCookie(theme) {
+                //   var name = theme + "=";
+                //   var decodedCookie = decodeURIComponent(document.cookie);
+                //   var ca = decodedCookie.split(';');
+                //   for(var i = 0; i < ca.length; i++) {
+                //       var c = ca[i];
+                //       while (c.charAt(0) == ' ') {
+                //         c = c.substring(1);
+                //       }
+                //       if (c.indexOf(name) == 0) {
+                //         return c.substring(name.length, c.length);
+                //       }
+                //     }
+                //     return "";
+                //   }
+                //   var theme = getCookie("theme");
+                <?php
+                echo $user;
+                $username = $_SESSION['username'];
+                $query = "SELECT * FROM settings WHERE username=: username";
+                $statement = $db->prepare($query);
+                $statement->execute();
+                $events_info = $statement->fetchAll();
+                $statement->closecursor();
+                echo $theme;
+                ?>
                 function setTheme(theme) {
                     if (theme == 'light') {
                       document.getElementById('switcher-id').href = './themes/light.css';
@@ -142,6 +162,6 @@
                     localStorage.setItem('style', theme);
                     }
                     setTheme(theme);
-              </script> -->
+              </script>
     </body>
 </html>
