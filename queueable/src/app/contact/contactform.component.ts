@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 import { ContactService } from './contact.service';
-import { Contact } from './models/contact.model';
+import { Contact } from './model/contact.model';
 
 @Component({
 	selector: 'contactform',
