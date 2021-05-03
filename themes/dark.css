@@ -1,9 +1,3 @@
-:root {
-  --light: #ffffff;
-  --sky: #7f9cf5;
-  --purple: #97266d;
-  --dark: #242424;
-}
 
 * {
   margin: 0;
@@ -48,17 +42,6 @@ header {
   transition: 0.3s ease-in-out;
 }
 
-#switch-1 {
-  background-color: var(--light);
-}
-
-#switch-2 {
-  background-color: var(--sky);
-}
-
-#switch-3 {
-  background-color: var(--purple);
-}
 
 #switch-4 {
   background-color: var(--dark);
