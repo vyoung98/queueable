@@ -25,10 +25,7 @@
                     else{echo "login.php";}?>"><?php if(isset($_SESSION['user'])){echo "Log Out";} else{echo "Login";}?></a>
           </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+
       <?php
                   $query = "SELECT * FROM settings WHERE username=:username";
                   $statement = $db->prepare($query);
