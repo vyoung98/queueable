@@ -70,6 +70,13 @@
   }
   body {font-family: 'Rubik', sans-serif;}
   
+  .input-error {
+  border-right: solid 5px red !important;
+}
+
+.input-success {
+  border-right: solid 5px green !important;
+}
   
   .btn {
     background: #8b3d63;

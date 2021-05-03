@@ -19,6 +19,12 @@ export class FriendFormComponent {
 
   newFriend() {
     this.model = new Friend('', '', '', '', '');
+
+  }
+  status: boolean = false;
+  isValid() {
+    
+  } 
   }
 
   // the following lines break the code
