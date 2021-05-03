@@ -25,9 +25,17 @@ foreach ($request as $k => $v) {
 }
 
 //base function
-function addFriend($whatever you wanna put here) {
+function addFriend($name, $email, $f_name, $f_email) {
     require('connect-db.php');
-    $query
+    $query = "INSERT INTO friends (name, email, f_name, f_email) VALUES (:name, :email, :f_name, :f_email)";
+
+    $statement = $db -> prepare($query);
+    $statement->bindValue(':name', $name);
+    $statement->bindValue(':email', $email);
+    $statement->bindValue(':f_name', $f_name);
+    $statement->bindValue(':f_email', $f_email);
+    $statement->execute();
+    $statement->closeCursor();
 }
 
 echo json_encode(['content'=>$data, 'response_on'=> $current_date]);
