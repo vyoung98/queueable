@@ -87,15 +87,20 @@
               $user = $_SESSION['user'];
               $bookTitle = $_POST['new-book-title'];
               $bookPage = $_POST['new-book-page'];
-            
-              $query = "INSERT INTO books (username, book_title, page) VALUES (:username, :book_title, :page)";
-              $statement = $db->prepare($query);
-              $statement->bindParam(':username', $user);
-              $statement->bindParam(':book_title', $bookTitle);
-              $statement->bindParam(':page', $bookPage);
-              $statement->execute();
-              $shows_info = $statement->fetchAll();
-              $statement->closecursor();
+              
+              if (preg_match('/^[\d]+$/', $bookPage) == True) {
+                $query = "INSERT INTO books (username, book_title, page) VALUES (:username, :book_title, :page)";
+                $statement = $db->prepare($query);
+                $statement->bindParam(':username', $user);
+                $statement->bindParam(':book_title', $bookTitle);
+                $statement->bindParam(':page', $bookPage);
+                $statement->execute();
+                $shows_info = $statement->fetchAll();
+                $statement->closecursor();
+              }
+              else {
+                echo "<script> alert('Please enter a digit for page number') </script>;";
+              }
             }
 
             // DELETE SHOW STUFF
