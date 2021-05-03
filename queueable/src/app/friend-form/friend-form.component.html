@@ -5,7 +5,6 @@
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name"
-                 required
                  [(ngModel)]="model.name" name="name"
                  #name="ngModel">
           <!-- <div [hidden]="name.valid || name.pristine"
