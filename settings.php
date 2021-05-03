@@ -4,12 +4,6 @@
   require('connect-db.php');
   session_start();
   $username = $_SESSION['user'];
-  // echo $username;
-
-  $theme = $_SESSION['theme'];
- // setcookie('theme', $theme);
-  // print_r($_COOKIE);
-
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo $_POST['action'];
     if (!empty($_POST['action'])) {
