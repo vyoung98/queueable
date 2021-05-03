@@ -44,8 +44,7 @@
               <option *ngFor="let act of activity" [value]="act">{{act}}</option>
             </select>
           </div>
-
-          {{model.activity}}
+          <!-- {{model.activity}} -->
 
           <!-- IF THEY SELECT NOTHING -->
         <div *ngIf="!model.activity" class="form-group" style="margin-bottom:20px;" [ngClass]="message.valid ? 'input-success' : 'input-error'">
