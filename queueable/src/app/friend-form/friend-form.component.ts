@@ -73,7 +73,7 @@ export class FriendFormComponent {
 
   sendPost(data: any): Observable<any>{ 
     //send post to PHP
-    return this.http.post('hhttp://localhost/queueable/ngphp-post.php', data);
+    return this.http.post('http://localhost/queueable/ngphp-post.php', data);
   }
 
 
