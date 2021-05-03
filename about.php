@@ -24,6 +24,7 @@
         <meta name="description" content="Assignment 1">  
         <title>queueAble: Finding Time for What's Important</title>  
         <link href="./themes/purple.css" rel="stylesheet" type="text/css" />
+        <style>
             h1	{font-family: 'Rubik', Arial;
                 }
             h2   {font-family: 'Rubik', 'Arial';

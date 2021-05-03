@@ -107,7 +107,7 @@
                             echo "</p>";
 
                             //description
-                            echo "<p> Notes: ";
+                            echo "<p style='margin-bottom: 2vh;'> Notes: ";
                             echo $descr = $row['descr'];
                             echo "</p>";
                           
