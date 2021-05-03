@@ -58,8 +58,10 @@
           </center>
           </br>
                 <?php
-                        $query = "SELECT * FROM events ORDER BY date";
+                        $user = $_SESSION['user'];
+                        $query = "SELECT * FROM events WHERE username=:username ORDER BY date";
                         $statement = $db->prepare($query);
+                        $statement->bindParam(':username', $user);
                         $statement->execute();
                         $events_info = $statement->fetchAll();
                         $statement->closecursor();
@@ -69,7 +71,12 @@
                             <div class='row'>";
                 
                         echo "<div class='row'>";
-                        foreach ($events_info as $row) {
+                        if (empty($events_info)) {
+                          echo "<p>You don't have any events right now. Click Create!<p>";
+              
+                        }
+                        else{
+                            foreach ($events_info as $row) {
                             // $name = $row['name'];
                             // $desciption = $row['desciption'];
                             // $ephoto = $row['ephoto'];
@@ -107,7 +114,9 @@
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
+                          }
                         }
+
                         echo "</div>";
                         
                         ?>

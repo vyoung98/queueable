@@ -36,8 +36,6 @@
     </head>
     <body>
       <?php include('navbar.php')?>
-    
-
 
           <div class="container">
             <form class="needs-validation" novalidate>
@@ -45,9 +43,6 @@
                 <label for="title">Event Title</label>
                 <input type="text" class="form-control" id="title" placeholder="Title" required>
               </div>
-              <!-- <div class="invalid-feedback">
-                Please input a title.
-              </div> -->
 
               <div class="form-group">
                 <label for="inviteFriend">Invite a Friend:</label>
