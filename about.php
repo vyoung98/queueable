@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="./themes/purple.css">
+        <link rel="stylesheet" href="./themes/purple.css" type="text/css"/>
         <link rel="stylesheet" id="switcher-id" href="">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,25 +80,32 @@
                 </center>
             </div>
           </div>
-          <div class="container">
+          <div class="container bg-light" style="border-radius: 6px 12px 18px 24px;">
             <div class="row">
               <div class="col-sm">
-                  <h1 class="display-5" style="text-align:center;">Valerie Young</h1>
+                <center>
+                  <h1 class="display-5">Valerie Young</h1>
                 <img src="https://i.imgur.com/icP5fku.jpg" style="max-width: 30em; max-height: 30em;">
                 </p>
                     <h6>Major: B.A. Computer Science and Media Studies</h6>
                     <h6>Year: 4th Year</h6>
                     <h6>Email: vy5br@virginia.edu</h6>
                     <p>Outside of school, I like reading for my book club :)</p>
+                </center>
               </div>
               <div class="col-sm">
-              <h1 class="display-5" style="text-align:center;">Vivian Tran</h1>
+
+              <center>
+              <h1 class="display-5">Vivian Tran</h1>
+
                 <img src="https://i.gyazo.com/9aeedcfd62fd51fcf71b27a036f2481c.jpg" style="max-width: 30em; max-height: 30em;">
                 </p>
+
                 <h6>Major: B.A. Computer Science</h6>
                     <h6>Year: 4th Year</h6>
                     <h6>Email: vt5en@virginia.edu</h6>
                     <p>Outside of school, I like to play video games!</p>
+                </center>
               </div>
             </div>
           </div>
