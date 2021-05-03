@@ -94,40 +94,6 @@
             })();
           </script>
 
-                <!-- password check makes all the fields mandatory, checks if the password fields are the same -->
-                <script>
-                  function changePassword() {
-                    var currentPassword, newPassword, confirmPassword,output = true;
-                    currentPassword = document.frmChange.currentPassword;
-                    newPassword = document.frmChange.newPassword;
-                    confirmPassword = document.frmChange.confirmPassword;
-
-                    if (!currentPassword.value) {
-                      currentPassword.focus();
-                      document.getElementById("currentPassword").innerHTML = "required";
-                      output = false;
-                    }
-                    else if(!newPassword.value) {
-                      newPassword.focus();
-                      document.getElementById("newPassword").innerHTML = "required";
-                      output = false;
-                    }
-                    else if(!confirmPassword.value) {
-                      newPassword.focus();
-                      document.getElementById("confirmPassword").innerHTML = "required";
-                      output = false;
-                    }
-                    if (newPassword.value != confirmPassword.value) {
-                      newPassword.value="";
-                      confirmPassword.value="";
-                      newPassword.focus();
-                      document.getElementById("confirmPassword").innerHTML = "not the same";
-                      output = false;
-                    }
-                    return output;
-                  }
-                  </script>
-
               </div>
 
               <div class="col">
