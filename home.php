@@ -53,35 +53,40 @@
           <center>
           <h1>My Calendar</h1>
           
-          <button type="submit" class="btn"><a href="eventcreation.php">Create</a></button>
-          <button type="submit" class="btn"><a href="queue.php">My Queues</a></button>
+          <button type="submit" class="btn"><a href="eventcreation.php" style="color: white;">Create</a></button>
+          <button type="submit" class="btn"><a href="queue.php" style="color: white;">My Queues</a></button>
           </center>
           </br>
                 <?php
-                        $user = $_SESSION['user'];
+                        if (!isset($_SESSION['user'])) {
+                          echo "<h1 style='text-align:center;'> Please sign in to see your events !</h1>";
+                        }
+                        else {
+                          $user = $_SESSION['user'];
+                          if (empty($events_info)) {
+                            echo "<h1 style='text-align:center;'>You don't have any events right now. Click Create!</h1>";
+                
+                          }
+                        }
                         $query = "SELECT * FROM events WHERE username=:username ORDER BY date";
                         $statement = $db->prepare($query);
                         $statement->bindParam(':username', $user);
                         $statement->execute();
                         $events_info = $statement->fetchAll();
                         $statement->closecursor();
-                
+                        
                         $output = "<h2>Welcome to Modern Business
                             <div class='container'>
                             <div class='row'>";
-                
+                      
                         echo "<div class='row'>";
-                        if (empty($events_info)) {
-                          echo "<p>You don't have any events right now. Click Create!<p>";
-              
-                        }
-                        else{
+                        
                             foreach ($events_info as $row) {
                             // $name = $row['name'];
                             // $desciption = $row['desciption'];
                             // $ephoto = $row['ephoto'];
                             echo "<div class='col-sm-3'>";
-                            echo "<div class='card' style='height: 20vh; width: 20vw; margin-bottom: 5vh; margin-left: 2vh;'>";
+                            echo "<div class='card' style='height: 25em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
                             echo "<div class='card-body'>";
                 
                             //event_title
@@ -115,7 +120,7 @@
                             echo "</div>";
                             echo "</div>";
                           }
-                        }
+                        
 
                         echo "</div>";
                         
