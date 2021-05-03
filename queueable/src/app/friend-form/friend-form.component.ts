@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { Friend } from '../friend';
+import { Observable} from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-friend-form',
@@ -21,5 +23,8 @@ export class FriendFormComponent {
 
 
 
-
+  sendPost(data: any): Observable<any>{ 
+    //send post to PHP
+    return this.http.post('http://localhost/CS-4640-Project/PHP/ngphp-post.php', data);
+  }
 }
