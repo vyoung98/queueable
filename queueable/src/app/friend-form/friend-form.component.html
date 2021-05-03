@@ -46,15 +46,14 @@
             <div *ngIf="f_email.valid"> ✔ </div>
           </div>
 
-          <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
+          <div class="form-group" style="margin-bottom:20px;" [ngClass]="'input-success'">
             <label for="activity">Activity</label>
             <select class="form-control" id="activity" required>
               <option *ngFor="let act of activity" [value]="act">{{act}}</option>
             </select>
-            <!-- <div *ngIf="message.valid"> ✔ </div> -->
           </div>
 
-        <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
+        <div class="form-group" style="margin-bottom:20px;" [ngClass]="message.valid ? 'input-success' : 'input-error'">
             <label for="message">Message for Friend</label>
             <input type="textarea" class="form-control" id="message" required
                    [(ngModel)]="model.message" name="message"
