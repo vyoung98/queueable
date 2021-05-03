@@ -170,12 +170,20 @@ h2 {
   transition: all 0.3s ease;
 }
 .inputField button:hover,
+.inputField button.active{
+  opacity: 1;
+  pointer-events: auto;
+}
 .footer button:hover{
   background: #8b3d63;
 }
 .inputField button.active{
   opacity: 1;
   pointer-events: auto;
+}
+.custom input{
+  float:right;
+  display: block;
 }
 .wrapper .todoList{
   max-height: 250px;
