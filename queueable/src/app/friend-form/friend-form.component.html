@@ -42,7 +42,9 @@
                    [(ngModel)]="model.message" name="message">
         </div>
   
+        <!-- all the buttons -->
         <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="newFriend(); heroForm.reset()">New Friend Request (<i>resets form</i>)</button>
   
       </form>
     </div>
@@ -70,8 +72,33 @@
         <div class="col-xs-9">{{ model.message }}</div>
       </div>
       <br>
+      <!-- more buttons -->
       <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-      <!-- <button class="btn btn-primary" (click)="nothing">Send an Email!</button> -->
+      <button class="btn btn-default" ><a [href]="'mailto:'+
+                                                  model.f_email+
+                                                  '?subject=Friend Request to: '+
+                                                  model.f_name+
+                                                  '&body='+
+                                                  model.message" 
+                                                  target="_blank">Send an Email!</a></button>
     </div>
   </div>
   
+  <script>
+    var sendEmail=function(){
+      console.log("hello world");
+      if (document.getElementById("name").value != "" && document.getElementById("subject").value != "" &&
+      document.getElementById("message").value != "") {
+          var name = document.getElementById("name").value;
+          var subject = "hello" + document.getElementById("f_name").value;
+          var f_email = document.getElementById("f_email").value;
+          var message = document.getElementById("message").value;
+          window.open('mailto:'+encodeURIComponent(f_email)+'?subject='+encodeURIComponent(subject)+"&body="+encodeURIComponent(message), '_blank');
+
+          alert("You will now be redirected to send your email.");
+      }
+      else{
+          alert("Please fill out the form.");
+      }
+  }
+  </script>
