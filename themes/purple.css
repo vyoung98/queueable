@@ -63,8 +63,11 @@ header {
   background-color: var(--dark);
 }
 
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
+ul {
+  font-family: 'Rubik', 'Arial';
+  list-style-type: none;
+}
+body {font-family: 'Rubik', sans-serif;}
 
 
 .btn {
