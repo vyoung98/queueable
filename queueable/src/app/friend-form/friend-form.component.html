@@ -5,7 +5,7 @@
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name"
-                 [(ngModel)]="model.name" name="name"
+                 [(ngModel)]="model.name" name="name" required
                  #name="ngModel">
           <!-- <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger"> -->
@@ -15,7 +15,7 @@
 
         <div class="form-group" style="margin-bottom:20px;" [ngClass]="heroForm.form.valid ? 'input-success' : 'input-error'">
             <label for="email">My Email</label>
-            <input type="text" class="form-control" id="email"
+            <input type="text" class="form-control" id="email" 
                    [(ngModel)]="model.email" name="email">
           </div>
   
