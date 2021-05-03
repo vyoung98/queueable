@@ -243,7 +243,7 @@
               <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
               <input id="new-game-title" name="new-game-title" type="text" placeholder="Game Title" type="text">
               <input id="new-game-progress" name="new-game-progress" type="text" placeholder="Progress" type="text">
-              <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Game" name="action"></input>
+              <input type="submit" class="btn my-2 my-sm-0" value="Add Game" name="action"></input>
           </form></center>
 
             <?php 
@@ -271,7 +271,7 @@
 
                   // DELETE BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
-                  echo '<input class="btn btn-primary" type="submit" value="Delete Game" name="action" />';
+                  echo '<input class="btn" type="submit" value="Delete Game" name="action" />';
                   echo '<input type="hidden" name="game_title" value="' . $row['game_title'] . '" />' . "</li>";
                   
                   echo "</div></form>";
@@ -321,9 +321,41 @@
             }}
             ?>
           </div>
-          
+          <?php
+                  $query = "SELECT * FROM settings WHERE username=:username";
+                  $statement = $db->prepare($query);
+                  $statement->bindParam(':username', $username);
+                  $statement->execute();
+                  $settings_info = $statement->fetchAll();
+                  $theme = $statement->fetchAll();
+                  $statement->closecursor();
+                  foreach ($settings_info as $row) {
+                    $theme = $row['theme'];
+
+                    if ($theme == "light"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/light.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "sky"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/sky.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "purple"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/purple.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "dark"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/dark.css';";
+                      echo "</script>";
+                    }
+                  }
+                ?>
           <script type="text/javascript" src="js/script.js"></script>
-          <script>
+          <!-- <script>
             window.onload = function() {
               let style = sessionStorage.getItem('style');
               if (style == null) {
@@ -332,6 +364,6 @@
                     setTheme(style);
                   }
             }
-          </script>
+          </script> -->
     </body>
 </html>

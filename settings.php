@@ -12,7 +12,6 @@
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo $_POST['action'];
-
     if (!empty($_POST['action'])) {
       $username = $_SESSION['user'];
       $theme = $_POST['action'];
@@ -23,10 +22,6 @@
       $statement->execute();
       $statement->closeCursor();
   }
-  }
-
-  if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    
   }
   ?>
 
@@ -198,14 +193,40 @@
               </div>
             </div>
           </div>
-          
+          <?php
+                  $query = "SELECT * FROM settings WHERE username=:username";
+                  $statement = $db->prepare($query);
+                  $statement->bindParam(':username', $username);
+                  $statement->execute();
+                  $settings_info = $statement->fetchAll();
+                  $theme = $statement->fetchAll();
+                  $statement->closecursor();
+                  foreach ($settings_info as $row) {
+                    $theme = $row['theme'];
+
+                    if ($theme == "light"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/light.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "sky"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/sky.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "purple"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/purple.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "dark"){
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/dark.css';";
+                      echo "</script>";
+                    }
+                  }
+                ?>
           <script type="text/javascript" src="js/script.js"></script>
-          <script>
-            window.onload = function() {
-              let style = localStorage.getItem('style');
-                    setTheme(style);
-            }
-          </script>
             
     </body>
 </html>

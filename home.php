@@ -5,17 +5,6 @@
   require('actions.php');
   session_start();
   $username = $_SESSION['user'];
-  $query = "SELECT * FROM settings WHERE username=:username";
-                $statement = $db->prepare($query);
-                $statement->bindParam(':username', $username);
-                $statement->execute();
-                $settings_info = $statement->fetchAll();
-                $theme = $statement->fetchAll();
-                $statement->closecursor();
-                foreach ($settings_info as $row) {
-                  $theme = $row['theme'];
-                  echo $row['theme'];
-                }
   ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
@@ -135,63 +124,26 @@
                     $theme = $row['theme'];
 
                     if ($theme == "light"){
-                      echo "hello";
                       echo "<script>";
                       echo "document.getElementById('switcher-id').href = './themes/light.css';";
                       echo "</script>";
                     }
                     if ($theme == "sky"){
-                      echo "hello";
                       echo "<script>";
                       echo "document.getElementById('switcher-id').href = './themes/sky.css';";
                       echo "</script>";
                     }
                     if ($theme == "purple"){
-                      echo "hello";
                       echo "<script>";
                       echo "document.getElementById('switcher-id').href = './themes/purple.css';";
                       echo "</script>";
                     }
                     if ($theme == "dark"){
-                      echo "hello";
                       echo "<script>";
                       echo "document.getElementById('switcher-id').href = './themes/dark.css';";
                       echo "</script>";
                     }
                   }
                 ?>
-              <script>
-                // function getCookie(theme) {
-                //   var name = theme + "=";
-                //   var decodedCookie = decodeURIComponent(document.cookie);
-                //   var ca = decodedCookie.split(';');
-                //   for(var i = 0; i < ca.length; i++) {
-                //       var c = ca[i];
-                //       while (c.charAt(0) == ' ') {
-                //         c = c.substring(1);
-                //       }
-                //       if (c.indexOf(name) == 0) {
-                //         return c.substring(name.length, c.length);
-                //       }
-                //     }
-                //     return "";
-                //   }
-                //   var theme = getCookie("theme");
-                function setTheme(theme) {
-                    if (theme == 'light') {
-                      document.getElementById('switcher-id').href = './themes/light.css';
-                    } else if (theme == 'sky') {
-                      document.getElementById('switcher-id').href = './themes/sky.css';
-                    } else if (theme == 'purple') {
-                      document.getElementById('switcher-id').href = './themes/purple.css';
-                    } else if (theme == 'dark') {
-                      document.getElementById('switcher-id').href = './themes/dark.css';
-                    }
-                    localStorage.setItem('style', theme);
-                    }
-                    setTheme(theme);
-              console.log(<?php $theme ?>);
-              setTheme(<?php $theme ?>);
-              </script>
     </body>
 </html>
