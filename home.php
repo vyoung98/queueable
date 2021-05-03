@@ -133,18 +133,31 @@
                   $statement->closecursor();
                   foreach ($settings_info as $row) {
                     $theme = $row['theme'];
-                    echo '<script>';
-                    echo 'if (' . $theme . '== "light") {';
-                      echo 'document.getElementById("switcher-id").href = "./themes/light.css"; }';
-                    echo 'else if (' . $theme . '== "sky") {';
-                      echo 'document.getElementById("switcher-id").href = "./themes/sky.css"; }';
-                    echo 'else if (' . $theme . '== "purple") {';
-                      echo 'document.getElementById("switcher-id").href = "./themes/purple.css"; }';
-                    echo 'else if (' . $theme . '== "dark") {';
-                      echo 'document.getElementById("switcher-id").href = "./themes/dark.css"; }';
-                    echo 'else { alert("problem")}';
-                    echo 'localStorage.setItem("style",' . $theme . '); }';
-                  echo '</script>';
+
+                    if ($theme == "light"){
+                      echo "hello";
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/light.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "sky"){
+                      echo "hello";
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/sky.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "purple"){
+                      echo "hello";
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/purple.css';";
+                      echo "</script>";
+                    }
+                    if ($theme == "dark"){
+                      echo "hello";
+                      echo "<script>";
+                      echo "document.getElementById('switcher-id').href = './themes/dark.css';";
+                      echo "</script>";
+                    }
                   }
                 ?>
               <script>

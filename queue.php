@@ -10,9 +10,12 @@
         <link rel="manifest" href="icon/site.webmanifest">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+        <link rel="stylesheet" href="/styles/style.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
         <link rel="stylesheet" href="./themes/purple.css">
         <link rel="stylesheet" href="./styles/style.css">
         <meta charset="UTF-8">
@@ -178,16 +181,16 @@
           <!-- <div class="container"> -->
           <div class="jumbotron">
                 <center>
-              <h1>My Queues</h1>
+              <h2>My Queues</h2>
                 </center>
             </div>
             <div class="row">
               <div class="col border bg-light">
-                <center><h2>Shows</h2>
+                <center><h1>Shows</h1>
                 <!-- ADD BUTTON FOR SHOWS -->
-                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-                <input id="new-show-title" name="new-show-title" type="text" placeholder="Show Title" type="text">
-                <input id="new-show-progress" name="new-show-progress" type="text" placeholder="Season; Episode" type="text">
+                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="needs-validation" novalidate>
+                <input id="new-show-title" name="new-show-title" type="text" placeholder="Show Title" type="text" required>
+                <input id="new-show-progress" name="new-show-progress" type="text" placeholder="Season; Episode" type="text" required>
                 <input type="submit" class="btn btn-success my-2 my-sm-0" value="Add Show" name="action"></input>
                 </form></center>
 
@@ -226,7 +229,7 @@
         </div>
 
         <div class="col border bg-light">
-          <center><h2>Games</h2>
+          <center><h1>Games</h1>
               <!-- ADD BUTTON FOR GAMES -->
               <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
               <input id="new-game-title" name="new-game-title" type="text" placeholder="Game Title" type="text">
@@ -269,7 +272,7 @@
           </div>
 
           <div class="col border bg-light">
-          <center><h2>Books</h2>
+          <center><h1>Books</h1>
                 <!-- ADD BUTTON FOR BOOKS-->
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
               <input id="new-book-title" name="new-book-title" type="text" placeholder="Book Title" type="text">
