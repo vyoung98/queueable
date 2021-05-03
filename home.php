@@ -4,7 +4,10 @@
   require('connect-db.php');
   require('actions.php');
   session_start();
-  $username = $_SESSION['user'];
+  if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+  }
+
   ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
