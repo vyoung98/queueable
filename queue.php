@@ -165,6 +165,13 @@
                 $_SESSION['id'] = $_POST['game_title'];
                 header("Location: gameEdit.php");
             }
+
+            // EDIT BOOK STUFF
+            if (!empty($_POST['action']) && ($_POST['action'] == 'Edit Book'))
+            {
+                $_SESSION['id'] = $_POST['book_title'];
+                header("Location: bookEdit.php");
+            }
           ?>
 
     <body>
@@ -297,7 +304,9 @@
                   echo "<div class='custom'><li>" . $row['book_title'] . ": Page " . $row['page'] . "   ";
 
                   // EDIT BUTTON
-                  echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>";
+                  echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
+                  echo '<input class="btn btn-primary" type="submit" value="Edit Book" name="action" />';
+                  echo '<input type="hidden" name="game_title" value="' . $row['book_title'] . '" />';
 
                   // DELETE BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";

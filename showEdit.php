@@ -104,12 +104,12 @@
 
             <div class="form-row">
                     <div class = "col">
-                        <label for="shelter_name">Season</label>
+                        <label for="shelter_name">What season?</label>
                         <input type="text" class="form-control" id="season" name="season" placeholder="Enter the season" required
                         value="<?php echo $show_season;?>">
                     </div>
                     <div class = "col">
-                        <label for="donation_amt">Episode</label>
+                        <label for="donation_amt">What episode?</label>
                         <input type="number" class="form-control" id="episode" name="episode" placeholder="Enter the episode" min="1" required
                         value="<?php echo $show_episode;?>">
                     </div>
