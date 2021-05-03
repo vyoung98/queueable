@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php require('connect-db.php');
+  session_start();
+  $username = $_SESSION['user'];
+  include('navbar.php')
 
+?>
 <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
@@ -32,12 +37,6 @@
         </style>
        
     </head>
-
-<?php require('connect-db.php');
-  session_start();
-  include('navbar.php')
-
-?>
 
 <?php
                   $query = "SELECT * FROM settings WHERE username=:username";
