@@ -89,6 +89,51 @@
               $shows_info = $statement->fetchAll();
               $statement->closecursor();
             }
+
+            // DELETE SHOW STUFF
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Delete Show'))
+            {
+              $user = $_SESSION['user'];
+              $showTitle = $_POST['show_title'];
+            
+              $query = "DELETE FROM shows WHERE username=:username AND show_title=:show_title";
+              $statement = $db->prepare($query);
+              $statement->bindParam(':username', $user);
+              $statement->bindParam(':show_title', $showTitle);
+              $statement->execute();
+              $shows_info = $statement->fetchAll();
+              $statement->closecursor();
+            }
+
+            // DELETE GAME STUFF
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Delete Game'))
+            {
+              $user = $_SESSION['user'];
+              $gameTitle = $_POST['game_title'];
+            
+              $query = "DELETE FROM games WHERE username=:username AND game_title=:game_title";
+              $statement = $db->prepare($query);
+              $statement->bindParam(':username', $user);
+              $statement->bindParam(':game_title', $gameTitle);
+              $statement->execute();
+              $shows_info = $statement->fetchAll();
+              $statement->closecursor();
+            }
+
+            // DELETE BOOK STUFF
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Delete Book'))
+            {
+              $user = $_SESSION['user'];
+              $bookTitle = $_POST['book_title'];
+            
+              $query = "DELETE FROM books WHERE username=:username AND book_title=:book_title";
+              $statement = $db->prepare($query);
+              $statement->bindParam(':username', $user);
+              $statement->bindParam(':book_title', $bookTitle);
+              $statement->execute();
+              $shows_info = $statement->fetchAll();
+              $statement->closecursor();
+            }
           ?>
 
     <body>
@@ -128,11 +173,17 @@
           } else {
             foreach ($shows_info as $row) {
                 echo "<ul class='todoList' id='show-queue'>";
-                echo "<div class='custom'><li>" . $row['show_title'] . " S" . $row['season'] . "E" . $row['episode'] . "   ";
+                echo "<div class='custom'><li>" . $row['show_title'] . " S" . $row['season'] . "E" . $row['episode'];
+                
+                // EDIT BUTTON
+                echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>";
 
-                echo "<input type='submit' value='Delete' name='action' class='btn btn-primary' /></input>";
-
-                echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>" . "</li></div>";
+                // DELETE BUTTON
+                echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
+                echo '<input class="btn btn-primary" type="submit" value="Delete Show" name="action" />';
+                echo '<input type="hidden" name="show_title" value="' . $row['show_title'] . '" />' . "</li>";
+                
+                echo "</div></form>";
                 echo "</ul>";
           }}
         ?>
@@ -162,10 +213,18 @@
             } else {
               foreach ($games_info as $row) {
                   echo "<ul class='todoList' id='game-queue'>";
-                  echo "<div class='custom'><li>" . $row['game_title'] . ": " . $row['progress'] . "   ";
-                  echo "<input type='submit' value='Delete' name='action' class='btn btn-primary' /></input>";
-                  echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>" . "</li></div>";
-                  echo  "</ul>";
+                  echo "<div class='custom'><li>" . $row['game_title'] . ": " . $row['progress'];
+                  
+                  // EDIT BUTTON
+                  echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>";
+
+                  // DELETE BUTTON
+                  echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
+                  echo '<input class="btn btn-primary" type="submit" value="Delete Game" name="action" />';
+                  echo '<input type="hidden" name="game_title" value="' . $row['game_title'] . '" />' . "</li>";
+                  
+                  echo "</div></form>";
+                  echo "</ul>";
             }}
             ?>
           </div>
@@ -194,9 +253,17 @@
               foreach ($books_info as $row) {
                   echo "<ul class='todoList' id='book-queue'>";
                   echo "<div class='custom'><li>" . $row['book_title'] . ": Page " . $row['page'] . "   ";
-                  echo "<input type='submit' value='Delete' name='action' class='btn btn-primary' /></input>";
-                  echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>" . "</li></div>";
-                  echo  "</ul>";
+
+                  // EDIT BUTTON
+                  echo "<input type='submit' value='Edit' name='action' class='btn btn-primary' /></input>";
+
+                  // DELETE BUTTON
+                  echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
+                  echo '<input class="btn btn-primary" type="submit" value="Delete Book" name="action" />';
+                  echo '<input type="hidden" name="book_title" value="' . $row['book_title'] . '" />' . "</li>";
+                  
+                  echo "</div></form>";
+                  echo "</ul>";
             }}
             ?>
           </div>

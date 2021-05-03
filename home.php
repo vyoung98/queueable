@@ -5,16 +5,17 @@
   require('actions.php');
   session_start();
   $username = $_SESSION['user'];
-  $query = "SELECT * FROM settings WHERE username=: username";
+  $query = "SELECT * FROM settings WHERE username=:username";
                 $statement = $db->prepare($query);
                 $statement->bindParam(':username', $username);
                 $statement->execute();
                 $settings_info = $statement->fetchAll();
+                $theme = $statement->fetchAll();
                 $statement->closecursor();
                 foreach ($settings_info as $row) {
-                  echo $theme = $row['theme'];
+                  echo $row['theme'];
                 }
-  $theme = $_SESSION['theme'];
+  // $theme = $_SESSION['theme'];
   // setcookie('theme', $theme);
   // print_r($_COOKIE);
   ?>
