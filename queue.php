@@ -224,7 +224,7 @@
           } else {
             foreach ($shows_info as $row) {
                 echo "<ul class='todoList' id='show-queue'>";
-                echo "<div class='custom'><li>" . $row['show_title'] . " S" . $row['season'] . "E" . $row['episode'];
+                echo "<div class='custom'><li style='color:black';>" . $row['show_title'] . " S" . $row['season'] . "E" . $row['episode'];
                 
                 // EDIT BUTTON
                 echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
@@ -267,7 +267,7 @@
             } else {
               foreach ($games_info as $row) {
                   echo "<ul class='todoList' id='game-queue'>";
-                  echo "<div class='custom'><li>" . $row['game_title'] . ": " . $row['progress'];
+                  echo "<div class='custom'><li style='color:black;'>" . $row['game_title'] . ": " . $row['progress'];
                   
                   // EDIT BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
@@ -309,7 +309,7 @@
             } else {
               foreach ($books_info as $row) {
                   echo "<ul class='todoList' id='book-queue'>";
-                  echo "<div class='custom'><li>" . $row['book_title'] . ": Page " . $row['page'] . "   ";
+                  echo "<div class='custom'><li style='color:black;'>" . $row['book_title'] . ": Page " . $row['page'] . "   ";
 
                   // EDIT BUTTON
                   echo "<form action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline'>";
@@ -360,16 +360,6 @@
                   }
                 ?>          
           <script type="text/javascript" src="js/script.js"></script>
-          <!-- <script>
-            window.onload = function() {
-              let style = sessionStorage.getItem('style');
-              if (style == null) {
-                    setTheme('light');
-                  } else {
-                    setTheme(style);
-                  }
-            }
-          </script> -->
     </body>
     <?php include('./footer.php'); ?>
 </html>

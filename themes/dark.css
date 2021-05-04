@@ -21,28 +21,27 @@
 }
 
 .card {
-  background-color: #242424;
+  background-color: #7d7d7d;
   padding: 0.5em;
   border-radius: 6px 12px 18px 24px;
 }
 .col {
-  background-color: #eddfe6;
+  background-color: #a3a3a3;
   padding: 0.5em;
   border-radius: 6px 12px 18px 24px;
 }
 .h1 {
   font-family: 'Rubik', 'Arial';
 }
-
 .container {
-  background-color: #242424
+  background-color: #7d7d7d;
   border-radius: 6px 12px 18px 24px;
 }
 .jumbotron {
-  background-color: #c987a7;
+  background-color: #7d7d7d;
 }
 .btn {
-  background: #8b3d63;
+  background: #545454;
   color: white;
   margin: 10px;
   padding-top: 0.1em;
@@ -66,6 +65,7 @@ body {
   font-family: 'Rubik', sans-serif;
   height: 100vh;
   overflow-x: hidden;
+  background-color: #303030;
 }
 
 header {
@@ -100,18 +100,22 @@ header {
 
 #switch-1 {
   background-color: var(--light);
+  color: black;
 }
 
 #switch-2 {
   background-color: var(--sky);
+  color: black;
 }
 
 #switch-3 {
   background-color: var(--purple);
+  color: black;
 }
 
 #switch-4 {
   background-color: var(--dark);
+  color: var(--dark);
 }
 
 ul {

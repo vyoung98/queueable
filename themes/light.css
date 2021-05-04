@@ -99,6 +99,7 @@ header {
 
 #switch-1 {
   background-color: var(--light);
+  color: var(--light);
 }
 
 #switch-2 {
@@ -107,10 +108,12 @@ header {
 
 #switch-3 {
   background-color: var(--purple);
+  color: black;
 }
 
 #switch-4 {
   background-color: var(--dark);
+  color: white;
 }
 
 ul {
