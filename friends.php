@@ -54,75 +54,58 @@
                 <?php
                         $user = $_SESSION['user'];
                       
-                        $query = "SELECT * FROM events WHERE username=:username ORDER BY date";
+                        $query = "SELECT * FROM friends WHERE name=:username ORDER BY f_name";
                         $statement = $db->prepare($query);
                         $statement->bindParam(':username', $user);
                         $statement->execute();
-                        $events_info = $statement->fetchAll();
+                        $friends_info = $statement->fetchAll();
                         $statement->closecursor();
                         $output = "<h2>
                             <div class='container'>
                             <div class='row'>";
 
-                        if (empty($events_info) && isset($_SESSION['user'])) {
-                            echo "<h1 style='text-align:center;'>You don't have any events right now. Click Create!</h1>";
+                        if (empty($friends_info) && isset($_SESSION['user'])) {
+                            echo "<h1 style='text-align:center;'>You don't have any friends right now. Request someone!</h1>";
                             }
                         
                         echo "<div class='row'>";
                         
-                            foreach ($events_info as $row) {
+                            foreach ($friends_info as $row) {
                             echo "<div class='col-sm-3'>";
                             echo "<div class='card' style='height: 25em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
                             echo "<div class='card-body'>";
                 
-                            //event_title
+                            //friend name
                             echo "<h1 style='text-align:center;'>";
-                            echo $event_title =  $row['event_title'];
+                            echo $f_name =  $row['f_name'];
                             echo "</h1>";
 
                             //friend
-                            echo "<p> Friends Invited: ";
-                            echo $friend =  $row['friend'];
+                            echo "<p> Friend's Email: ";
+                            echo $f_email =  $row['f_email'];
                             echo "</p>";
 
-                            //date
-                            echo "<p> Event Date (YYYY-MM-DD): ";
-                            echo $date =  $row['date'];
+                            //description
+                            echo "<p style='margin-bottom: 2vh;'> Message: ";
+                            echo $message = $row['message'];
                             echo "</p>";
-
-                            //start_time & end_time
-                            echo "<p> Time: ";
-                            echo $start_time = $row['start_time'];
-                            echo " - ";
-                            echo $end_time = $row ['end_time'];
-                            echo "</p>";
-
-                                //description
-                                echo "<p style='margin-bottom: 2vh;'> Notes: ";
-                                echo $descr = $row['descr'];
-                                echo "</p>";
-                                
-                                echo "<div style='position: absolute; bottom: 5vh; align-items: center; justify-content: center;'>";
-                                echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '"method="POST">';
-                                echo '<input class="btn btn-primary" type="submit" value="Delete" name="action" />';
-                                echo '<input type="hidden" name="etitle" value="' . $row['event_title'] . '" />';
-                                echo '<input type="hidden" name="friend" value="' . $row['friend'] . '" />';
-                                echo '<input type="hidden" name="date" value="' . $row['date'] . '" />';
-                                echo '<input type="hidden" name="stime" value="' . $row['start_time'] . '" />';
-                                echo '<input type="hidden" name="etime" value="' . $row['end_time'] . '" />';
-                                echo "</form>";
-                                echo "</div>";
-
-                                echo "</div>";
-                                echo "</div>";
-                                echo "</div>";
-                            }
                             
+                            echo "<div style='position: absolute; bottom: 5vh; align-items: center; justify-content: center;'>";
+                            echo '<input type="hidden" name="f_name" value="' . $row['f_name'] . '" />';
+                            echo '<input type="hidden" name="f_email" value="' . $row['f_email'] . '" />';
+                            echo "</form>";
+                            echo "</div>";
+
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
-                            }
-                            echo "</div>";
+                        }
+                            
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        }
+                    echo "</div>";
                       
                         
                   $query = "SELECT * FROM settings WHERE username=:username";
