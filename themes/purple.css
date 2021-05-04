@@ -107,6 +107,7 @@ header {
 
 #switch-3 {
   background-color: var(--purple);
+  color: var(--purple);
 }
 
 #switch-4 {
