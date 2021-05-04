@@ -3,7 +3,6 @@
 <?php 
   require('connect-db.php');
   session_start();
-  $username = $_SESSION['user'];
   ?>
     <head>
         <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
@@ -46,6 +45,9 @@
     </head>
 
     <?php
+    
+        if (isset($_SESSION['user'])) {
+          $username = $_SESSION['user'];
           // THIS IS THE ADD SHOW PHP STUFF
             if ($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['action'] == 'Add Show'))
             {
@@ -177,6 +179,7 @@
                 $_SESSION['id'] = $_POST['book_title'];
                 header("Location: bookEdit.php");
             }
+          }
           ?>
 
     <body>
