@@ -141,7 +141,7 @@
                                                   model.message" 
                                                   target="_blank" [ngStyle] = "{'color': 'white'}">Send an Email!</a></button>
       <button class="btn" *ngIf="!done" (click)="confirmSubmit(heroForm.value)" value="submit" name="action">Save Request</button>
-      <div class="alert" *ngIf="done" style="padding: 5px; background-color: #cfa3c0;">{{ (confirm_msg)}}</div>
+      <div class="alert" *ngIf="done" style="padding: 5px; background-color: #cfa3c0;">{{ (confirm_msg)}} <b><a href="queue.php"> Click here to go back</a></b></div>
     </div>
   </div>
   
