@@ -45,40 +45,42 @@
             echo "Welcome, " . $_SESSION['user'];
           }
           else {
-            echo "Welcome, Guest";
+            echo "Welcome to Queueable, Guest. Make an account!";
             echo "</br>";
-            echo '<a href = signup.php> Sign Up? </a>';
+            echo '<center><button type="submit" class="btn"><a href="signup.php" style="color: white;">Sign Up</a></button></center>';
           }
           echo '</center></h1>';
           echo '</div>';
           ?>
-          <center>
-          <h1>My Calendar</h1>
-          
+          <?php
+                  if (isset($_SESSION['user'])) {?>
+          <center><h1>My Calendar</h1>
           <button type="submit" class="btn"><a href="eventcreation.php" style="color: white;">Create</a></button>
           <button type="submit" class="btn"><a href="queue.php" style="color: white;">My Queues</a></button>
           </center>
           </br>
                 <?php
+                  }
                         if (!isset($_SESSION['user'])) {
-                          echo "<h1 style='text-align:center;'> Please sign in to see your events !</h1>";
+                          echo "<h1 style='text-align:center;'>If you have an account, please log in to see your events!</h1>";
+                          echo '<center><button type="submit" class="btn"><a href="login.php" style="color: white;">Log In</a></button></center>';
                         }
                         else {
                           $user = $_SESSION['user'];
-                        }
+                        
                         $query = "SELECT * FROM events WHERE username=:username ORDER BY date";
                         $statement = $db->prepare($query);
                         $statement->bindParam(':username', $user);
                         $statement->execute();
                         $events_info = $statement->fetchAll();
                         $statement->closecursor();
-                        $output = "<h2>Welcome to Modern Business
+                        $output = "<h2>
                             <div class='container'>
                             <div class='row'>";
 
                         if (empty($events_info) && isset($_SESSION['user'])) {
                           echo "<h1 style='text-align:center;'>You don't have any events right now. Click Create!</h1>";
-                        }
+                          }
                       
                         echo "<div class='row'>";
                         
@@ -124,10 +126,8 @@
                         
 
                         echo "</div>";
+                      }
                         
-                        ?>
-                        
-                <?php
                   $query = "SELECT * FROM settings WHERE username=:username";
                   $statement = $db->prepare($query);
                   $statement->bindParam(':username', $username);
