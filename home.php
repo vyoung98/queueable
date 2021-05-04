@@ -53,78 +53,76 @@
           echo '</div>';
           ?>
           <?php
-                  if (isset($_SESSION['user'])) {?>
+            if (isset($_SESSION['user'])) {?>
           <center><h1>My Calendar</h1>
           <button type="submit" class="btn"><a href="eventcreation.php" style="color: white;">Create</a></button>
           <button type="submit" class="btn"><a href="queue.php" style="color: white;">My Queues</a></button>
           </center>
           </br>
                 <?php
-                  }
-                        if (!isset($_SESSION['user'])) {
-                          echo "<h1 style='text-align:center;'>If you have an account, please log in to see your events!</h1>";
-                          echo '<center><button type="submit" class="btn"><a href="login.php" style="color: white;">Log In</a></button></center>';
-                        }
-                        else {
-                          $user = $_SESSION['user'];
-                        
-                        $query = "SELECT * FROM events WHERE username=:username ORDER BY date";
-                        $statement = $db->prepare($query);
-                        $statement->bindParam(':username', $user);
-                        $statement->execute();
-                        $events_info = $statement->fetchAll();
-                        $statement->closecursor();
-                        $output = "<h2>
-                            <div class='container'>
-                            <div class='row'>";
-
-                        if (empty($events_info) && isset($_SESSION['user'])) {
-                          echo "<h1 style='text-align:center;'>You don't have any events right now. Click Create!</h1>";
-                          }
+                    }
+                      if (!isset($_SESSION['user'])) {
+                        echo "<h1 style='text-align:center;'>If you have an account, please log in to see your events!</h1>";
+                        echo '<center><button type="submit" class="btn"><a href="login.php" style="color: white;">Log In</a></button></center>';
+                      }
+                      else {
+                        $user = $_SESSION['user'];
                       
-                        echo "<div class='row'>";
+                      $query = "SELECT * FROM events WHERE username=:username ORDER BY date";
+                      $statement = $db->prepare($query);
+                      $statement->bindParam(':username', $user);
+                      $statement->execute();
+                      $events_info = $statement->fetchAll();
+                      $statement->closecursor();
+                      $output = "<h2>
+                          <div class='container'>
+                          <div class='row'>";
+
+                      if (empty($events_info) && isset($_SESSION['user'])) {
+                        echo "<h1 style='text-align:center;'>You don't have any events right now. Click Create!</h1>";
+                        }
+                    
+                      echo "<div class='row'>";
+                      
+                          foreach ($events_info as $row) {
+                          // $name = $row['name'];
+                          // $desciption = $row['desciption'];
+                          // $ephoto = $row['ephoto'];
+                          echo "<div class='col-sm-3'>";
+                          echo "<div class='card' style='height: 25em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
+                          echo "<div class='card-body'>";
+              
+                          //event_title
+                          echo "<h1 style='text-align:center;'>";
+                          echo $event_title =  $row['event_title'];
+                          echo "</h1>";
+
+                          //friend
+                          echo "<p> Friends Invited: ";
+                          echo $friend =  $row['friend'];
+                          echo "</p>";
+
+                          //date
+                          echo "<p> Event Date (YYYY-MM-DD): ";
+                          echo $date =  $row['date'];
+                          echo "</p>";
+
+                          //start_time & end_time
+                          echo "<p> Time: ";
+                          echo $start_time = $row['start_time'];
+                          echo " - ";
+                          echo $end_time = $row ['end_time'];
+                          echo "</p>";
+
+                          //description
+                          echo "<p style='margin-bottom: 2vh;'> Notes: ";
+                          echo $descr = $row['descr'];
+                          echo "</p>";
                         
-                            foreach ($events_info as $row) {
-                            // $name = $row['name'];
-                            // $desciption = $row['desciption'];
-                            // $ephoto = $row['ephoto'];
-                            echo "<div class='col-sm-3'>";
-                            echo "<div class='card' style='height: 25em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
-                            echo "<div class='card-body'>";
-                
-                            //event_title
-                            echo "<h1 style='text-align:center;'>";
-                            echo $event_title =  $row['event_title'];
-                            echo "</h1>";
-
-                            //friend
-                            echo "<p> Friends Invited: ";
-                            echo $friend =  $row['friend'];
-                            echo "</p>";
-
-                            //date
-                            echo "<p> Event Date (YYYY-MM-DD): ";
-                            echo $date =  $row['date'];
-                            echo "</p>";
-
-                            //start_time & end_time
-                            echo "<p> Time: ";
-                            echo $start_time = $row['start_time'];
-                            echo " - ";
-                            echo $end_time = $row ['end_time'];
-                            echo "</p>";
-
-                            //description
-                            echo "<p style='margin-bottom: 2vh;'> Notes: ";
-                            echo $descr = $row['descr'];
-                            echo "</p>";
-                          
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</div>";
-                          }
-                        
-
+                          echo "</div>";
+                          echo "</div>";
+                          echo "</div>";
+                        }
                         echo "</div>";
                       }
                         
