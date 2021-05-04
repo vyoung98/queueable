@@ -146,7 +146,7 @@
                             echo "<p style='margin-bottom: 2vh;'> Notes: ";
                             echo $descr = $row['descr'];
                             echo "</p>";
-                          
+                            
                             echo "<div style='position: absolute; bottom: 5vh; align-items: center; justify-content: center;'>";
                             echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '"method="POST">';
                             echo '<input class="btn btn-primary" type="submit" value="Delete" name="action" />';
