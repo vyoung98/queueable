@@ -168,7 +168,7 @@
                           echo "</div>";
                         }
                         echo "</div>";
-                      }
+                      
                         
                   $query = "SELECT * FROM settings WHERE username=:username";
                   $statement = $db->prepare($query);
