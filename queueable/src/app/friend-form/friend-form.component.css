@@ -1,54 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-:root {
-    --light: #ffffff;
-    --sky: #7f9cf5;
-    --purple: #8b3d63;
-    --dark: #242424;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
   
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
     height: 100vh;
     overflow-x: hidden;
   }
   
-  header {
-    text-align: center;
-    font-size: 30px;
-    padding: 50px 0;
-  }
-  
-  .centered-views {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .theme-switches {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .switch {
-    border: 2px solid #8b3d63;
-    border-radius: 50px;
-    height: 30px;
-    width: 30px;
-    margin: 10px;
-    cursor: pointer;
-  }
   ul {
     font-family: 'Rubik', 'Arial';
     list-style-type: none;
   }
-  body {font-family: 'Rubik', sans-serif;}
   
-  .input-error {
+.input-error {
   border-right: solid 5px red !important;
 }
 
@@ -80,55 +49,18 @@
     font-family: 'Rubik', 'Arial';
     font-size: 4em;
   }
-  
-  .column {
-      float: left;
-      width: 33.33%;
-    }
-  
-    /* Clear floats after the columns */
-  .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-  
-    @media screen and (max-width: 600px) {
-      .column {
-        width: 100%;
-      }
-    }
-  
   .container{
-      padding: 5%;
+      padding: 20%;
   }
   
 .a {
     color: white;
 }
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
+
   ::selection{
     color: #ffff;
     background: #c987a7;
   }
-  /* .wrapper{
-    background: #fff;
-    max-width: 400px;
-    width: 100%;
-    margin: 120px auto;
-    padding: 25px;
-    border-radius: 5px;
-    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-  }
-  .wrapper header{
-    font-size: 30px;
-    font-weight: 600;
-  } */
   .wrapper .inputField{
     margin: 20px 0;
     width: 100%;
