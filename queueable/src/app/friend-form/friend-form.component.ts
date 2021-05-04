@@ -25,7 +25,7 @@ export class FriendFormComponent {
   done = false;
   // creating the pre-populated friend object
   activity = ['Game', 'Show', 'Book'];
-  model = new Friend('Val', 'val@gmail.com', 'Viv', 'viv@gmail.com', this.activity[1], 'I want to play Stardew Valley with you!');
+  model = new Friend('Val', 'Viv', 'val@gmail.com', 'viv@gmail.com', this.activity[1], 'I want to play Stardew Valley with you!');
   model2 = new Friend('', '', '', '', '', 'I want to play INSERT GAME with you!');
   model3 = new Friend('', '', '', '', '', 'I want to watch INSERT SHOW with you!');
   model4 = new Friend('', '', '', '', '', 'I want to read INSERT BOOK with you!');
@@ -45,12 +45,13 @@ export class FriendFormComponent {
   confirmSubmit(friend: Friend): void{
     
     // submits and send post information to post file
-    this.confirm_msg += " " + friend.name + ", you have sent your message to " + friend.f_name;
+    this.confirm_msg += " " + friend.name + ", you have sent your message to " + friend.f_name + ". ";
     this.done = true;
     this.sendPost(friend).subscribe(
       res=>{
         console.log(res);
       }
+      
     )
 
     //setTimeout(function(){ window.location.href = "http://localhost/queueable/queue.php"; }, 10000);
@@ -62,12 +63,4 @@ export class FriendFormComponent {
 
   }
 
-
-  // ngOnInit() {
-  //     const headers = { 'Authorization': 'Bearer my-token', 'My-Custom-Header': 'foobar' };
-  //     const body = { title: 'Angular POST Request Example' };
-  //     this.http.post<any>('https://reqres.in/api/posts', body, { headers }).subscribe(data => {
-  //         this.model.f_name = data.id;
-  //     });
-  // }
 }

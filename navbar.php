@@ -15,6 +15,9 @@
             <a class="nav-link" href="queue.php">My Queue</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200">Friend Request</a>
+          </li>
+          <li class="nav-item">
           <a class="nav-link" 
                     a href="<?php if(isset($_SESSION['user'])){echo "settings.php";} 
                     else{echo "signup.php";}?>"><?php if(isset($_SESSION['user'])){echo "Settings";} else{echo "Sign Up";}?></a>

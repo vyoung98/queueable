@@ -4,7 +4,10 @@
   require('connect-db.php');
   require('actions.php');
   session_start();
-  $username = $_SESSION['user'];
+  if (isset($_SESSION['user'])){
+      $username = $_SESSION['user'];
+  }
+
   ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
@@ -63,10 +66,6 @@
                         }
                         else {
                           $user = $_SESSION['user'];
-                          if (empty($events_info)) {
-                            echo "<h1 style='text-align:center;'>You don't have any events right now. Click Create!</h1>";
-                
-                          }
                         }
                         $query = "SELECT * FROM events WHERE username=:username ORDER BY date";
                         $statement = $db->prepare($query);
@@ -74,10 +73,13 @@
                         $statement->execute();
                         $events_info = $statement->fetchAll();
                         $statement->closecursor();
-                        
                         $output = "<h2>Welcome to Modern Business
                             <div class='container'>
                             <div class='row'>";
+
+                        if (empty($events_info) && isset($_SESSION['user'])) {
+                          echo "<h1 style='text-align:center;'>You don't have any events right now. Click Create!</h1>";
+                        }
                       
                         echo "<div class='row'>";
                         
