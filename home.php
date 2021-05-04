@@ -72,7 +72,9 @@
             echo "Welcome, " . $_SESSION['user'];
           }
           else {
-            echo "Welcome to Queueable, Guest. Make an account!";
+            echo "<h1>Welcome to Queueable, Guest. Make an account!<h1>";
+            echo "</br>";
+            echo "<h2>Queueable is a website that lets you track your hobbies and share them with friends. You can have a queue for your shows, games, and books!<h2>";
             echo "</br>";
             echo '<center><button type="submit" class="btn"><a href="signup.php" style="color: white;">Sign Up</a></button></center>';
           }
