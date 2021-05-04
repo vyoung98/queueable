@@ -62,9 +62,9 @@
                     }
                   }
                 ?>
-<div class="page-container">
-
-<div class="jumbotron">
+<body>
+  <div class="page-container">
+    <div class="jumbotron">
                 <center>
               <h1>About Us</h1>
                 </center>
@@ -99,3 +99,5 @@
               </div>
             </div>
           </div>
+      </body>
+    <?php include('./footer.php'); ?>
