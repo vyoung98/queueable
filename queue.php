@@ -203,8 +203,8 @@
                 <center><h1>Shows</h1>
                 <!-- ADD BUTTON FOR SHOWS -->
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="needs-validation" novalidate>
-                <input id="new-show-title" name="new-show-title" type="text" placeholder="Show Title" type="text" required>
-                <input id="new-show-progress" name="new-show-progress" type="text" placeholder="Season; Episode" type="text" required>
+                <input id="new-show-title" name="new-show-title" type="text" placeholder="Show Title" required>
+                <input id="new-show-progress" name="new-show-progress" type="text" placeholder="Season; Episode"required>
                 <input type="submit" class="btn btn-primary" value="Add Show" name="action"></input>
                 </form></center>
 
