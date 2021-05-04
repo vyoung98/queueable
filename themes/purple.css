@@ -75,14 +75,6 @@ body {font-family: 'Rubik', sans-serif;}
   color: white;
   margin: 10px;
 }
-
-.input-error {
-  border-right: solid 5px red !important;
-}
-
-.input-success {
-  border-right: solid 5px green !important;
-}
 p {
   font-family: 'Rubik', 'Arial';
 }

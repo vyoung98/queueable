@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 :root {
   --light: #ffffff;
   --sky: #7f9cf5;
@@ -9,7 +10,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+    font-family: 'Rubik', sans-serif;
+  }
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -110,14 +112,6 @@ h2 {
 .container{
     padding: 5%;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 ::selection{
   color: #ffff;
   background: #c987a7;
@@ -188,32 +182,6 @@ h2 {
 .wrapper .todoList{
   max-height: 250px;
   overflow-y: auto;
-}
-.todoList li{
-  position: relative;
-  list-style: none;
-  height: 45px;
-  line-height: 45px;
-  margin-bottom: 8px;
-  background: #f2f2f2;
-  border-radius: 3px;
-  padding: 0 15px;
-  cursor: default;
-  overflow: hidden;
-}
-.todoList li .icon{
-  position: absolute;
-  right: -45px;
-  background: #e74c3c;
-  /* width: 45px; */
-  text-align: center;
-  color: #fff;
-  border-radius: 0 3px 3px 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.todoList li:hover .icon{
-  right: 0px;
 }
 .wrapper .footer{
   display: flex;
