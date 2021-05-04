@@ -1,71 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-:root {
-  --light: #ffffff;
-  --sky: #7f9cf5;
-  --purple: #8b3d63;
-  --dark: #242424;
-}
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Rubik', sans-serif;
-  color: white;
 }
 
-.h6 {
-  font-family: 'Rubik', Arial;
-
-}
-
-.card {
-  background-color: #242424;
-  padding: 0.5em;
-  border-radius: 6px 12px 18px 24px;
-}
-.col {
-  background-color: #eddfe6;
-  padding: 0.5em;
-  border-radius: 6px 12px 18px 24px;
-}
 .h1 {
-  font-family: 'Rubik', 'Arial';
-}
-
-.container {
-  background-color: #242424
-  border-radius: 6px 12px 18px 24px;
-}
-.jumbotron {
-  background-color: #c987a7;
-}
-.btn {
-  background: #8b3d63;
   color: white;
-  margin: 10px;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
 }
-p {
+
+.h2 {
+  color: white;
+}
+.h6 {
   font-family: 'Rubik', 'Arial';
+  color: white !important;
 }
-
-h2 {
-  font-family: 'Rubik', 'Arial';
-  font-size: 25px;
-}
-
-::selection{
-  color: #ffff;
-  background: #c987a7;
-}
-
 body {
   font-family: 'Rubik', sans-serif;
   height: 100vh;
   overflow-x: hidden;
+  background-color: #3b3b3b;
 }
 
 header {
@@ -85,7 +42,7 @@ header {
 }
 
 .switch {
-  border: 2px solid #8b3d63;
+  border: 2px solid black;
   border-radius: 50px;
   height: 30px;
   width: 30px;
@@ -98,26 +55,21 @@ header {
   transition: 0.3s ease-in-out;
 }
 
-#switch-1 {
-  background-color: var(--light);
-}
-
-#switch-2 {
-  background-color: var(--sky);
-}
-
-#switch-3 {
-  background-color: var(--purple);
-}
 
 #switch-4 {
   background-color: var(--dark);
 }
 
-ul {
-  font-family: 'Rubik', 'Arial';
-  list-style-type: none;
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+
+.btn {
+  background: #242424;
+  color: white;
+  margin: 10px;
 }
+
 
 .column {
     float: left;
@@ -141,6 +93,30 @@ ul {
     padding: 5%;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+::selection{
+  color: #ffff;
+  background: #757575;
+}
+/* .wrapper{
+  background: #fff;
+  max-width: 400px;
+  width: 100%;
+  margin: 120px auto;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+}
+.wrapper header{
+  font-size: 30px;
+  font-weight: 600;
+} */
 .wrapper .inputField{
   margin: 20px 0;
   width: 100%;
@@ -158,7 +134,7 @@ ul {
   transition: all 0.3s ease;
 }
 .inputField input:focus{
-  border-color: #8b3d63;
+  border-color: #242424;
 }
 .inputField button{
   width: 50px;
@@ -168,7 +144,7 @@ ul {
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background: #8b3d63;
+  background: #242424;
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.6;
@@ -176,20 +152,12 @@ ul {
   transition: all 0.3s ease;
 }
 .inputField button:hover,
-.inputField button.active{
-  opacity: 1;
-  pointer-events: auto;
-}
 .footer button:hover{
-  background: #8b3d63;
+  background: #242424;
 }
 .inputField button.active{
   opacity: 1;
   pointer-events: auto;
-}
-.custom input{
-  float:right;
-  display: block;
 }
 .wrapper .todoList{
   max-height: 250px;
@@ -237,7 +205,7 @@ ul {
   font-weight: 400;
   font-size: 16px;
   margin-left: 5px;
-  background: #8b3d63;
+  background: #242424;
   cursor: pointer;
   user-select: none;
   opacity: 0.6;
@@ -259,7 +227,5 @@ label[for='new-task'] {
     width: 318px;
   }
   p > button:hover {
-    color: #0FC57C;
+    color: #bababa;
   }
-
-  
