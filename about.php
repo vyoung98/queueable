@@ -26,19 +26,6 @@
         <meta name="author" content="Vivian Tran vt5en & Valerie Young vy5br">
         <meta name="description" content="Assignment 1">  
         <title>queueAble: Finding Time for What's Important</title>  
-        <link href="./themes/purple.css" rel="stylesheet" type="text/css" />
-        <style>
-            h1	{font-family: 'Rubik', Arial;
-                }
-            h2   {font-family: 'Rubik', 'Arial';
-                  font-size: 25px;
-                }
-            p   {font-family: 'Rubik', 'Arial';
-                }
-                
-            h6   {font-family: 'Rubik', 'Arial';
-                }
-        </style>
        
     </head>
 
@@ -83,7 +70,7 @@
                 </center>
             </div>
           </div>
-          <div class="container bg-light" style="border-radius: 6px 12px 18px 24px;">
+          <div class="container">
             <div class="row">
               <div class="col-sm">
                 <center>
