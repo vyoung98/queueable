@@ -109,7 +109,7 @@
                 $statement->closecursor();
               }
               else {
-                echo "<script> alert('Please enter a digit for page number') </script>;";
+                echo "<script> alert('Please enter a digit for page number') </script>";
               }
             }
 

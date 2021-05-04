@@ -20,12 +20,12 @@ export class ConfigService {
 })
 export class FriendFormComponent {
 
-  confirm_msg = "Message Sent!";
+  confirm_msg = "Sent!";
   submitted = false;
   done = false;
   // creating the pre-populated friend object
   activity = ['Game', 'Show', 'Book'];
-  model = new Friend('Val', 'Viv', 'val@gmail.com', 'viv@gmail.com', this.activity[1], 'I want to play Stardew Valley with you!');
+  model = new Friend('', '', '', '', this.activity[1], '');
   model2 = new Friend('', '', '', '', '', 'I want to play INSERT GAME with you!');
   model3 = new Friend('', '', '', '', '', 'I want to watch INSERT SHOW with you!');
   model4 = new Friend('', '', '', '', '', 'I want to read INSERT BOOK with you!');
@@ -45,7 +45,7 @@ export class FriendFormComponent {
   confirmSubmit(friend: Friend): void{
     
     // submits and send post information to post file
-    this.confirm_msg += " " + friend.name + ", you have sent your message to " + friend.f_name + ". ";
+    this.confirm_msg += " " + friend.name + ", you have sent your friend request to " + friend.f_name + ". ";
     this.done = true;
     this.sendPost(friend).subscribe(
       res=>{

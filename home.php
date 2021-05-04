@@ -69,7 +69,7 @@
         echo '<div class="jumbotron ">';
         echo '<center><h1>';
           if (isset($_SESSION['user'])) {
-            echo "Welcome, " . $_SESSION['user'];
+            echo "<h1>Welcome, " . $_SESSION['user'] . "</h1>";
           }
           else {
             echo "<h1>Welcome to Queueable, Guest. Make an account!<h1>";

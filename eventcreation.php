@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-        <link rel="stylesheet" href="/styles/style.css">
+        <link rel="stylesheet" href="./themes/purple.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -81,6 +81,7 @@
       ?>
 
           <div class="container">
+            <h1><center>Create an Event!</center></h1>
             <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" novalidate>
               <div class="form-group">
                 <label for="title">Event Title</label>
@@ -149,5 +150,37 @@
             })();
           </script>
     </body>
-    <?php include('./footer.php'); ?>
+    <?php 
+      $query = "SELECT * FROM settings WHERE username=:username";
+      $statement = $db->prepare($query);
+      $statement->bindParam(':username', $username);
+      $statement->execute();
+      $settings_info = $statement->fetchAll();
+      $theme = $statement->fetchAll();
+      $statement->closecursor();
+      foreach ($settings_info as $row) {
+        $theme = $row['theme'];
+
+        if ($theme == "light"){
+          echo "<script>";
+          echo "document.getElementById('switcher-id').href = './themes/light.css';";
+          echo "</script>";
+        }
+        if ($theme == "sky"){
+          echo "<script>";
+          echo "document.getElementById('switcher-id').href = './themes/sky.css';";
+          echo "</script>";
+        }
+        if ($theme == "purple"){
+          echo "<script>";
+          echo "document.getElementById('switcher-id').href = './themes/purple.css';";
+          echo "</script>";
+        }
+        if ($theme == "dark"){
+          echo "<script>";
+          echo "document.getElementById('switcher-id').href = './themes/dark.css';";
+          echo "</script>";
+        }
+      }
+      include('./footer.php'); ?>
 </html>
