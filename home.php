@@ -124,24 +124,24 @@
                           echo "</h1>";
 
                           //friend
-                          echo "<p> Friends Invited: ";
+                          echo "<p><b> Friends Invited: </b>";
                           echo $friend =  $row['friend'];
                           echo "</p>";
 
                           //date
-                          echo "<p> Event Date (YYYY-MM-DD): ";
+                          echo "<p><b> Event Date (YYYY-MM-DD): </b>";
                           echo $date =  $row['date'];
                           echo "</p>";
 
                           //start_time & end_time
-                          echo "<p> Time: ";
+                          echo "<p><b> Time: </b>";
                           echo $start_time = $row['start_time'];
                           echo " - ";
                           echo $end_time = $row ['end_time'];
                           echo "</p>";
 
                             //description
-                            echo "<p style='margin-bottom: 2vh;'> Notes: ";
+                            echo "<p style='margin-bottom: 2vh;'><b> Notes: </b>";
                             echo $descr = $row['descr'];
                             echo "</p>";
                             

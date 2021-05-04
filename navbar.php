@@ -14,7 +14,7 @@
             <a class="nav-link" href="queue.php">My Queue</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:4200">Friend Request</a>
+            <a class="nav-link" href="friends.php">Friends</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" 
