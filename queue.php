@@ -199,7 +199,7 @@
                 </center>
             </div>
             <div class="row">
-              <div class="col border bg-light">
+              <div class="col">
                 <center><h1>Shows</h1>
                 <!-- ADD BUTTON FOR SHOWS -->
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="needs-validation" novalidate>
@@ -242,7 +242,7 @@
         ?>
         </div>
 
-        <div class="col border bg-light">
+        <div class="col">
           <center><h1>Games</h1>
               <!-- ADD BUTTON FOR GAMES -->
               <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
@@ -285,7 +285,7 @@
             ?>
           </div>
 
-          <div class="col border bg-light">
+          <div class="col border">
           <center><h1>Books</h1>
                 <!-- ADD BUTTON FOR BOOKS-->
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">

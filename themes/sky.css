@@ -1,18 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 :root {
   --light: #ffffff;
   --sky: #7f9cf5;
-  --purple: #97266d;
+  --purple: #8b3d63;
   --dark: #242424;
 }
 
-* {
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+.h6 {
+  font-family: 'Rubik', Arial;
+
+}
+
+.card {
+  background-color: #c8d4f7;
+  padding: 0.5em;
+  border-radius: 6px 12px 18px 24px;
+}
+.col {
+  background-color: #eddfe6;
+  padding: 0.5em;
+  border-radius: 6px 12px 18px 24px;
+}
+.h1 {
+  font-family: 'Rubik', 'Arial';
+}
+
+.container {
+  background-color: #c8d4f7;
+  border-radius: 6px 12px 18px 24px;
+}
+.jumbotron {
+  background-color: #c8d4f7;
+}
+.btn {
+  background: #7f9cf5;
+  color: white;
+  margin: 10px;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+p {
+  font-family: 'Rubik', 'Arial';
+}
+
+h2 {
+  font-family: 'Rubik', 'Arial';
+  font-size: 25px;
+}
+
+::selection{
+  color: #ffff;
+  background: #c8d4f7;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
   height: 100vh;
   overflow-x: hidden;
 }
@@ -34,7 +84,7 @@ header {
 }
 
 .switch {
-  border: 2px solid #7f9cf5;
+  border: 2px solid #8b3d63;
   border-radius: 50px;
   height: 30px;
   width: 30px;
@@ -63,17 +113,10 @@ header {
   background-color: var(--dark);
 }
 
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
-
-
-.btn {
-  background: #7f9cf5;
-  color: white;
-  margin: 10px;
+ul {
+  font-family: 'Rubik', 'Arial';
+  list-style-type: none;
 }
-
-
 
 .column {
     float: left;
@@ -97,30 +140,6 @@ body {font-family: Verdana, sans-serif;}
     padding: 5%;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-::selection{
-  color: #ffff;
-  background: #c3d0f7;
-}
-/* .wrapper{
-  background: #fff;
-  max-width: 400px;
-  width: 100%;
-  margin: 120px auto;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-}
-.wrapper header{
-  font-size: 30px;
-  font-weight: 600;
-} */
 .wrapper .inputField{
   margin: 20px 0;
   width: 100%;
@@ -156,12 +175,20 @@ body {font-family: Verdana, sans-serif;}
   transition: all 0.3s ease;
 }
 .inputField button:hover,
+.inputField button.active{
+  opacity: 1;
+  pointer-events: auto;
+}
 .footer button:hover{
   background: #8b3d63;
 }
 .inputField button.active{
   opacity: 1;
   pointer-events: auto;
+}
+.custom input{
+  float:right;
+  display: block;
 }
 .wrapper .todoList{
   max-height: 250px;
@@ -233,3 +260,5 @@ label[for='new-task'] {
   p > button:hover {
     color: #0FC57C;
   }
+
+  
