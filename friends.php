@@ -48,7 +48,7 @@
           <?php
             if (isset($_SESSION['user'])) {?>
           <center><h1>My Friends</h1>
-          <button type="submit" class="btn"><a style="color: white;" href="http://localhost:4200">Friend Request</a></button>
+          <button type="submit" class="btn"><a style="color: white;" href="http://localhost:4200">New Friend Request</a></button>
           </center>
           </br>
                 <?php
@@ -72,7 +72,7 @@
                         
                             foreach ($friends_info as $row) {
                             echo "<div class='col-sm-3'>";
-                            echo "<div class='card' style='height: 25em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
+                            echo "<div class='card' style='height: 15em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
                             echo "<div class='card-body'>";
                 
                             //friend name
@@ -81,12 +81,12 @@
                             echo "</h1>";
 
                             //friend
-                            echo "<p> Friend's Email: ";
+                            echo "<p><b> Friend's Email: </b>";
                             echo $f_email =  $row['f_email'];
                             echo "</p>";
 
                             //description
-                            echo "<p style='margin-bottom: 2vh;'> Message: ";
+                            echo "<p style='margin-bottom: 2vh;'><b> Message: </b>";
                             echo $message = $row['message'];
                             echo "</p>";
                             
