@@ -43,19 +43,19 @@
                       <form id="signup" name="insert" action="submit.php" method="POST">
                         <div class="form-group">
                         <span class = "label">Username</span>
-                          <input type="text" id="full_name" name="username" class="form-control" placeholder="Preferred Username">
+                          <input type="text" id="full_name" name="username" class="form-control" placeholder="Preferred Username" required>
                         </div>
                         <div class="form-group">
                         <span class = "label">Your Email</span>
-                          <input type="text" id="email" name="email" class="form-control" placeholder="you@example.com">
+                          <input type="text" id="email" name="email" class="form-control" placeholder="you@example.com" required>
                         </div>
                         <div class="form-group">
                             <span class = "label">Password</span>
-                          <input type="password" id="password" name="password" class="form-control" placeholder="Create Password">
+                          <input type="password" id="password" name="password" class="form-control" placeholder="Create Password" required>
                         </div>
                         <div class="form-group">
                                 <span class = "label">Re-enter Password</span>
-                                <input type="password" id="re_password" class="form-control" placeholder="Confirm Password">
+                                <input type="password" id="re_password" class="form-control" placeholder="Confirm Password" required>
                         </div>
                         <input type="hidden" id="signup_time" name="signup_time" value= <?php $_SERVER['REQUEST_TIME']?>>
 

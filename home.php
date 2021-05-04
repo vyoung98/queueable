@@ -2,10 +2,9 @@
 <html lang="en">
 <?php 
   require('connect-db.php');
-  require('actions.php');
   session_start();
-  if (isset($_SESSION['user'])){
-      $username = $_SESSION['user'];
+  if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
   }
 
   ?>
