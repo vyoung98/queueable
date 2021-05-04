@@ -65,8 +65,7 @@
        
     </head>
     <body>
-      <?php include('./navbar.php')?>
-      <?php 
+      <?php include('./navbar.php');
         echo '<div class="jumbotron ">';
         echo '<center><h1>';
           if (isset($_SESSION['user'])) {
@@ -115,9 +114,6 @@
                       echo "<div class='row'>";
                       
                           foreach ($events_info as $row) {
-                          // $name = $row['name'];
-                          // $desciption = $row['desciption'];
-                          // $ephoto = $row['ephoto'];
                           echo "<div class='col-sm-3'>";
                           echo "<div class='card' style='height: 25em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
                           echo "<div class='card-body'>";
@@ -148,7 +144,7 @@
                             echo "<p style='margin-bottom: 2vh;'> Notes: ";
                             echo $descr = $row['descr'];
                             echo "</p>";
-                          
+                            
                             echo "<div style='position: absolute; bottom: 5vh; align-items: center; justify-content: center;'>";
                             echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '"method="POST">';
                             echo '<input class="btn btn-primary" type="submit" value="Delete" name="action" />';

@@ -110,37 +110,6 @@
                 <!-- <input type="submit"> -->
                 </form>
                 </div>
-                <script>
-                  let switches = document.getElementsByClassName('switch');
-                  for (let i of switches) {
-                    i.addEventListener('click', function () {
-                      let theme = this.dataset.theme;
-                      let savedtheme = this.dataset.theme;
-                      console.log(savedtheme);
-                      setTheme(theme);
-                      // THIS ARROW FUNCTION SHOWS THE THEME WHEN THE BUTTON IS CLICKED
-                      let color = () => {
-                        return theme;
-                      } 
-                      //alert("The current theme is: " + color());
-                    });
-                  }
-
-                    function setTheme(theme) {
-                    if (theme == 'light') {
-                      document.getElementById('switcher-id').href = './themes/light.css';
-                    } else if (theme == 'sky') {
-                      document.getElementById('switcher-id').href = './themes/sky.css';
-                    } else if (theme == 'purple') {
-                      document.getElementById('switcher-id').href = './themes/purple.css';
-                    } else if (theme == 'dark') {
-                      document.getElementById('switcher-id').href = './themes/dark.css';
-                    }
-                    localStorage.setItem('style', theme);
-
-                    }
-                    
-                  </script>
               </div>
             </div>
           </div>
