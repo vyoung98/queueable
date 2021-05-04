@@ -100,14 +100,17 @@ header {
 
 #switch-1 {
   background-color: var(--light);
+  color: black;
 }
 
 #switch-2 {
   background-color: var(--sky);
+  color: black;
 }
 
 #switch-3 {
   background-color: var(--purple);
+  color: black;
 }
 
 #switch-4 {
