@@ -65,8 +65,7 @@
        
     </head>
     <body>
-      <?php include('./navbar.php')?>
-      <?php 
+      <?php include('./navbar.php');
         echo '<div class="jumbotron ">';
         echo '<center><h1>';
           if (isset($_SESSION['user'])) {
@@ -113,9 +112,6 @@
                       echo "<div class='row'>";
                       
                           foreach ($events_info as $row) {
-                          // $name = $row['name'];
-                          // $desciption = $row['desciption'];
-                          // $ephoto = $row['ephoto'];
                           echo "<div class='col-sm-3'>";
                           echo "<div class='card' style='height: 25em; width: 20em; margin-bottom: 5vh; margin-left: 2vh;'>";
                           echo "<div class='card-body'>";
