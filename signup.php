@@ -48,6 +48,7 @@
                         <div class="form-group">
                         <span class = "label">Your Email</span>
                           <input type="text" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+
                         </div>
                         <div class="form-group">
                             <span class = "label">Password</span>

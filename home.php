@@ -7,6 +7,34 @@
     $username = $_SESSION['user'];
   }
 
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!empty($_POST['action']) && ($_POST['action'] == 'Delete')) {
+        $event_title = $_POST['etitle'];
+        $friend = $_POST['friend'];
+        $date = $_POST['date'];
+        $start_time = $_POST['stime'];
+        $end_time = $_POST['etime'];
+
+        $query = "DELETE FROM events WHERE username=:username AND event_title=:event_title AND friend=:friend AND date=:date AND start_time=:start_time AND end_time=:end_time";
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':username', $username);
+        $statement->bindValue(':event_title', $event_title);
+        $statement->bindValue(':friend', $friend);
+        $statement->bindValue(':date', $date);
+        $statement->bindValue(':start_time', $start_time);
+        $statement->bindValue(':end_time', $end_time);
+
+        $statement->execute();
+        $statement->closeCursor();
+
+
+        echo "<script>
+        alert('Event has been deleted');
+        window.location.href='home.php';
+        </script>";
+    }
+}
   ?>
     <head>
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
@@ -114,10 +142,26 @@
                           echo $end_time = $row ['end_time'];
                           echo "</p>";
 
-                          //description
-                          echo "<p style='margin-bottom: 2vh;'> Notes: ";
-                          echo $descr = $row['descr'];
-                          echo "</p>";
+                            //description
+                            echo "<p style='margin-bottom: 2vh;'> Notes: ";
+                            echo $descr = $row['descr'];
+                            echo "</p>";
+                          
+                            echo "<div style='position: absolute; bottom: 5vh; align-items: center; justify-content: center;'>";
+                            echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '"method="POST">';
+                            echo '<input class="btn btn-primary" type="submit" value="Delete" name="action" />';
+                            echo '<input type="hidden" name="etitle" value="' . $row['event_title'] . '" />';
+                            echo '<input type="hidden" name="friend" value="' . $row['friend'] . '" />';
+                            echo '<input type="hidden" name="date" value="' . $row['date'] . '" />';
+                            echo '<input type="hidden" name="stime" value="' . $row['start_time'] . '" />';
+                            echo '<input type="hidden" name="etime" value="' . $row['end_time'] . '" />';
+                            echo "</form>";
+                            echo "</div>";
+
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                          }
                         
                           echo "</div>";
                           echo "</div>";
