@@ -6,15 +6,63 @@
   --dark: #242424;
 }
 
-* {
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-    font-family: 'Rubik', sans-serif;
-  }
+  font-family: 'Rubik', sans-serif;
+}
+
+.h6 {
+  font-family: 'Rubik', Arial;
+
+}
+
+.card {
+  background-color: #bababa;
+  padding: 0.5em;
+  border-radius: 6px 12px 18px 24px;
+}
+.col {
+  background-color: #e0e0e0;
+  padding: 0.5em;
+  border-radius: 6px 12px 18px 24px;
+}
+.h1 {
+  font-family: 'Rubik', 'Arial';
+}
+
+.container {
+  background-color: #bababa;
+  border-radius: 6px 12px 18px 24px;
+}
+.jumbotron {
+  background-color: #bababa;
+}
+.btn {
+  background: #635b5b;
+  color: white;
+  margin: 10px;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+p {
+  font-family: 'Rubik', 'Arial';
+}
+
+h2 {
+  font-family: 'Rubik', 'Arial';
+  font-size: 25px;
+}
+
+::selection{
+  color: #ffff;
+  background: #636363;
+}
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
   height: 100vh;
   overflow-x: hidden;
 }
@@ -36,7 +84,7 @@ header {
 }
 
 .switch {
-  border: 2px solid #bababa;
+  border: 2px solid #8b3d63;
   border-radius: 50px;
   height: 30px;
   width: 30px;
@@ -69,27 +117,6 @@ ul {
   font-family: 'Rubik', 'Arial';
   list-style-type: none;
 }
-body {font-family: 'Rubik', sans-serif;}
-
-
-.btn {
-  background: #bababa;
-  color: white;
-  margin: 10px;
-}
-
-p {
-  font-family: 'Rubik', 'Arial';
-}
-
-.h1 {
-  font-family: 'Rubik', 'Arial';
-}
-
-h2 {
-  font-family: 'Rubik', 'Arial';
-  font-size: 25px;
-}
 
 .column {
     float: left;
@@ -112,23 +139,7 @@ h2 {
 .container{
     padding: 5%;
 }
-::selection{
-  color: #ffff;
-  background: #c987a7;
-}
-/* .wrapper{
-  background: #fff;
-  max-width: 400px;
-  width: 100%;
-  margin: 120px auto;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-}
-.wrapper header{
-  font-size: 30px;
-  font-weight: 600;
-} */
+
 .wrapper .inputField{
   margin: 20px 0;
   width: 100%;
@@ -146,7 +157,7 @@ h2 {
   transition: all 0.3s ease;
 }
 .inputField input:focus{
-  border-color: #bababa;
+  border-color: #8b3d63;
 }
 .inputField button{
   width: 50px;
@@ -156,7 +167,7 @@ h2 {
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background: #bababa;
+  background: #8b3d63;
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.6;
@@ -169,7 +180,7 @@ h2 {
   pointer-events: auto;
 }
 .footer button:hover{
-  background: #bababa;
+  background: #8b3d63;
 }
 .inputField button.active{
   opacity: 1;
@@ -182,6 +193,32 @@ h2 {
 .wrapper .todoList{
   max-height: 250px;
   overflow-y: auto;
+}
+.todoList li{
+  position: relative;
+  list-style: none;
+  height: 45px;
+  line-height: 45px;
+  margin-bottom: 8px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  padding: 0 15px;
+  cursor: default;
+  overflow: hidden;
+}
+.todoList li .icon{
+  position: absolute;
+  right: -45px;
+  background: #e74c3c;
+  /* width: 45px; */
+  text-align: center;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.todoList li:hover .icon{
+  right: 0px;
 }
 .wrapper .footer{
   display: flex;
@@ -199,7 +236,7 @@ h2 {
   font-weight: 400;
   font-size: 16px;
   margin-left: 5px;
-  background: #bababa;
+  background: #8b3d63;
   cursor: pointer;
   user-select: none;
   opacity: 0.6;
@@ -225,7 +262,3 @@ label[for='new-task'] {
   }
 
   
-.h6 {
-  font-family: 'Rubik', Arial;
-
-}
