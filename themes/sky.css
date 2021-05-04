@@ -112,6 +112,7 @@ header {
 
 #switch-4 {
   background-color: var(--dark);
+  color: white;
 }
 
 ul {
