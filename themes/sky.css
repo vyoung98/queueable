@@ -25,7 +25,7 @@
   border-radius: 6px 12px 18px 24px;
 }
 .col {
-  background-color: #eddfe6;
+  background-color: #e8eeff;
   padding: 0.5em;
   border-radius: 6px 12px 18px 24px;
 }
@@ -103,6 +103,7 @@ header {
 
 #switch-2 {
   background-color: var(--sky);
+  color: var(--sky);
 }
 
 #switch-3 {
