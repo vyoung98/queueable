@@ -40,6 +40,7 @@
             <div class="col-sm">    
                 <div>
                     <h1>Signup</h1>
+                    <h2>If you already have an account, <button type="submit" class="btn"><a href="login.php" style="color: white;">log in</a></button></h2>
                       <form id="signup" name="insert" action="submit.php" method="POST">
                         <div class="form-group">
                         <span class = "label">Username</span>

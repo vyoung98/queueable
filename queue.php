@@ -19,7 +19,6 @@
         <link rel="stylesheet" href="./themes/purple.css">
         <link rel="stylesheet" id="switcher-id" href="">
 
-        <!-- <link rel="stylesheet" href="./styles/style.css"> -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -361,5 +360,5 @@
                 ?>          
           <script type="text/javascript" src="js/script.js"></script>
     </body>
-    <?php include('./footer.php'); ?>
 </html>
+<?php include('./footer.php'); ?>

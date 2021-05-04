@@ -184,9 +184,6 @@ ul {
   opacity: 1;
   pointer-events: auto;
 }
-.footer button:hover{
-  background: #8b3d63;
-}
 .inputField button.active{
   opacity: 1;
   pointer-events: auto;
@@ -225,13 +222,6 @@ ul {
 .todoList li:hover .icon{
   right: 0px;
 }
-.wrapper .footer{
-  display: flex;
-  width: 100%;
-  margin-top: 20px;
-  align-items: center;
-  justify-content: space-between;
-}
 .footer button{
   padding: 6px 10px;
   border-radius: 3px;
@@ -248,10 +238,7 @@ ul {
   pointer-events: none;
   transition: all 0.3s ease;
 }
-.footer button.active{
-  opacity: 1;
-  pointer-events: auto;
-}
+
 
 /* New Task */
 label[for='new-task'] {
@@ -266,4 +253,9 @@ label[for='new-task'] {
     color: #0FC57C;
   }
 
-  
+  .footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+  }
