@@ -117,9 +117,17 @@
         <div class="col-xs-3"><b>Activity</b></div>
         <div class="col-xs-9">{{ model.activity }}</div>
       </div>
-      <div class="row">
+      <div *ngIf="model.activity === 'Book'" class="row">
         <div class="col-xs-3"><b>Message</b></div>
-        <div class="col-xs-9">{{ model.message }}</div>
+        <div class="col-xs-9">{{ model4.message }}</div>
+      </div>
+      <div *ngIf="model.activity === 'Show'" class="row">
+        <div class="col-xs-3"><b>Message</b></div>
+        <div class="col-xs-9">{{ model3.message }}</div>
+      </div>
+      <div *ngIf="model.activity === 'Game'" class="row">
+        <div class="col-xs-3"><b>Message</b></div>
+        <div class="col-xs-9">{{ model2.message }}</div>
       </div>
       <br>
       <!-- more buttons -->
