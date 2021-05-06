@@ -2,7 +2,12 @@
 <html lang="en">
 <?php 
   require('connect-db.php');
-  session_start();?>
+  session_start();
+  if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+  }
+  ?>
+  
     <head>
         <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
@@ -12,7 +17,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-        <link rel="stylesheet" href="./themes/purple.css">
+        <link rel="stylesheet" href="./themes/purple.css" type="text/css">
+        <link rel="stylesheet" id="switcher-id" href="">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -160,7 +166,7 @@
       $statement->closecursor();
       foreach ($settings_info as $row) {
         $theme = $row['theme'];
-
+        echo $theme;
         if ($theme == "light"){
           echo "<script>";
           echo "document.getElementById('switcher-id').href = './themes/light.css';";
