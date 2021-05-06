@@ -288,7 +288,7 @@
           <center><h1>Books</h1>
                 <!-- ADD BUTTON FOR BOOKS-->
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-              <input id="new-book-title" name="new-book-title" type="text" placeholder="Book Title" type="text" required>
+              <input id="new-book-title" name="new-book-title" type="text" placeholder="Book Title" type="text">
               <input id="new-book-page" name="new-book-page" type="text" placeholder="Page #" type="text">
               <input type="submit" class="btn" value="Add Book" name="action"></input></center>
 
