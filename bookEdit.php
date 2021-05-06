@@ -74,8 +74,8 @@
             }
             else
             {
-                $game_title = $_SESSION['id'];
-                $progress = $_POST['progress'];
+                $book_title = $_SESSION['id'];
+                $page = $_POST['page'];
                 $username = $_SESSION['user'];
 
                 $query = "UPDATE books SET page=:page
