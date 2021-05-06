@@ -2,7 +2,11 @@
 <html lang="en">
 <?php 
   require('connect-db.php');
-  session_start();?>
+  session_start();
+  if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+  }
+  ?>
     <head>
         <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
@@ -14,7 +18,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <link rel="stylesheet" href="./themes/purple.css">
-        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" id="switcher-id" href="">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -91,6 +95,37 @@
                 window.location.href='queue.php';
                 </script>";
             }
+        }
+        $query = "SELECT * FROM settings WHERE username=:username";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':username', $username);
+        $statement->execute();
+        $settings_info = $statement->fetchAll();
+        $theme = $statement->fetchAll();
+        $statement->closecursor();
+        foreach ($settings_info as $row) {
+          $theme = $row['theme'];
+
+          if ($theme == "light"){
+            echo "<script>";
+            echo "document.getElementById('switcher-id').href = './themes/light.css';";
+            echo "</script>";
+          }
+          if ($theme == "sky"){
+            echo "<script>";
+            echo "document.getElementById('switcher-id').href = './themes/sky.css';";
+            echo "</script>";
+          }
+          if ($theme == "purple"){
+            echo "<script>";
+            echo "document.getElementById('switcher-id').href = './themes/purple.css';";
+            echo "</script>";
+          }
+          if ($theme == "dark"){
+            echo "<script>";
+            echo "document.getElementById('switcher-id').href = './themes/dark.css';";
+            echo "</script>";
+          }
         }
 ?>
 
