@@ -166,7 +166,6 @@
       $statement->closecursor();
       foreach ($settings_info as $row) {
         $theme = $row['theme'];
-        echo $theme;
         if ($theme == "light"){
           echo "<script>";
           echo "document.getElementById('switcher-id').href = './themes/light.css';";
